@@ -2,7 +2,7 @@
 
 Repository for work on Generalized Linear Pooling, with Emily J. King, Dustin Mixon, and Michael Perlmutter.
 
-Packages required to use:
+Packages required to use:  
 ipykernel  
 numpy  
 numba  
