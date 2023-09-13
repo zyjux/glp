@@ -7,9 +7,11 @@ ipykernel
 numpy  
 numba  
 scipy  
-skimage  
+scikit-image  
 tqdm  
 xarray   
 pandas   
 matplotlib  
 torch  
+torchinfo
+ipywidgets
