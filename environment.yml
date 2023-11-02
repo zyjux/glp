@@ -1,0 +1,24 @@
+name: glp
+channels:
+  - bioconda
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python
+  - ipykernel
+  - numpy
+  - numba
+  - scipy
+  - scikit-image
+  - tqdm
+  - xarray
+  - pandas
+  - matplotlib
+  - torchinfo
+  - ipywidgets
+  - phate
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.1
