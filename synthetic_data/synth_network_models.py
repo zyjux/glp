@@ -1,6 +1,5 @@
-import torch
 from torch import nn
-from torchvision import transforms
+
 
 class CNN(nn.Module):
     def __init__(self):
@@ -33,7 +32,6 @@ class CNN(nn.Module):
         latent = self.flatten(latent)
         preds = self.dense_stack(latent)
         return preds, latent
-    
 
 
 # Define model

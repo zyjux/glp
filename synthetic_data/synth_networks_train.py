@@ -11,7 +11,7 @@ from time import perf_counter
 
 from synth_network_models import CNN, glp_CNN
 
-    
+
 def angle_categorizer(angle, num_categories, diagonal=False):
     region_angle = np.pi / num_categories
     comp_angles = angle / region_angle
@@ -39,8 +39,8 @@ class SynthDataset(Dataset):
         if self.target_transform:
             label = self.target_transform(label)
         return image, label
-    
-    
+
+
 ds = xr.load_dataset(Path.home() / 'research_data/GLP/synthetic_data/init_ds.nc')
 
 num_classes = 2
@@ -109,8 +109,8 @@ def cnn_validate(dataloader, model, loss_fn):
     test_loss /= num_batches
     correct /= size
     print(f"Validation Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f}")
-    
-    
+
+
 epochs = 10
 print("Training CNN \n")
 t_time_start = perf_counter()
@@ -180,8 +180,8 @@ def aug_cnn_validate(dataloader, model, loss_fn):
     test_loss /= num_batches
     correct /= size
     print(f"Validation Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f}")
-    
-    
+
+
 epochs = 10
 print("Training Augmented CNN \n")
 t_time_start = perf_counter()
@@ -212,21 +212,22 @@ class glp_transform(nn.Module):
         else:
             self.angle_inc = 360 / num_angles
             self.num_angles = num_angles
-        
+
     def __call__(self, image):
         temp_list = [transforms.functional.rotate(image, self.angle_inc*i) for i in range(int(self.num_angles))]
         return torch.stack(temp_list, dim=-1)
-    
+
+
 angle_inc = 30
 num_angles = 360/angle_inc
 
-glp_train_ds = SynthDataset(ds, end_idx=8000, transform = glp_transform(angle_inc=angle_inc))
-glp_val_ds = SynthDataset(ds, start_idx=8000, transform = glp_transform(angle_inc=angle_inc))
+glp_train_ds = SynthDataset(ds, end_idx=8000, transform=glp_transform(angle_inc=angle_inc))
+glp_val_ds = SynthDataset(ds, start_idx=8000, transform=glp_transform(angle_inc=angle_inc))
 
 batch_size = 32
 glp_train_dataloader = DataLoader(glp_train_ds, batch_size=batch_size, num_workers=16, shuffle=True)
 glp_val_dataloader = DataLoader(glp_val_ds, batch_size=batch_size, num_workers=16, shuffle=True)
-    
+
 glp_model = glp_CNN().to(device)
 print(glp_model)
 
@@ -270,8 +271,8 @@ def glp_validate(dataloader, model, loss_fn):
     test_loss /= num_batches
     correct /= size
     print(f"Validation Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f}")
-    
-    
+
+
 epochs = 10
 print("Training GLP CNN \n")
 t_time_start = perf_counter()
