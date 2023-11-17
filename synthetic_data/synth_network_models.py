@@ -2,7 +2,7 @@ from torch import nn
 
 
 class CNN(nn.Module):
-    def __init__(self):
+    def __init__(self, num_classes):
         super().__init__()
         self.conv_encoding = nn.Sequential(
             nn.Conv2d(in_channels=1, out_channels=16, kernel_size=3, padding=1, padding_mode='reflect'),
@@ -36,7 +36,7 @@ class CNN(nn.Module):
 
 # Define model
 class glp_CNN(nn.Module):
-    def __init__(self):
+    def __init__(self, num_classes, num_angles):
         super().__init__()
         self.full_stack = nn.Sequential(
             nn.Conv3d(in_channels=1, out_channels=16, kernel_size=(3, 3, 1), padding=(1, 1, 0), padding_mode='reflect'),
