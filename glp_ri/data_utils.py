@@ -135,15 +135,22 @@ def load_labels(fn):
         for timestamp in raw_dict[storm_id].keys():
             labels.append((storm_id, timestamp, raw_dict[storm_id][timestamp]))
 
-    return labels
+    labels = np.array(labels, dtype=object)
+
+    pos_samples = labels[:, -1].sum()
+    neg_samples = labels.shape[0] - pos_samples
+    weight_list = np.array([12/neg_samples, 4/pos_samples])
+    weights = weight_list[labels[:, -1].astype(int)]
+
+    return labels, weights
 
 
 class RI_Dataset(Dataset):
     def __init__(self, labels, transform=None, target_transform=None):
-        if type(labels) is list:
+        if type(labels) is np.ndarray:
             self.labels = labels
         if type(labels) is str:
-            self.labels = load_labels(labels)
+            self.labels, _ = load_labels(labels)
         self.transform = transform
         self.target_transform = target_transform
 
@@ -151,7 +158,7 @@ class RI_Dataset(Dataset):
         return len(self.labels)
 
     def __getitem__(self, idx):
-        storm_id, timestamp, label = self.labels[idx]
+        storm_id, timestamp, label = self.labels[idx, :]
         ds = xr.open_dataset(find_file(DATA_DIR, storm_id)).sel(satellite_valid_time_unix_sec=int(timestamp))
         image = torch.reshape(torch.tensor(ds.satellite_predictors_gridded.values.astype(np.float32)), (1, 380, 540))
         label = torch.tensor(label)
