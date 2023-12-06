@@ -86,7 +86,7 @@ def train(dataloader, model, loss_fn, optimizer, device='cpu'):
         optimizer.step()
         optimizer.zero_grad()
 
-        if batch % 1000 == 0:
+        if batch % 24 == 0:
             loss, current = loss.item(), (batch + 1) * len(X)
             print(f"loss: {loss: >7f} [{current: >5d}/{size:>5d}]")
 
@@ -101,7 +101,8 @@ def validate(dataloader, model, loss_fn, device='cpu'):
             X, y = X.to(device), y.to(device)
             pred = model(X)
             test_loss += loss_fn(pred, y).item()
-            correct += (pred.mean(axis = -1) >= 0.5).type(torch.float).sum().item()
+            # correct += (pred.argmax(1) == y).type(torch.float).sum().item()
+            correct += (pred.mean(axis=-1) >= 0.5).type(torch.float).sum().item()
     test_loss /= num_batches
     correct /= size
     print(f"Validation Error: \nAccuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f}")
