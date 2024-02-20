@@ -31,8 +31,8 @@ transform_list = [rotate_transform]*2 + [translate_transform]*2 + [noise_transfo
 
 # cnn_train_ds = aug_crossentropy_RI_Dataset(train_labels, transforms=transform_list)
 # cnn_valid_ds = aug_crossentropy_RI_Dataset(valid_labels)
-cnn_train_ds = crossentropy_RI_dataset(train_labels)
-cnn_valid_ds = crossentropy_RI_dataset(valid_labels)
+cnn_train_ds = crossentropy_RI_Dataset(train_labels)
+cnn_valid_ds = crossentropy_RI_Dataset(valid_labels)
 
 batches_per_epoch = 32
 batch_size = 16
