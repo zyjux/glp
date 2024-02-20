@@ -12,8 +12,8 @@ from torch.utils.data import Dataset
 
 CYCLONE_ID_REGEX = '[0-9][0-9][0-9][0-9][A-Z][A-Z][0-9][0-9]'
 VALID_BASIN_ID_STRINGS = ['AL', 'SL', 'EP', 'CP', 'WP', 'IO', 'SH']
-DATA_DIR = '/nfs/home/lverho/research_data/RI'
-
+# DATA_DIR = '/nfs/home/lverho/research_data/RI'
+DATA_DIR = '/nfs/home/lverho/research_data/GLP/synthetic_data/synth_storms'
 
 def find_file(directory_name, cyclone_id_string, raise_error_if_missing=True):
     """Finds NetCDF file with learning examples.
@@ -30,7 +30,7 @@ def find_file(directory_name, cyclone_id_string, raise_error_if_missing=True):
     """
 
     assert type(directory_name) is str, f'directory_name must be str; got {type(directory_name)}'
-    parse_cyclone_id(cyclone_id_string)
+    # parse_cyclone_id(cyclone_id_string)
     assert type(raise_error_if_missing) is bool, f'raise_error_if_missing must be bool; got {type(raise_error_if_missing)}'
 
     example_file_name = f'{directory_name}/learning_examples_{cyclone_id_string}.nc'
@@ -139,7 +139,7 @@ def load_labels(fn):
 
     pos_samples = labels[:, -1].sum()
     neg_samples = labels.shape[0] - pos_samples
-    weight_list = np.array([12/neg_samples, 4/pos_samples])
+    weight_list = np.array([8/neg_samples, 8/pos_samples])
     weights = weight_list[labels[:, -1].astype(int)]
 
     return labels, weights
@@ -161,9 +161,67 @@ class RI_Dataset(Dataset):
         storm_id, timestamp, label = self.labels[idx, :]
         ds = xr.open_dataset(find_file(DATA_DIR, storm_id)).sel(satellite_valid_time_unix_sec=int(timestamp))
         image = torch.reshape(torch.tensor(ds.satellite_predictors_gridded.values.astype(np.float32)), (1, 380, 540))
+        label = torch.reshape(torch.tensor(label), (1, 1))
+        if self.transform:
+            image = self.transform(image)
+        if self.target_transform:
+            label = self.target_transform(label)
+        return image, label
+
+
+class crossentropy_RI_Dataset(Dataset):
+    def __init__(self, labels, transform=None, target_transform=None):
+        if type(labels) is np.ndarray:
+            self.labels = labels
+        if type(labels) is str:
+            self.labels, _ = load_labels(labels)
+        self.transform = transform
+        self.target_transform = target_transform
+
+    def __len__(self):
+        return len(self.labels)
+
+    def __getitem__(self, idx):
+        storm_id, timestamp, label = self.labels[idx, :]
+        ds = xr.open_dataset(find_file(DATA_DIR, storm_id)).sel(satellite_valid_time_unix_sec=int(timestamp))
+        image = torch.reshape(torch.tensor(ds.satellite_predictors_gridded.values.astype(np.float32)), (1, 380, 540))
         label = torch.tensor(label)
         if self.transform:
             image = self.transform(image)
         if self.target_transform:
             label = self.target_transform(label)
         return image, label
+
+
+class aug_crossentropy_RI_Dataset(Dataset):
+    def __init__(self, labels, transforms=None):
+        if type(labels) is np.ndarray:
+            self.labels = labels
+        if type(labels) is str:
+            self.labels, _ = load_labels(labels)
+        self.transforms = transforms
+
+    def __len__(self):
+        return len(self.labels)
+
+    def __getitem__(self, idx):
+        storm_id, timestamp, label = self.labels[idx, :]
+        ds = xr.open_dataset(find_file(DATA_DIR, storm_id)).sel(satellite_valid_time_unix_sec=int(timestamp))
+        image = torch.reshape(torch.tensor(ds.satellite_predictors_gridded.values.astype(np.float32)), (1, 380, 540))
+        label = torch.tensor(label)
+        if self.transforms:
+            images = torch.stack([image] + [transform(image) for transform in self.transforms])
+            labels = torch.stack([label] + [label for transform in self.transforms])
+        else:
+            images = torch.stack([image])
+            labels = torch.stack([label])
+        return images, labels
+
+
+class AddGaussianNoise(object):
+    def __init__(self, mean=0., std=1.):
+        self.std = std
+        self.mean = mean
+
+    def __call__(self, tensor):
+        return tensor + torch.normal(self.mean, self.std, size=tensor.shape)

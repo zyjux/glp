@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/nfs/home/lverho/glp/glp_ri/train_model_crossentropy.py", line 34, in <module>
+    cnn_train_ds = crossentropy_RI_dataset(train_labels)
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'crossentropy_RI_dataset' is not defined. Did you mean: 'crossentropy_RI_Dataset'?

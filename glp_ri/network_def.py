@@ -13,7 +13,7 @@ class crps_loss(nn.Module):
 
     def forward(self, predicted, target):
         # Unsqueeze the target vector to allow each value to be broadcast against the N predictors for each case
-        mean_prediction_error_tensor = torch.mean(torch.abs(predicted - torch.unsqueeze(target, -1)), dim=-1)
+        mean_prediction_error_tensor = torch.mean(torch.abs(predicted - target), dim=-1)
 
         # Unsqueeze the predictors in different spots so that they broadcast and cross-compare
         mean_prediction_var_tensor = torch.mean(torch.abs(
@@ -68,8 +68,8 @@ class CNN(nn.Module):
         conv_out = self.conv_layers(x)
         conv_out = self.flatten(conv_out)
         dense_out = self.dense_layers(conv_out)
-        dense_out = torch.reshape(dense_out, (-1, 100, 2))
-        soft_out = self.softmax(dense_out)[:, :, 0]
+        dense_out = torch.reshape(dense_out, (-1, 1, 100, 2))
+        soft_out = self.softmax(dense_out)[..., 1]
         return soft_out
 
 
