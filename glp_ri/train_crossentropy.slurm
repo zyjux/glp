@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=crossentropy
-#SBATCH --output=logs/synth_crossentropy_train.out
-#SBATCH --error=logs/synth_crossentropy_train.err
+#SBATCH --output=logs/crossentropy_train.out
+#SBATCH --error=logs/crossentropy_train.err
 #SBATCH --ntasks=1
 #SBATCH --partition=gpu
 #SBATCH --gpus-per-task=1

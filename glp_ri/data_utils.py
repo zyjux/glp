@@ -12,8 +12,8 @@ from torch.utils.data import Dataset
 
 CYCLONE_ID_REGEX = '[0-9][0-9][0-9][0-9][A-Z][A-Z][0-9][0-9]'
 VALID_BASIN_ID_STRINGS = ['AL', 'SL', 'EP', 'CP', 'WP', 'IO', 'SH']
-# DATA_DIR = '/nfs/home/lverho/research_data/RI'
-DATA_DIR = '/nfs/home/lverho/research_data/GLP/synthetic_data/synth_storms'
+DATA_DIR = '/nfs/home/lverho/research_data/RI'
+# DATA_DIR = '/nfs/home/lverho/research_data/GLP/synthetic_data/synth_storms'
 
 def find_file(directory_name, cyclone_id_string, raise_error_if_missing=True):
     """Finds NetCDF file with learning examples.
@@ -30,7 +30,7 @@ def find_file(directory_name, cyclone_id_string, raise_error_if_missing=True):
     """
 
     assert type(directory_name) is str, f'directory_name must be str; got {type(directory_name)}'
-    # parse_cyclone_id(cyclone_id_string)
+    parse_cyclone_id(cyclone_id_string)
     assert type(raise_error_if_missing) is bool, f'raise_error_if_missing must be bool; got {type(raise_error_if_missing)}'
 
     example_file_name = f'{directory_name}/learning_examples_{cyclone_id_string}.nc'

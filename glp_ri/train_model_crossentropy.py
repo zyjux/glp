@@ -1,4 +1,4 @@
-from data_utils import DATA_DIR, load_labels, crossentropy_RI_Dataset, aug_crossentropy_RI_Dataset, AddGaussianNoise
+from data_utils import DATA_DIR, load_labels, aug_crossentropy_RI_Dataset, AddGaussianNoise
 from network_def_crossentropy import CNN_direct, train, validate
 import torch
 from torch import nn
@@ -29,10 +29,8 @@ translate_transform = tvtf.RandomAffine(0, translate=(0.05, 0.05))
 
 transform_list = [rotate_transform]*2 + [translate_transform]*2 + [noise_transform]*3
 
-# cnn_train_ds = aug_crossentropy_RI_Dataset(train_labels, transforms=transform_list)
-# cnn_valid_ds = aug_crossentropy_RI_Dataset(valid_labels)
-cnn_train_ds = crossentropy_RI_Dataset(train_labels)
-cnn_valid_ds = crossentropy_RI_Dataset(valid_labels)
+cnn_train_ds = aug_crossentropy_RI_Dataset(train_labels, transforms=transform_list)
+cnn_valid_ds = aug_crossentropy_RI_Dataset(valid_labels)
 
 batches_per_epoch = 32
 batch_size = 16
@@ -47,7 +45,7 @@ cnn_optimizer = torch.optim.Adam(cnn_model.parameters(), lr=1e-5)
 
 summary(cnn_model)
 
-epochs = 1000
+epochs = 2000
 print('Training CNN \n')
 t_time_start = perf_counter()
 for t in range(epochs):
