@@ -139,7 +139,7 @@ def load_labels(fn):
 
     pos_samples = labels[:, -1].sum()
     neg_samples = labels.shape[0] - pos_samples
-    weight_list = np.array([8/neg_samples, 8/pos_samples])
+    weight_list = np.array([12/neg_samples, 4/pos_samples])
     weights = weight_list[labels[:, -1].astype(int)]
 
     return labels, weights
@@ -209,7 +209,7 @@ class aug_crossentropy_RI_Dataset(Dataset):
         ds = xr.open_dataset(find_file(DATA_DIR, storm_id)).sel(satellite_valid_time_unix_sec=int(timestamp))
         image = torch.reshape(torch.tensor(ds.satellite_predictors_gridded.values.astype(np.float32)), (1, 380, 540))
         label = torch.tensor(label)
-        if self.transforms:
+        if self.transforms is not None:
             images = torch.stack([image] + [transform(image) for transform in self.transforms])
             labels = torch.stack([label] + [label for transform in self.transforms])
         else:

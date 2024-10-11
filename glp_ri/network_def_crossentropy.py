@@ -3,12 +3,12 @@ from torch import nn
 
 
 class crps_loss(nn.Module):
-    def __init__(self, reduction='mean'):
+    def __init__(self, reduction="mean"):
         super().__init__()
         self.reduction_f = {
-            'none': nn.Identity(),
-            'mean': torch.mean,
-            'sum': torch.sum,
+            "none": nn.Identity(),
+            "mean": torch.mean,
+            "sum": torch.sum,
         }.get(reduction)
 
     def forward(self, predicted, target):
@@ -16,21 +16,36 @@ class crps_loss(nn.Module):
         mean_prediction_error_tensor = torch.mean(torch.abs(predicted - target), dim=-1)
 
         # Unsqueeze the predictors in different spots so that they broadcast and cross-compare
-        mean_prediction_var_tensor = torch.mean(torch.abs(
-            torch.unsqueeze(predicted, -1) - torch.unsqueeze(predicted, -2)
-        ), dim=(-1, -2))
+        mean_prediction_var_tensor = torch.mean(
+            torch.abs(torch.unsqueeze(predicted, -1) - torch.unsqueeze(predicted, -2)),
+            dim=(-1, -2),
+        )
 
         # Use the reduction function we got from __init__ to reduce to a single number (or not if reduction == 'none')
-        return self.reduction_f(mean_prediction_error_tensor - 0.5 * mean_prediction_var_tensor)
+        return self.reduction_f(
+            mean_prediction_error_tensor - 0.5 * mean_prediction_var_tensor
+        )
 
 
-def conv_block(in_channels, out_channels):
+def conv_block(in_channels, out_channels, pooling_kernel_size):
     layers = nn.Sequential(
-        nn.Conv2d(in_channels=in_channels, out_channels=out_channels, kernel_size=3, padding=1, padding_mode='reflect'),
+        nn.Conv2d(
+            in_channels=in_channels,
+            out_channels=out_channels,
+            kernel_size=3,
+            padding=1,
+            padding_mode="reflect",
+        ),
         nn.ReLU(),
-        nn.Conv2d(in_channels=out_channels, out_channels=out_channels, kernel_size=3, padding=1, padding_mode='reflect'),
+        nn.Conv2d(
+            in_channels=out_channels,
+            out_channels=out_channels,
+            kernel_size=3,
+            padding=1,
+            padding_mode="reflect",
+        ),
         nn.ReLU(),
-        nn.MaxPool2d(kernel_size=2)
+        nn.MaxPool2d(kernel_size=pooling_kernel_size),
     )
     return layers
 
@@ -39,50 +54,118 @@ class CNN_direct(nn.Module):
     def __init__(self):
         super().__init__()
         self.conv_layers = nn.Sequential(
-            nn.Conv2d(in_channels=1, out_channels=8, kernel_size=3, padding=1, padding_mode='reflect'),
+            nn.Conv2d(
+                in_channels=1,
+                out_channels=8,
+                kernel_size=3,
+                padding=1,
+                padding_mode="reflect",
+            ),
             nn.ReLU(),
-            nn.Conv2d(in_channels=8, out_channels=8, kernel_size=3, padding=1, padding_mode='reflect'),
-            nn.ReLU(),
-            nn.MaxPool2d(kernel_size=2),
-            nn.Conv2d(in_channels=8, out_channels=16, kernel_size=3, padding=1, padding_mode='reflect'),
-            nn.ReLU(),
-            nn.Conv2d(in_channels=16, out_channels=16, kernel_size=3, padding=1, padding_mode='reflect'),
-            nn.ReLU(),
-            nn.MaxPool2d(kernel_size=2),
-            nn.Conv2d(in_channels=16, out_channels=32, kernel_size=3, padding=1, padding_mode='reflect'),
-            nn.ReLU(),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=3, padding=1, padding_mode='reflect'),
-            nn.ReLU(),
-            nn.MaxPool2d(kernel_size=2),
-            nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, padding=1, padding_mode='reflect'),
-            nn.ReLU(),
-            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=3, padding=1, padding_mode='reflect'),
+            nn.Conv2d(
+                in_channels=8,
+                out_channels=8,
+                kernel_size=3,
+                padding=1,
+                padding_mode="reflect",
+            ),
             nn.ReLU(),
             nn.MaxPool2d(kernel_size=2),
-            nn.Conv2d(in_channels=64, out_channels=128, kernel_size=3, padding=1, padding_mode='reflect'),
+            nn.Conv2d(
+                in_channels=8,
+                out_channels=16,
+                kernel_size=3,
+                padding=1,
+                padding_mode="reflect",
+            ),
             nn.ReLU(),
-            nn.Conv2d(in_channels=128, out_channels=128, kernel_size=3, padding=1, padding_mode='reflect'),
+            nn.Conv2d(
+                in_channels=16,
+                out_channels=16,
+                kernel_size=3,
+                padding=1,
+                padding_mode="reflect",
+            ),
             nn.ReLU(),
             nn.MaxPool2d(kernel_size=2),
-            nn.Conv2d(in_channels=128, out_channels=256, kernel_size=3, padding=1, padding_mode='reflect'),
+            nn.Conv2d(
+                in_channels=16,
+                out_channels=32,
+                kernel_size=3,
+                padding=1,
+                padding_mode="reflect",
+            ),
             nn.ReLU(),
-            nn.Conv2d(in_channels=256, out_channels=256, kernel_size=3, padding=1, padding_mode='reflect'),
+            nn.Conv2d(
+                in_channels=32,
+                out_channels=32,
+                kernel_size=3,
+                padding=1,
+                padding_mode="reflect",
+            ),
             nn.ReLU(),
             nn.MaxPool2d(kernel_size=2),
+            nn.Conv2d(
+                in_channels=32,
+                out_channels=64,
+                kernel_size=3,
+                padding=1,
+                padding_mode="reflect",
+            ),
+            nn.ReLU(),
+            nn.Conv2d(
+                in_channels=64,
+                out_channels=64,
+                kernel_size=3,
+                padding=1,
+                padding_mode="reflect",
+            ),
+            nn.ReLU(),
+            nn.MaxPool2d(kernel_size=2),
+            nn.Conv2d(
+                in_channels=64,
+                out_channels=128,
+                kernel_size=3,
+                padding=1,
+                padding_mode="reflect",
+            ),
+            nn.ReLU(),
+            nn.Conv2d(
+                in_channels=128,
+                out_channels=128,
+                kernel_size=3,
+                padding=1,
+                padding_mode="reflect",
+            ),
+            nn.ReLU(),
+            nn.MaxPool2d(kernel_size=2),
+            nn.Conv2d(
+                in_channels=128,
+                out_channels=256,
+                kernel_size=3,
+                padding=1,
+                padding_mode="reflect",
+            ),
+            nn.ReLU(),
+            nn.Conv2d(
+                in_channels=256,
+                out_channels=256,
+                kernel_size=3,
+                padding=1,
+                padding_mode="reflect",
+            ),
+            nn.ReLU(),
+            nn.MaxPool2d(kernel_size=4),
         )
         self.flatten = nn.Flatten()
         self.dense_layers = nn.Sequential(
             nn.Linear(10240, 1740),
             nn.ReLU(),
-            nn.Linear(1740, 1305),
+            nn.Linear(1740, 870),
             nn.ReLU(),
-            nn.Linear(1305, 870),
+            nn.Linear(870, 100),
             nn.ReLU(),
-            nn.Linear(870, 435),
-            nn.ReLU(),
-            nn.Linear(435, 100),
-            nn.ReLU(),
-            nn.Linear(100, 2)
+            nn.Linear(100, 2),
         )
 
     def forward(self, x):
@@ -97,30 +180,30 @@ class CNN(nn.Module):
         super().__init__()
 
         self.conv_layers = nn.Sequential(
-            conv_block(1, 8),
-            conv_block(8, 16),
-            conv_block(16, 32),
-            conv_block(32, 64),
-            conv_block(64, 128),
-            conv_block(128, 256)
+            conv_block(1, 8, 2),
+            conv_block(8, 16, 2),
+            conv_block(16, 32, 2),
+            conv_block(32, 64, 2),
+            conv_block(64, 128, 2),
+            conv_block(128, 256, 2),
         )
         self.flatten = nn.Flatten()
         self.dense_layers = nn.Sequential(
             nn.Linear(10240, 1740),
             nn.ReLU(),
-            # nn.Dropout(dropout_rate),
+            nn.Dropout(dropout_rate),
             nn.Linear(1740, 1305),
             nn.ReLU(),
-            # nn.Dropout(dropout_rate),
+            nn.Dropout(dropout_rate),
             nn.Linear(1305, 870),
             nn.ReLU(),
-            # nn.Dropout(dropout_rate),
+            nn.Dropout(dropout_rate),
             nn.Linear(870, 435),
             nn.ReLU(),
-            # nn.Dropout(dropout_rate),
+            nn.Dropout(dropout_rate),
             nn.Linear(435, 100),
             nn.ReLU(),
-            nn.Linear(100, 2)
+            nn.Linear(100, 2),
         )
         # self.softmax = nn.Softmax(dim=-1)
 
@@ -132,8 +215,39 @@ class CNN(nn.Module):
         return dense_out
 
 
-def train(dataloader, model, loss_fn, optimizer, device='cpu'):
-    size = len(dataloader)*dataloader.batch_size
+class CNN_small(nn.Module):
+    def __init__(self, dropout_rate):
+        super().__init__()
+
+        self.conv_layers = nn.Sequential(
+            conv_block(1, 16, 4),
+            conv_block(16, 64, 4),
+            conv_block(64, 256, 4),
+        )
+        self.flatten = nn.Flatten()
+        self.dense_layers = nn.Sequential(
+            nn.Linear(10240, 1305),
+            nn.ReLU(),
+            nn.Dropout(dropout_rate),
+            nn.Linear(1305, 435),
+            nn.ReLU(),
+            nn.Dropout(dropout_rate),
+            nn.Linear(435, 100),
+            nn.ReLU(),
+            nn.Linear(100, 2),
+        )
+        # self.softmax = nn.Softmax(dim=-1)
+
+    def forward(self, x):
+        conv_out = self.conv_layers(x)
+        conv_out = self.flatten(conv_out)
+        dense_out = self.dense_layers(conv_out)
+        # soft_out = self.softmax(dense_out)
+        return dense_out
+
+
+def train(dataloader, model, loss_fn, optimizer, device="cpu"):
+    size = len(dataloader) * dataloader.batch_size
     model.train()
     for batch, (X, y) in enumerate(dataloader):
         true_x_len = X.shape[0]
@@ -153,8 +267,8 @@ def train(dataloader, model, loss_fn, optimizer, device='cpu'):
             print(f"loss: {loss: >7f} [{current: >5d}/{size:>5d}]")
 
 
-def validate(dataloader, model, loss_fn, device='cpu'):
-    size = len(dataloader)*dataloader.batch_size
+def validate(dataloader, model, loss_fn, device="cpu"):
+    size = len(dataloader) * dataloader.batch_size
     num_batches = len(dataloader)
     model.eval()
     test_loss, correct = 0, 0
@@ -169,4 +283,6 @@ def validate(dataloader, model, loss_fn, device='cpu'):
             # correct += (pred.mean(axis=-1) >= 0.5).type(torch.float).sum().item()
     test_loss /= num_batches
     correct /= size
-    print(f"Validation Error: \nAccuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f}")
+    print(
+        f"Validation Error: \nAccuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f}"
+    )

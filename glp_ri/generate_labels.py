@@ -52,6 +52,11 @@ def label_storms_by_years(years, out_fname, goes_ships_matching_tolerance=GOES_S
     assert type(years) is list, f'years must be a list; got {type(years)}'
     assert type(out_fname) is str, f'out_fname must be str; got {type(out_fname)}'
 
+    print("Processing cyclones for the following years:")
+    for year in years:
+        print(year)
+    print(f"Saving to {out_fname}")
+
     tc_list = du.find_cyclones(du.DATA_DIR)
 
     RI_dict_by_year = dict()
@@ -63,8 +68,8 @@ def label_storms_by_years(years, out_fname, goes_ships_matching_tolerance=GOES_S
         print(f'Computing for {tc_id}')
         try:
             RI_dict_by_year[tc_id] = label_single_storm(tc_id, goes_ships_matching_tolerance)
-        except:
-            pass
+        except Exception as exc:
+            print(f"An error occurred: " + type(exc).__name__ + " - " + exc)
 
     with open(du.DATA_DIR + '/' + out_fname, 'w') as fn:
         json.dump(RI_dict_by_year, fn, indent=4)

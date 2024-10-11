@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH --job-name=crossentropy
-#SBATCH --output=logs/crossentropy_train.out
-#SBATCH --error=logs/crossentropy_train.err
+#SBATCH --job-name=small_crossentropy
+#SBATCH --output=logs/small_crossentropy_train.out
+#SBATCH --error=logs/small_crossentropy_train.err
 #SBATCH --ntasks=1
-#SBATCH --partition=gpu
+#SBATCH --partition=day-long-gpu
 #SBATCH --gpus-per-task=1
 #SBATCH --cpus-per-task=10
 #SBATCH --time=23:59:59
