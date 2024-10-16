@@ -10,10 +10,11 @@ import torch
 import numpy as np
 from torch.utils.data import Dataset
 
-CYCLONE_ID_REGEX = '[0-9][0-9][0-9][0-9][A-Z][A-Z][0-9][0-9]'
-VALID_BASIN_ID_STRINGS = ['AL', 'SL', 'EP', 'CP', 'WP', 'IO', 'SH']
-DATA_DIR = '/nfs/home/lverho/research_data/RI'
+CYCLONE_ID_REGEX = "[0-9][0-9][0-9][0-9][A-Z][A-Z][0-9][0-9]"
+VALID_BASIN_ID_STRINGS = ["AL", "SL", "EP", "CP", "WP", "IO", "SH"]
+DATA_DIR = "/nfs/home/lverho/research_data/RI"
 # DATA_DIR = '/nfs/home/lverho/research_data/GLP/synthetic_data/synth_storms'
+
 
 def find_file(directory_name, cyclone_id_string, raise_error_if_missing=True):
     """Finds NetCDF file with learning examples.
@@ -29,11 +30,15 @@ def find_file(directory_name, cyclone_id_string, raise_error_if_missing=True):
         and `raise_error_if_missing == True`.
     """
 
-    assert type(directory_name) is str, f'directory_name must be str; got {type(directory_name)}'
+    assert (
+        type(directory_name) is str
+    ), f"directory_name must be str; got {type(directory_name)}"
     parse_cyclone_id(cyclone_id_string)
-    assert type(raise_error_if_missing) is bool, f'raise_error_if_missing must be bool; got {type(raise_error_if_missing)}'
+    assert (
+        type(raise_error_if_missing) is bool
+    ), f"raise_error_if_missing must be bool; got {type(raise_error_if_missing)}"
 
-    example_file_name = f'{directory_name}/learning_examples_{cyclone_id_string}.nc'
+    example_file_name = f"{directory_name}/learning_examples_{cyclone_id_string}.nc"
 
     if os.path.isfile(example_file_name) or not raise_error_if_missing:
         return example_file_name
@@ -53,17 +58,23 @@ def parse_cyclone_id(cyclone_id_string):
     :return: cyclone_number: Cyclone number (integer).
     """
 
-    assert type(cyclone_id_string) is str, f'cyclone_id_string must be type str; got {type(cyclone_id_string)}'
-    assert len(cyclone_id_string) == 8, f'cyclone_id_string must be length 8; got {len(cyclone_id_string)}'
+    assert (
+        type(cyclone_id_string) is str
+    ), f"cyclone_id_string must be type str; got {type(cyclone_id_string)}"
+    assert (
+        len(cyclone_id_string) == 8
+    ), f"cyclone_id_string must be length 8; got {len(cyclone_id_string)}"
 
     year = int(cyclone_id_string[:4])
-    assert year >= 0, f'Year must be >= 0; got {year}'
+    assert year >= 0, f"Year must be >= 0; got {year}"
 
     basin_id_string = cyclone_id_string[4:6]
-    assert basin_id_string in VALID_BASIN_ID_STRINGS, f'Basin id must be one of {VALID_BASIN_ID_STRINGS}; got {basin_id_string}'
+    assert (
+        basin_id_string in VALID_BASIN_ID_STRINGS
+    ), f"Basin id must be one of {VALID_BASIN_ID_STRINGS}; got {basin_id_string}"
 
     cyclone_number = int(cyclone_id_string[6:])
-    assert cyclone_number > 0, f'Cyclone number must be > 0; got {cyclone_number}'
+    assert cyclone_number > 0, f"Cyclone number must be > 0; got {cyclone_number}"
 
     return year, basin_id_string, cyclone_number
 
@@ -75,10 +86,12 @@ def file_name_to_cyclone_id(example_file_name):
     :return: cyclone_id_string: Cyclone ID.
     """
 
-    assert type(example_file_name) is str, f'example_file_name must be str; got {type(example_file_name)}'
+    assert (
+        type(example_file_name) is str
+    ), f"example_file_name must be str; got {type(example_file_name)}"
     pathless_file_name = os.path.split(example_file_name)[1]
 
-    cyclone_id_string = pathless_file_name.split('.')[0].split('_')[-1]
+    cyclone_id_string = pathless_file_name.split(".")[0].split("_")[-1]
     parse_cyclone_id(cyclone_id_string)
 
     return cyclone_id_string
@@ -97,19 +110,21 @@ def find_cyclones(directory_name, raise_error_if_all_missing=True):
         and `raise_error_if_missing == True`.
     """
 
-    assert type(directory_name) is str, f'directory_name must be str; got {type(directory_name)}'
-    assert type(raise_error_if_all_missing) is bool, f'raise_error_if_all_missing must be bool; got {type(raise_error_if_all_missing)}'
+    assert (
+        type(directory_name) is str
+    ), f"directory_name must be str; got {type(directory_name)}"
+    assert (
+        type(raise_error_if_all_missing) is bool
+    ), f"raise_error_if_all_missing must be bool; got {type(raise_error_if_all_missing)}"
 
-    file_pattern = f'{directory_name}/learning_examples_{CYCLONE_ID_REGEX}.nc'
+    file_pattern = f"{directory_name}/learning_examples_{CYCLONE_ID_REGEX}.nc"
     example_file_names = glob.glob(file_pattern)
 
     cyclone_id_strings = []
 
     for this_file_name in example_file_names:
         try:
-            cyclone_id_strings.append(
-                file_name_to_cyclone_id(this_file_name)
-            )
+            cyclone_id_strings.append(file_name_to_cyclone_id(this_file_name))
         except:
             pass
 
@@ -127,7 +142,7 @@ def find_cyclones(directory_name, raise_error_if_all_missing=True):
 
 
 def load_labels(fn):
-    with open(fn, 'r') as f:
+    with open(fn, "r") as f:
         raw_dict = json.load(f)
 
     labels = []
@@ -139,34 +154,10 @@ def load_labels(fn):
 
     pos_samples = labels[:, -1].sum()
     neg_samples = labels.shape[0] - pos_samples
-    weight_list = np.array([12/neg_samples, 4/pos_samples])
+    weight_list = np.array([12 / neg_samples, 4 / pos_samples])
     weights = weight_list[labels[:, -1].astype(int)]
 
     return labels, weights
-
-
-class RI_Dataset(Dataset):
-    def __init__(self, labels, transform=None, target_transform=None):
-        if type(labels) is np.ndarray:
-            self.labels = labels
-        if type(labels) is str:
-            self.labels, _ = load_labels(labels)
-        self.transform = transform
-        self.target_transform = target_transform
-
-    def __len__(self):
-        return len(self.labels)
-
-    def __getitem__(self, idx):
-        storm_id, timestamp, label = self.labels[idx, :]
-        ds = xr.open_dataset(find_file(DATA_DIR, storm_id)).sel(satellite_valid_time_unix_sec=int(timestamp))
-        image = torch.reshape(torch.tensor(ds.satellite_predictors_gridded.values.astype(np.float32)), (1, 380, 540))
-        label = torch.reshape(torch.tensor(label), (1, 1))
-        if self.transform:
-            image = self.transform(image)
-        if self.target_transform:
-            label = self.target_transform(label)
-        return image, label
 
 
 class crossentropy_RI_Dataset(Dataset):
@@ -183,8 +174,13 @@ class crossentropy_RI_Dataset(Dataset):
 
     def __getitem__(self, idx):
         storm_id, timestamp, label = self.labels[idx, :]
-        ds = xr.open_dataset(find_file(DATA_DIR, storm_id)).sel(satellite_valid_time_unix_sec=int(timestamp))
-        image = torch.reshape(torch.tensor(ds.satellite_predictors_gridded.values.astype(np.float32)), (1, 380, 540))
+        ds = xr.open_dataset(find_file(DATA_DIR, storm_id)).sel(
+            satellite_valid_time_unix_sec=int(timestamp)
+        )
+        image = torch.reshape(
+            torch.tensor(ds.satellite_predictors_gridded.values.astype(np.float32)),
+            (1, 380, 540),
+        )
         label = torch.tensor(label)
         if self.transform:
             image = self.transform(image)
@@ -206,11 +202,18 @@ class aug_crossentropy_RI_Dataset(Dataset):
 
     def __getitem__(self, idx):
         storm_id, timestamp, label = self.labels[idx, :]
-        ds = xr.open_dataset(find_file(DATA_DIR, storm_id)).sel(satellite_valid_time_unix_sec=int(timestamp))
-        image = torch.reshape(torch.tensor(ds.satellite_predictors_gridded.values.astype(np.float32)), (1, 380, 540))
+        ds = xr.open_dataset(find_file(DATA_DIR, storm_id)).sel(
+            satellite_valid_time_unix_sec=int(timestamp)
+        )
+        image = torch.reshape(
+            torch.tensor(ds.satellite_predictors_gridded.values.astype(np.float32)),
+            (1, 380, 540),
+        )
         label = torch.tensor(label)
         if self.transforms is not None:
-            images = torch.stack([image] + [transform(image) for transform in self.transforms])
+            images = torch.stack(
+                [image] + [transform(image) for transform in self.transforms]
+            )
             labels = torch.stack([label] + [label for transform in self.transforms])
         else:
             images = torch.stack([image])
@@ -219,7 +222,7 @@ class aug_crossentropy_RI_Dataset(Dataset):
 
 
 class AddGaussianNoise(object):
-    def __init__(self, mean=0., std=1.):
+    def __init__(self, mean=0.0, std=1.0):
         self.std = std
         self.mean = mean
 
