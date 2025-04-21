@@ -1,29 +1,35 @@
-import torch
-from torch import nn
-from torch.utils.data import DataLoader
-from torch.utils.data import Dataset
-from torchvision import transforms
-import numpy as np
-import xarray as xr
 from pathlib import Path
-from torchinfo import summary
 from time import perf_counter
 
+import numpy as np
+import torch
+import xarray as xr
 from synth_network_models import CNN, glp_CNN
+from torch import nn
+from torch.utils.data import DataLoader, Dataset
+from torchinfo import summary
+from torchvision import transforms
 
 
 def angle_categorizer(angle, num_categories, diagonal=False):
     region_angle = np.pi / num_categories
     comp_angles = angle / region_angle
     if diagonal:
-        comp_angles += 1/2
+        comp_angles += 1 / 2
         comp_angles = comp_angles.astype(int) % num_categories
     return comp_angles.astype(int)
 
 
 # Create custom dataset method
 class SynthDataset(Dataset):
-    def __init__(self, full_ds, start_idx=None, end_idx=None, transform=None, target_transform=None):
+    def __init__(
+        self,
+        full_ds,
+        start_idx=None,
+        end_idx=None,
+        transform=None,
+        target_transform=None,
+    ):
         self.full_ds = full_ds.isel(p=slice(start_idx, end_idx))
         self.transform = transform
         self.target_transform = target_transform
@@ -32,7 +38,9 @@ class SynthDataset(Dataset):
         return self.full_ds.p.shape[0]
 
     def __getitem__(self, idx):
-        image = torch.unsqueeze(torch.tensor(self.full_ds.ellipse[idx, :, :].values.astype(np.float32)), 0)
+        image = torch.unsqueeze(
+            torch.tensor(self.full_ds.ellipse[idx, :, :].values.astype(np.float32)), 0
+        )
         label = torch.tensor(self.full_ds.target.isel(p=idx).values)
         if self.transform:
             image = self.transform(image)
@@ -41,18 +49,16 @@ class SynthDataset(Dataset):
         return image, label
 
 
-ds = xr.load_dataset(Path.home() / 'research_data/GLP/synthetic_data/init_ds.nc')
+ds = xr.load_dataset(Path.home() / "research_data/GLP/synthetic_data/init_ds.nc")
 
 num_classes = 2
-ds['target'] = (('p'), angle_categorizer(ds.angle.values, num_classes, diagonal=True))
+ds["target"] = (("p"), angle_categorizer(ds.angle.values, num_classes, diagonal=True))
 
 # Get cpu, gpu or mps device for training.
 device = (
     "cuda"
     if torch.cuda.is_available()
-    else "mps"
-    if torch.backends.mps.is_available()
-    else "cpu"
+    else "mps" if torch.backends.mps.is_available() else "cpu"
 )
 print(f"Using {device} device")
 
@@ -64,8 +70,12 @@ cnn_train_ds = SynthDataset(ds, end_idx=8000)
 cnn_val_ds = SynthDataset(ds, start_idx=8000)
 
 batch_size = 32
-cnn_train_dataloader = DataLoader(cnn_train_ds, num_workers=2, batch_size=batch_size, shuffle=True)
-cnn_val_dataloader = DataLoader(cnn_val_ds, num_workers=2, batch_size=batch_size, shuffle=True)
+cnn_train_dataloader = DataLoader(
+    cnn_train_ds, num_workers=2, batch_size=batch_size, shuffle=True
+)
+cnn_val_dataloader = DataLoader(
+    cnn_val_ds, num_workers=2, batch_size=batch_size, shuffle=True
+)
 
 cnn_model = CNN().to(device)
 print(cnn_model)
@@ -108,7 +118,9 @@ def cnn_validate(dataloader, model, loss_fn):
             correct += (pred.argmax(1) == y).type(torch.float).sum().item()
     test_loss /= num_batches
     correct /= size
-    print(f"Validation Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f}")
+    print(
+        f"Validation Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f}"
+    )
 
 
 epochs = 10
@@ -121,21 +133,29 @@ for t in range(epochs):
     cnn_validate(cnn_val_dataloader, cnn_model, cnn_loss_fn)
     print(f"Epoch time: {perf_counter() - start_time:.2f} seconds \n")
 t_time = perf_counter() - t_time_start
-print(f"Done! Total training time: {t_time // 60:.0f} minutes, {t_time % 60:.2f} seconds, average epoch time: {t_time/epochs:.2f} seconds")
+print(
+    f"Done! Total training time: {t_time // 60:.0f} minutes, {t_time % 60:.2f} seconds, average epoch time: {t_time/epochs:.2f} seconds"
+)
 
-torch.save(cnn_model.state_dict(), './saved_models/synth_data_network/cnn.pt')
+torch.save(cnn_model.state_dict(), "./saved_models/synth_data_network/cnn.pt")
 
 
 ##################################
 ###          Aug CNN           ###
 ##################################
 
-aug_cnn_train_ds = SynthDataset(ds, end_idx=8000, transform=transforms.RandomRotation(15))
+aug_cnn_train_ds = SynthDataset(
+    ds, end_idx=8000, transform=transforms.RandomRotation(15)
+)
 aug_cnn_val_ds = SynthDataset(ds, start_idx=8000)
 
 batch_size = 32
-aug_cnn_train_dataloader = DataLoader(aug_cnn_train_ds, num_workers=2, batch_size=batch_size, shuffle=True)
-aug_cnn_val_dataloader = DataLoader(aug_cnn_val_ds, num_workers=2, batch_size=batch_size, shuffle=True)
+aug_cnn_train_dataloader = DataLoader(
+    aug_cnn_train_ds, num_workers=2, batch_size=batch_size, shuffle=True
+)
+aug_cnn_val_dataloader = DataLoader(
+    aug_cnn_val_ds, num_workers=2, batch_size=batch_size, shuffle=True
+)
 
 aug_cnn_model = CNN().to(device)
 print(aug_cnn_model)
@@ -179,7 +199,9 @@ def aug_cnn_validate(dataloader, model, loss_fn):
             correct += (pred.argmax(1) == y).type(torch.float).sum().item()
     test_loss /= num_batches
     correct /= size
-    print(f"Validation Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f}")
+    print(
+        f"Validation Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f}"
+    )
 
 
 epochs = 10
@@ -188,13 +210,17 @@ t_time_start = perf_counter()
 for t in range(epochs):
     print(f"Epoch {t+1}\n-------------------------------")
     start_time = perf_counter()
-    aug_cnn_train(aug_cnn_train_dataloader, aug_cnn_model, aug_cnn_loss_fn, aug_cnn_optimizer)
+    aug_cnn_train(
+        aug_cnn_train_dataloader, aug_cnn_model, aug_cnn_loss_fn, aug_cnn_optimizer
+    )
     aug_cnn_validate(aug_cnn_val_dataloader, aug_cnn_model, aug_cnn_loss_fn)
     print(f"Epoch time: {perf_counter() - start_time:.2f} seconds \n")
 t_time = perf_counter() - t_time_start
-print(f"Done! Total training time: {t_time // 60:.0f} minutes, {t_time % 60:.2f} seconds, average epoch time: {t_time/epochs:.2f} seconds")
+print(
+    f"Done! Total training time: {t_time // 60:.0f} minutes, {t_time % 60:.2f} seconds, average epoch time: {t_time/epochs:.2f} seconds"
+)
 
-torch.save(aug_cnn_model.state_dict(), './saved_models/synth_data_network/aug_cnn.pt')
+torch.save(aug_cnn_model.state_dict(), "./saved_models/synth_data_network/aug_cnn.pt")
 
 ##################################
 ###          GLP CNN           ###
@@ -205,7 +231,7 @@ class glp_transform(nn.Module):
     def __init__(self, num_angles=None, angle_inc=None):
         super().__init__()
         if (num_angles is None) and (angle_inc is None):
-            raise ValueError('Need either num_angles or angle_inc to be defined')
+            raise ValueError("Need either num_angles or angle_inc to be defined")
         if num_angles is None:
             self.num_angles = 360 / angle_inc
             self.angle_inc = angle_inc
@@ -214,19 +240,30 @@ class glp_transform(nn.Module):
             self.num_angles = num_angles
 
     def __call__(self, image):
-        temp_list = [transforms.functional.rotate(image, self.angle_inc*i) for i in range(int(self.num_angles))]
+        temp_list = [
+            transforms.functional.rotate(image, self.angle_inc * i)
+            for i in range(int(self.num_angles))
+        ]
         return torch.stack(temp_list, dim=-1)
 
 
 angle_inc = 30
-num_angles = 360/angle_inc
+num_angles = 360 / angle_inc
 
-glp_train_ds = SynthDataset(ds, end_idx=8000, transform=glp_transform(angle_inc=angle_inc))
-glp_val_ds = SynthDataset(ds, start_idx=8000, transform=glp_transform(angle_inc=angle_inc))
+glp_train_ds = SynthDataset(
+    ds, end_idx=8000, transform=glp_transform(angle_inc=angle_inc)
+)
+glp_val_ds = SynthDataset(
+    ds, start_idx=8000, transform=glp_transform(angle_inc=angle_inc)
+)
 
 batch_size = 32
-glp_train_dataloader = DataLoader(glp_train_ds, batch_size=batch_size, num_workers=16, shuffle=True)
-glp_val_dataloader = DataLoader(glp_val_ds, batch_size=batch_size, num_workers=16, shuffle=True)
+glp_train_dataloader = DataLoader(
+    glp_train_ds, batch_size=batch_size, num_workers=16, shuffle=True
+)
+glp_val_dataloader = DataLoader(
+    glp_val_ds, batch_size=batch_size, num_workers=16, shuffle=True
+)
 
 glp_model = glp_CNN().to(device)
 print(glp_model)
@@ -265,12 +302,19 @@ def glp_validate(dataloader, model, loss_fn):
     with torch.no_grad():
         for X, y in dataloader:
             X, y = X.to(device), y.to(device)
-            pred, _, _, _, = model(X)
+            (
+                pred,
+                _,
+                _,
+                _,
+            ) = model(X)
             test_loss += loss_fn(pred, y).item()
             correct += (pred.argmax(1) == y).type(torch.float).sum().item()
     test_loss /= num_batches
     correct /= size
-    print(f"Validation Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f}")
+    print(
+        f"Validation Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f}"
+    )
 
 
 epochs = 10
@@ -283,6 +327,8 @@ for t in range(epochs):
     glp_validate(glp_val_dataloader, glp_model, glp_loss_fn)
     print(f"Epoch time: {perf_counter() - start_time:.2f} seconds \n")
 t_time = perf_counter() - t_time_start
-print(f"Done! Total training time: {t_time // 60:.0f} minutes, {t_time % 60:.2f} seconds, average epoch time: {t_time/epochs:.2f} seconds")
+print(
+    f"Done! Total training time: {t_time // 60:.0f} minutes, {t_time % 60:.2f} seconds, average epoch time: {t_time/epochs:.2f} seconds"
+)
 
-torch.save(glp_model.state_dict(), './saved_models/synth_data_network/glp.pt')
+torch.save(glp_model.state_dict(), "./saved_models/synth_data_network/glp.pt")
