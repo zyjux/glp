@@ -1,7 +1,6 @@
 import torch
 from torch import nn
 
-
 LEAKY_RELU_SLOPE = 0.2
 
 
@@ -91,7 +90,7 @@ class CNN(nn.Module):
         conv_out = self.flatten(conv_out)
         dense_out = self.dense_layers(conv_out)
         sig_out = self.sigmoid(dense_out)
-        return dense_out
+        return sig_out
 
 
 def train(dataloader, model, loss_fn, optimizer, device="cpu"):
@@ -128,12 +127,31 @@ def validate(dataloader, model, loss_fn, device="cpu"):
             pred = model(X)
             test_loss += loss_fn(pred, y).item()
             correct += (
-                (1 - (torch.round(pred.mean(axis=-1)) == y).type(torch.float))
-                .sum()
-                .item()
+                ((torch.round(pred.mean(axis=-1)) == y).type(torch.float)).sum().item()
             )
     test_loss /= num_batches
     correct /= size
     print(
         f"Validation Error: \nAccuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f}"
     )
+    return test_loss
+
+
+class EarlyStopper:
+    """Implements early stopping when validation loss hasn't improved significantly"""
+
+    def __init__(self, patience: int = 1, min_delta: float = 0.0):
+        self.patience = patience
+        self.min_delta = min_delta
+        self.counter = 0
+        self.min_validation_loss = float("inf")
+
+    def early_stop(self, validation_loss):
+        if validation_loss < self.min_validation_loss - self.min_delta:
+            self.min_validation_loss = validation_loss
+            self.counter = 0
+        else:
+            self.counter += 1
+            if self.counter >= self.patience:
+                return True
+        return False

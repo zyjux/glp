@@ -1,13 +1,15 @@
-""" Utilities for handling data """
+"""Utilities for handling data"""
 
 """ Adapted from www.github.com/thunderhoser/ml4tc by Ryan Lagerquist """
 
-import os
 import glob
 import json
-import xarray as xr
-import torch
+import os
+from typing import Optional
+
 import numpy as np
+import torch
+import xarray as xr
 from torch.utils.data import Dataset
 
 CYCLONE_ID_REGEX = "[0-9][0-9][0-9][0-9][A-Z][A-Z][0-9][0-9]"
@@ -141,7 +143,25 @@ def find_cyclones(directory_name, raise_error_if_all_missing=True):
     return cyclone_id_strings
 
 
-def load_labels(fn):
+def load_labels(fn: str, desired_ratio: Optional[tuple[int, int]] = None):
+    """Data utility to parse labels json file into numpy array
+
+    args:
+        fn (str): Filename of the json dictionary to load.
+        desired_ratio (tuple): How many negative examples to how many positive examples
+            should the weights be calibrated for. When used as weights in a PyTorch
+            WeightedRandomSampler, the sampler should return desired_ratio[0] negative
+            examples for every desired_ratio[1] positive examples. If None, weights will
+            be all set to 1.
+
+    returns:
+        labels (np.ndarray): A 3xN array, where N is the number of samples in the json
+            file. The first column contains storm ids, the second column contains
+            timestamps, and the third column contains the label.
+        weights (np.ndarray): A length-N 1D array containing the weight for each row in
+            the labels array so that desired_ratio can be achieved.
+
+    """
     with open(fn, "r") as f:
         raw_dict = json.load(f)
 
@@ -154,7 +174,12 @@ def load_labels(fn):
 
     pos_samples = labels[:, -1].sum()
     neg_samples = labels.shape[0] - pos_samples
-    weight_list = np.array([12 / neg_samples, 4 / pos_samples])
+    if desired_ratio is not None:
+        weight_list = np.array(
+            [desired_ratio[0] / neg_samples, desired_ratio[1] / pos_samples]
+        )
+    else:
+        weight_list = np.array([1.0, 1.0])
     weights = weight_list[labels[:, -1].astype(int)]
 
     return labels, weights
