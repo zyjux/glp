@@ -100,6 +100,7 @@ def train(dataloader, model, loss_fn, optimizer, device="cpu"):
         true_x_len = X.shape[0]
         X = X.view(-1, 1, 380, 540)
         y = y.view(-1)
+        print(f"Batch contains {torch.sum(y)} positive examples out of {X.shape[0]}")
         X, y = X.to(device), y.to(device)
 
         pred = model(X)

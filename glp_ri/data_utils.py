@@ -239,11 +239,43 @@ class aug_crossentropy_RI_Dataset(Dataset):
             images = torch.stack(
                 [image] + [transform(image) for transform in self.transforms]
             )
-            labels = torch.stack([label] + [label for transform in self.transforms])
+            labels = torch.stack([label] * (1 + len(self.transforms)))
         else:
             images = torch.stack([image])
             labels = torch.stack([label])
         return images, labels
+
+
+class verbose_aug_crossentropy_RI_Dataset(Dataset):
+    def __init__(self, labels, transforms=None):
+        if type(labels) is np.ndarray:
+            self.labels = labels
+        if type(labels) is str:
+            self.labels, _ = load_labels(labels)
+        self.transforms = transforms
+
+    def __len__(self):
+        return len(self.labels)
+
+    def __getitem__(self, idx):
+        storm_id, timestamp, label = self.labels[idx, :]
+        ds = xr.open_dataset(find_file(DATA_DIR, storm_id)).sel(
+            satellite_valid_time_unix_sec=int(timestamp)
+        )
+        image = torch.reshape(
+            torch.tensor(ds.satellite_predictors_gridded.values.astype(np.float32)),
+            (1, 380, 540),
+        )
+        label = torch.tensor(label)
+        if self.transforms is not None:
+            images = torch.stack(
+                [image] + [transform(image) for transform in self.transforms]
+            )
+            labels = torch.stack([label] * (1 + len(self.transforms)))
+        else:
+            images = torch.stack([image])
+            labels = torch.stack([label])
+        return images, labels, (storm_id,), (timestamp,)
 
 
 class AddGaussianNoise(object):
