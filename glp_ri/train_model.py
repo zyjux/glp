@@ -2,8 +2,12 @@ from time import perf_counter
 
 import torch
 import torchvision.transforms.v2 as tvtf
-from data_utils import (DATA_DIR, AddGaussianNoise,
-                        aug_crossentropy_RI_Dataset, load_labels)
+from data_utils import (
+    DATA_DIR,
+    AddGaussianNoise,
+    aug_crossentropy_RI_Dataset,
+    load_labels,
+)
 from network_def import CNN, EarlyStopper, crps_loss, train, validate
 from torch.utils.data import DataLoader, WeightedRandomSampler
 from torchinfo import summary

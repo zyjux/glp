@@ -27,7 +27,9 @@ cnn_valid_ds = aug_crossentropy_RI_Dataset(valid_labels)
 batch_size = 64
 cnn_valid_dataloader = DataLoader(cnn_valid_ds, num_workers=8, batch_size=batch_size)
 
-cnn_model = CNN(dropout_rate).to(device)
+cnn_model = CNN(dropout_rate)
+cnn_model.load_state_dict(torch.load("./saved_models/crps_cnn.pt", weights_only=True))
+cnn_model.to(device)
 
 summary(cnn_model, input_size=(batch_size, 1, 380, 540))
 

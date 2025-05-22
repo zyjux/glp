@@ -5,7 +5,7 @@ LEAKY_RELU_SLOPE = 0.2
 
 
 class crps_loss(nn.Module):
-    def __init__(self, reduction="mean"):
+    def __init__(self, reduction: str = "mean"):
         super().__init__()
         self.reduction_f = {
             "none": nn.Identity(),
@@ -13,7 +13,7 @@ class crps_loss(nn.Module):
             "sum": torch.sum,
         }.get(reduction)
 
-    def forward(self, predicted, target):
+    def forward(self, predicted: torch.Tensor, target: torch.Tensor):
         return self.reduction_f(
             torch.mean(torch.abs(predicted - torch.unsqueeze(target, dim=-1)), dim=-1)
             - 0.5
@@ -119,7 +119,7 @@ def validate(dataloader, model, loss_fn, device="cpu"):
     size = len(dataloader) * dataloader.batch_size
     num_batches = len(dataloader)
     model.eval()
-    test_loss, correct = 0, 0
+    test_loss, correct, positive_preds = 0, 0, 0
     with torch.no_grad():
         for X, y in dataloader:
             X, y = X.to(device), y.to(device)
@@ -127,13 +127,17 @@ def validate(dataloader, model, loss_fn, device="cpu"):
             y = y.view(-1)
             pred = model(X)
             test_loss += loss_fn(pred, y).item()
+            positive_preds += (
+                ((torch.round(pred.mean(axis=-1))).type(torch.float)).sum().item()
+            )
             correct += (
                 ((torch.round(pred.mean(axis=-1)) == y).type(torch.float)).sum().item()
             )
     test_loss /= num_batches
     correct /= size
+    positive_preds /= size
     print(
-        f"Validation Error: \nAccuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f}"
+        f"Validation Error: \nAccuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f}, Positive ratio: {positive_preds:>6f}"
     )
     return test_loss
 
