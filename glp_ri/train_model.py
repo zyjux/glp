@@ -20,10 +20,10 @@ device = (
 print(f"Using {device} device")
 
 train_labels, train_weights = load_labels(
-    DATA_DIR + "/train_labels.json", desired_ratio=(3, 1)
+    DATA_DIR + "/train_labels.json", desired_ratio=(7, 1)
 )
 valid_labels, valid_weights = load_labels(
-    DATA_DIR + "/valid_labels.json", desired_ratio=(1, 1)
+    DATA_DIR + "/valid_labels.json", desired_ratio=(7, 1)
 )
 
 rotate_transform = tvtf.RandomRotation(50)  # type: ignore
@@ -53,7 +53,7 @@ cnn_valid_dataloader = DataLoader(
 )
 
 cnn_model = CNN(dropout_rate).to(device)
-cnn_loss_fn = crps_loss()
+cnn_loss_fn = torch.nn.CrossEntropyLoss()
 cnn_optimizer = torch.optim.Adam(cnn_model.parameters(), lr=1e-3)
 scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(cnn_optimizer, "min")
 
@@ -81,7 +81,7 @@ for t in range(epochs):
         break
     if early_stopper.counter == 0:
         print(f"Validation loss improved, saving model")
-        torch.save(cnn_model.state_dict(), "./saved_models/crps_cnn.pt")
+        torch.save(cnn_model.state_dict(), "./saved_models/crossentropy_cnn.pt")
 
     print(f"Epoch time: {perf_counter() - start_time:.2f} seconds \n")
 t_time = perf_counter() - t_time_start

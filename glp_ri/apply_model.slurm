@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=apply_crps_cnn
-#SBATCH --output=logs/crps_apply.out
-#SBATCH --error=logs/crps_apply.err
+#SBATCH --output=logs/crossentropy_apply.out
+#SBATCH --error=logs/crossentropy_apply.err
 #SBATCH --ntasks=1
 #SBATCH --partition=short-gpu
 #SBATCH --gpus-per-task=1

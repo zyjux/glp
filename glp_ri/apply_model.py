@@ -28,7 +28,9 @@ batch_size = 64
 cnn_valid_dataloader = DataLoader(cnn_valid_ds, num_workers=8, batch_size=batch_size)
 
 cnn_model = CNN(dropout_rate)
-cnn_model.load_state_dict(torch.load("./saved_models/crps_cnn.pt", weights_only=True))
+cnn_model.load_state_dict(
+    torch.load("./saved_models/crossentropy_cnn.pt", weights_only=True)
+)
 cnn_model.to(device)
 
 summary(cnn_model, input_size=(batch_size, 1, 380, 540))
@@ -52,6 +54,8 @@ with torch.no_grad():
         except NameError:
             preds = pred
             truth = y
+softmax = torch.nn.Softmax(dim=1)
+preds = softmax(preds)
 t_time = perf_counter() - t_time_start
 print(
     f"Done! Total evaluation time: {t_time // 60:.0f} minutes, {t_time % 60:.2f} seconds"
@@ -60,8 +64,8 @@ print(
 print("Saving...")
 preds_ds = xr.Dataset(
     data_vars={
-        "predictions": (("example", "ens_member"), preds),
+        "predictions": (("example", "class"), preds),
         "labels": ("example", truth),
     }
 )
-preds_ds.to_netcdf("~/glp/glp_ri/data/crps_cnn_validation_preds.nc")
+preds_ds.to_netcdf("~/glp/glp_ri/data/crossentropy_cnn_validation_preds.nc")

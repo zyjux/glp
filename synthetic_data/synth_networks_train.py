@@ -230,14 +230,14 @@ torch.save(aug_cnn_model.state_dict(), "./saved_models/synth_data_network/aug_cn
 class glp_transform(nn.Module):
     def __init__(self, num_angles=None, angle_inc=None):
         super().__init__()
-        if (num_angles is None) and (angle_inc is None):
-            raise ValueError("Need either num_angles or angle_inc to be defined")
-        if num_angles is None:
+        if angle_inc is not None:
             self.num_angles = 360 / angle_inc
             self.angle_inc = angle_inc
-        else:
+        elif num_angles is not None:
             self.angle_inc = 360 / num_angles
             self.num_angles = num_angles
+        else:
+            raise ValueError("Need either num_angles or angle_inc to be defined")
 
     def __call__(self, image):
         temp_list = [

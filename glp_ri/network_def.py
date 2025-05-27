@@ -81,7 +81,7 @@ class CNN(nn.Module):
             nn.LeakyReLU(LEAKY_RELU_SLOPE),
             nn.Dropout(dropout_rate),
             nn.BatchNorm1d(435),
-            nn.Linear(435, 100),
+            nn.Linear(435, 2),
         )
         self.sigmoid = nn.Sigmoid()
 
@@ -89,8 +89,8 @@ class CNN(nn.Module):
         conv_out = self.conv_layers(x)
         conv_out = self.flatten(conv_out)
         dense_out = self.dense_layers(conv_out)
-        sig_out = self.sigmoid(dense_out)
-        return sig_out
+        # sig_out = self.sigmoid(dense_out)
+        return dense_out
 
 
 def train(dataloader, model, loss_fn, optimizer, device="cpu"):
@@ -128,10 +128,18 @@ def validate(dataloader, model, loss_fn, device="cpu"):
             pred = model(X)
             test_loss += loss_fn(pred, y).item()
             positive_preds += (
-                ((torch.round(pred.mean(axis=-1))).type(torch.float)).sum().item()
+                # ((torch.round(pred.mean(axis=-1))).type(torch.float)).sum().item()
+                torch.argmax(pred, dim=-1)
+                .type(torch.float)
+                .sum()
+                .item()
             )
             correct += (
-                ((torch.round(pred.mean(axis=-1)) == y).type(torch.float)).sum().item()
+                # ((torch.round(pred.mean(axis=-1)) == y).type(torch.float)).sum().item()
+                (torch.argmax(pred, dim=-1) == y)
+                .type(torch.float)
+                .sum()
+                .item()
             )
     test_loss /= num_batches
     correct /= size
