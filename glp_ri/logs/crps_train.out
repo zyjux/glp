@@ -88,1140 +88,3248 @@ Training CNN
 
 Epoch 1
 ----------------------------
-loss: 0.424750 [   64/ 2048]
-loss: 0.362554 [  192/ 2048]
-loss: 0.339399 [  320/ 2048]
-loss: 0.303331 [  448/ 2048]
-loss: 0.287459 [  576/ 2048]
-loss: 0.286517 [  704/ 2048]
-loss: 0.261122 [  832/ 2048]
-loss: 0.235805 [  960/ 2048]
-loss: 0.225776 [ 1088/ 2048]
-loss: 0.211901 [ 1216/ 2048]
-loss: 0.219574 [ 1344/ 2048]
-loss: 0.214976 [ 1472/ 2048]
-loss: 0.221492 [ 1600/ 2048]
-loss: 0.178437 [ 1728/ 2048]
-loss: 0.172753 [ 1856/ 2048]
-loss: 0.222690 [ 1984/ 2048]
+Batch contains 104 positive examples out of 512
+loss: 0.423911 [   64/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.406383 [  192/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.339140 [  320/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.319149 [  448/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 208 positive examples out of 512
+loss: 0.284713 [  576/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 56 positive examples out of 512
+loss: 0.274059 [  704/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.245630 [  832/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.241732 [  960/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.239456 [ 1088/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.234329 [ 1216/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.211552 [ 1344/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.210572 [ 1472/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.201496 [ 1600/ 2048]
+Batch contains 184 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.199630 [ 1728/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.211290 [ 1856/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.209677 [ 1984/ 2048]
+Batch contains 136 positive examples out of 512
 Validation Error: 
-Accuracy: 59.5%, Avg loss: 0.335953
+Accuracy: 69.1%, Avg loss: 0.229402, Positive ratio: 0.286133
 Validation loss improved, saving model
-Epoch time: 70.21 seconds 
+Epoch time: 87.49 seconds 
 
 Epoch 2
 ----------------------------
-loss: 0.213797 [   64/ 2048]
-loss: 0.194257 [  192/ 2048]
-loss: 0.178386 [  320/ 2048]
-loss: 0.167540 [  448/ 2048]
-loss: 0.204210 [  576/ 2048]
-loss: 0.168513 [  704/ 2048]
-loss: 0.164590 [  832/ 2048]
-loss: 0.172308 [  960/ 2048]
-loss: 0.160577 [ 1088/ 2048]
-loss: 0.189080 [ 1216/ 2048]
-loss: 0.163971 [ 1344/ 2048]
-loss: 0.174236 [ 1472/ 2048]
-loss: 0.186355 [ 1600/ 2048]
-loss: 0.135443 [ 1728/ 2048]
-loss: 0.134191 [ 1856/ 2048]
-loss: 0.158571 [ 1984/ 2048]
+Batch contains 160 positive examples out of 512
+loss: 0.214266 [   64/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.194603 [  192/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.186450 [  320/ 2048]
+Batch contains 56 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.184392 [  448/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.167932 [  576/ 2048]
+Batch contains 200 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.148297 [  704/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.167620 [  832/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.163317 [  960/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.186502 [ 1088/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.158883 [ 1216/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.188249 [ 1344/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.156132 [ 1472/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 184 positive examples out of 512
+loss: 0.196062 [ 1600/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.165015 [ 1728/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.140028 [ 1856/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.154738 [ 1984/ 2048]
+Batch contains 136 positive examples out of 512
 Validation Error: 
-Accuracy: 75.0%, Avg loss: 0.185028
+Accuracy: 68.0%, Avg loss: 0.202825, Positive ratio: 0.658203
 Validation loss improved, saving model
-Epoch time: 50.14 seconds 
+Epoch time: 59.94 seconds 
 
 Epoch 3
 ----------------------------
-loss: 0.150389 [   64/ 2048]
-loss: 0.161562 [  192/ 2048]
-loss: 0.163025 [  320/ 2048]
-loss: 0.173799 [  448/ 2048]
-loss: 0.205918 [  576/ 2048]
-loss: 0.161247 [  704/ 2048]
-loss: 0.143810 [  832/ 2048]
-loss: 0.166191 [  960/ 2048]
-loss: 0.148775 [ 1088/ 2048]
-loss: 0.168642 [ 1216/ 2048]
-loss: 0.187446 [ 1344/ 2048]
-loss: 0.182952 [ 1472/ 2048]
-loss: 0.142782 [ 1600/ 2048]
-loss: 0.147892 [ 1728/ 2048]
-loss: 0.159770 [ 1856/ 2048]
-loss: 0.155360 [ 1984/ 2048]
+Batch contains 104 positive examples out of 512
+loss: 0.148311 [   64/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.133751 [  192/ 2048]
+Batch contains 176 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.185471 [  320/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.173156 [  448/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.145825 [  576/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.159344 [  704/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.181039 [  832/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.180018 [  960/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.167234 [ 1088/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.112050 [ 1216/ 2048]
+Batch contains 168 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.155020 [ 1344/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.175590 [ 1472/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.202100 [ 1600/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.131393 [ 1728/ 2048]
+Batch contains 48 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.175322 [ 1856/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.177310 [ 1984/ 2048]
+Batch contains 160 positive examples out of 512
 Validation Error: 
-Accuracy: 73.1%, Avg loss: 0.189444
-Epoch time: 49.62 seconds 
+Accuracy: 63.2%, Avg loss: 0.216378, Positive ratio: 0.739746
+Epoch time: 59.35 seconds 
 
 Epoch 4
 ----------------------------
-loss: 0.153379 [   64/ 2048]
-loss: 0.174521 [  192/ 2048]
-loss: 0.174547 [  320/ 2048]
-loss: 0.165144 [  448/ 2048]
-loss: 0.151052 [  576/ 2048]
-loss: 0.152316 [  704/ 2048]
-loss: 0.173148 [  832/ 2048]
-loss: 0.145027 [  960/ 2048]
-loss: 0.166812 [ 1088/ 2048]
-loss: 0.183081 [ 1216/ 2048]
-loss: 0.154517 [ 1344/ 2048]
-loss: 0.152735 [ 1472/ 2048]
-loss: 0.111120 [ 1600/ 2048]
-loss: 0.146687 [ 1728/ 2048]
-loss: 0.138592 [ 1856/ 2048]
-loss: 0.126250 [ 1984/ 2048]
+Batch contains 72 positive examples out of 512
+loss: 0.136939 [   64/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.143153 [  192/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 176 positive examples out of 512
+loss: 0.181094 [  320/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.160880 [  448/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.145299 [  576/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 64 positive examples out of 512
+loss: 0.141636 [  704/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.165770 [  832/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.148549 [  960/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.197134 [ 1088/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.173336 [ 1216/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.166729 [ 1344/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.144621 [ 1472/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.192254 [ 1600/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 176 positive examples out of 512
+loss: 0.196508 [ 1728/ 2048]
+Batch contains 64 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.155171 [ 1856/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.153841 [ 1984/ 2048]
+Batch contains 112 positive examples out of 512
 Validation Error: 
-Accuracy: 61.5%, Avg loss: 0.250624
-Epoch time: 48.24 seconds 
+Accuracy: 76.0%, Avg loss: 0.175999, Positive ratio: 0.324707
+Validation loss improved, saving model
+Epoch time: 53.55 seconds 
 
 Epoch 5
 ----------------------------
-loss: 0.174819 [   64/ 2048]
-loss: 0.136682 [  192/ 2048]
-loss: 0.134975 [  320/ 2048]
-loss: 0.112053 [  448/ 2048]
-loss: 0.219998 [  576/ 2048]
-loss: 0.175428 [  704/ 2048]
-loss: 0.135628 [  832/ 2048]
-loss: 0.135838 [  960/ 2048]
-loss: 0.145780 [ 1088/ 2048]
-loss: 0.160024 [ 1216/ 2048]
-loss: 0.158014 [ 1344/ 2048]
-loss: 0.164508 [ 1472/ 2048]
-loss: 0.153079 [ 1600/ 2048]
-loss: 0.143540 [ 1728/ 2048]
-loss: 0.158305 [ 1856/ 2048]
-loss: 0.147502 [ 1984/ 2048]
+Batch contains 176 positive examples out of 512
+loss: 0.183179 [   64/ 2048]
+Batch contains 176 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.143766 [  192/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.204769 [  320/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.153766 [  448/ 2048]
+Batch contains 56 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.145163 [  576/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.146265 [  704/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.148548 [  832/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.116991 [  960/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.129091 [ 1088/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.159030 [ 1216/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.172875 [ 1344/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.138866 [ 1472/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.144411 [ 1600/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.158975 [ 1728/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.143412 [ 1856/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.147755 [ 1984/ 2048]
+Batch contains 64 positive examples out of 512
 Validation Error: 
-Accuracy: 72.6%, Avg loss: 0.182808
-Validation loss improved, saving model
-Epoch time: 47.75 seconds 
+Accuracy: 67.1%, Avg loss: 0.211977, Positive ratio: 0.158203
+Epoch time: 69.39 seconds 
 
 Epoch 6
 ----------------------------
-loss: 0.122272 [   64/ 2048]
-loss: 0.186806 [  192/ 2048]
-loss: 0.123997 [  320/ 2048]
-loss: 0.170561 [  448/ 2048]
-loss: 0.175092 [  576/ 2048]
-loss: 0.148641 [  704/ 2048]
-loss: 0.140573 [  832/ 2048]
-loss: 0.126911 [  960/ 2048]
-loss: 0.165520 [ 1088/ 2048]
-loss: 0.165540 [ 1216/ 2048]
-loss: 0.193656 [ 1344/ 2048]
-loss: 0.188999 [ 1472/ 2048]
-loss: 0.142443 [ 1600/ 2048]
-loss: 0.166851 [ 1728/ 2048]
-loss: 0.132525 [ 1856/ 2048]
-loss: 0.156445 [ 1984/ 2048]
+Batch contains 120 positive examples out of 512
+loss: 0.131865 [   64/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.134101 [  192/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.193569 [  320/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.141589 [  448/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.161958 [  576/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.167803 [  704/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.132187 [  832/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.117623 [  960/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.137373 [ 1088/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.118838 [ 1216/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.144563 [ 1344/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.182588 [ 1472/ 2048]
+Batch contains 72 positive examples out of 512
+Batch contains 64 positive examples out of 512
+loss: 0.142835 [ 1600/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.128404 [ 1728/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.099667 [ 1856/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.127436 [ 1984/ 2048]
+Batch contains 104 positive examples out of 512
 Validation Error: 
-Accuracy: 72.7%, Avg loss: 0.182253
-Validation loss improved, saving model
-Epoch time: 47.00 seconds 
+Accuracy: 73.7%, Avg loss: 0.179079, Positive ratio: 0.402832
+Epoch time: 54.55 seconds 
 
 Epoch 7
 ----------------------------
-loss: 0.177794 [   64/ 2048]
-loss: 0.167670 [  192/ 2048]
-loss: 0.136880 [  320/ 2048]
-loss: 0.151058 [  448/ 2048]
-loss: 0.140524 [  576/ 2048]
-loss: 0.135569 [  704/ 2048]
-loss: 0.177448 [  832/ 2048]
-loss: 0.172531 [  960/ 2048]
-loss: 0.122901 [ 1088/ 2048]
-loss: 0.165491 [ 1216/ 2048]
-loss: 0.142681 [ 1344/ 2048]
-loss: 0.122961 [ 1472/ 2048]
-loss: 0.131592 [ 1600/ 2048]
-loss: 0.122842 [ 1728/ 2048]
-loss: 0.141400 [ 1856/ 2048]
-loss: 0.135719 [ 1984/ 2048]
+Batch contains 136 positive examples out of 512
+loss: 0.136116 [   64/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.147550 [  192/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.153637 [  320/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.155842 [  448/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.179552 [  576/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.110653 [  704/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.108795 [  832/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.191294 [  960/ 2048]
+Batch contains 184 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.162420 [ 1088/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.159437 [ 1216/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.167092 [ 1344/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.146418 [ 1472/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.180743 [ 1600/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.176382 [ 1728/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.098864 [ 1856/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.148257 [ 1984/ 2048]
+Batch contains 88 positive examples out of 512
 Validation Error: 
-Accuracy: 64.9%, Avg loss: 0.234512
-Epoch time: 46.85 seconds 
+Accuracy: 74.7%, Avg loss: 0.175094, Positive ratio: 0.446777
+Validation loss improved, saving model
+Epoch time: 53.58 seconds 
 
 Epoch 8
 ----------------------------
-loss: 0.110845 [   64/ 2048]
-loss: 0.169196 [  192/ 2048]
-loss: 0.123319 [  320/ 2048]
-loss: 0.130533 [  448/ 2048]
-loss: 0.173647 [  576/ 2048]
-loss: 0.138986 [  704/ 2048]
-loss: 0.135041 [  832/ 2048]
-loss: 0.133335 [  960/ 2048]
-loss: 0.148373 [ 1088/ 2048]
-loss: 0.136954 [ 1216/ 2048]
-loss: 0.132124 [ 1344/ 2048]
-loss: 0.136182 [ 1472/ 2048]
-loss: 0.186044 [ 1600/ 2048]
-loss: 0.182202 [ 1728/ 2048]
-loss: 0.149198 [ 1856/ 2048]
-loss: 0.143218 [ 1984/ 2048]
+Batch contains 120 positive examples out of 512
+loss: 0.107764 [   64/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.174039 [  192/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.174897 [  320/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.159863 [  448/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 184 positive examples out of 512
+loss: 0.192076 [  576/ 2048]
+Batch contains 168 positive examples out of 512
+Batch contains 184 positive examples out of 512
+loss: 0.202331 [  704/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.142846 [  832/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.142984 [  960/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.144146 [ 1088/ 2048]
+Batch contains 168 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.149518 [ 1216/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.126115 [ 1344/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.104621 [ 1472/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.121981 [ 1600/ 2048]
+Batch contains 168 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.133781 [ 1728/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.155755 [ 1856/ 2048]
+Batch contains 72 positive examples out of 512
+Batch contains 192 positive examples out of 512
+loss: 0.220620 [ 1984/ 2048]
+Batch contains 88 positive examples out of 512
 Validation Error: 
-Accuracy: 68.8%, Avg loss: 0.200614
-Epoch time: 46.55 seconds 
+Accuracy: 70.8%, Avg loss: 0.189931, Positive ratio: 0.256348
+Epoch time: 62.42 seconds 
 
 Epoch 9
 ----------------------------
-loss: 0.140239 [   64/ 2048]
-loss: 0.125582 [  192/ 2048]
-loss: 0.111334 [  320/ 2048]
-loss: 0.171577 [  448/ 2048]
-loss: 0.160197 [  576/ 2048]
-loss: 0.135919 [  704/ 2048]
-loss: 0.113725 [  832/ 2048]
-loss: 0.131935 [  960/ 2048]
-loss: 0.126281 [ 1088/ 2048]
-loss: 0.124406 [ 1216/ 2048]
-loss: 0.152677 [ 1344/ 2048]
-loss: 0.171574 [ 1472/ 2048]
-loss: 0.153244 [ 1600/ 2048]
-loss: 0.157144 [ 1728/ 2048]
-loss: 0.149894 [ 1856/ 2048]
-loss: 0.142572 [ 1984/ 2048]
+Batch contains 128 positive examples out of 512
+loss: 0.121503 [   64/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.161393 [  192/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.125470 [  320/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.161627 [  448/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.163920 [  576/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 64 positive examples out of 512
+loss: 0.108499 [  704/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.170693 [  832/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.110267 [  960/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.140666 [ 1088/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.163444 [ 1216/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 192 positive examples out of 512
+loss: 0.171390 [ 1344/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.182904 [ 1472/ 2048]
+Batch contains 64 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.143320 [ 1600/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.126767 [ 1728/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.151141 [ 1856/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.125248 [ 1984/ 2048]
+Batch contains 80 positive examples out of 512
 Validation Error: 
-Accuracy: 73.7%, Avg loss: 0.179864
-Validation loss improved, saving model
-Epoch time: 46.23 seconds 
+Accuracy: 71.7%, Avg loss: 0.194516, Positive ratio: 0.272949
+Epoch time: 53.92 seconds 
 
 Epoch 10
 ----------------------------
-loss: 0.169015 [   64/ 2048]
-loss: 0.192541 [  192/ 2048]
-loss: 0.130860 [  320/ 2048]
-loss: 0.124315 [  448/ 2048]
-loss: 0.105137 [  576/ 2048]
-loss: 0.165420 [  704/ 2048]
-loss: 0.134573 [  832/ 2048]
-loss: 0.144179 [  960/ 2048]
-loss: 0.148730 [ 1088/ 2048]
-loss: 0.144843 [ 1216/ 2048]
-loss: 0.159602 [ 1344/ 2048]
-loss: 0.116781 [ 1472/ 2048]
-loss: 0.117165 [ 1600/ 2048]
-loss: 0.153821 [ 1728/ 2048]
-loss: 0.151145 [ 1856/ 2048]
-loss: 0.110797 [ 1984/ 2048]
+Batch contains 136 positive examples out of 512
+loss: 0.166786 [   64/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 56 positive examples out of 512
+loss: 0.106620 [  192/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.103966 [  320/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.114123 [  448/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.144164 [  576/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.121937 [  704/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.134888 [  832/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.152366 [  960/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.133120 [ 1088/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.121443 [ 1216/ 2048]
+Batch contains 200 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.131207 [ 1344/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.119150 [ 1472/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.187394 [ 1600/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.143511 [ 1728/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.153673 [ 1856/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.117110 [ 1984/ 2048]
+Batch contains 168 positive examples out of 512
 Validation Error: 
-Accuracy: 66.2%, Avg loss: 0.198622
-Epoch time: 45.63 seconds 
+Accuracy: 63.3%, Avg loss: 0.226631, Positive ratio: 0.084961
+Epoch time: 55.87 seconds 
 
 Epoch 11
 ----------------------------
-loss: 0.125412 [   64/ 2048]
-loss: 0.160367 [  192/ 2048]
-loss: 0.117927 [  320/ 2048]
-loss: 0.172362 [  448/ 2048]
-loss: 0.153803 [  576/ 2048]
-loss: 0.135407 [  704/ 2048]
-loss: 0.152995 [  832/ 2048]
-loss: 0.158498 [  960/ 2048]
-loss: 0.136146 [ 1088/ 2048]
-loss: 0.130089 [ 1216/ 2048]
-loss: 0.157793 [ 1344/ 2048]
-loss: 0.176870 [ 1472/ 2048]
-loss: 0.170791 [ 1600/ 2048]
-loss: 0.140463 [ 1728/ 2048]
-loss: 0.124555 [ 1856/ 2048]
-loss: 0.157358 [ 1984/ 2048]
+Batch contains 136 positive examples out of 512
+loss: 0.136454 [   64/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.149139 [  192/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.153920 [  320/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.122691 [  448/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.137305 [  576/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.154223 [  704/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.105065 [  832/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.145755 [  960/ 2048]
+Batch contains 176 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.168288 [ 1088/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.118822 [ 1216/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.147483 [ 1344/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.162130 [ 1472/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 72 positive examples out of 512
+loss: 0.126256 [ 1600/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.158204 [ 1728/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.113724 [ 1856/ 2048]
+Batch contains 176 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.118799 [ 1984/ 2048]
+Batch contains 120 positive examples out of 512
 Validation Error: 
-Accuracy: 74.7%, Avg loss: 0.174842
-Validation loss improved, saving model
-Epoch time: 46.26 seconds 
+Accuracy: 72.5%, Avg loss: 0.181180, Positive ratio: 0.489746
+Epoch time: 61.07 seconds 
 
 Epoch 12
 ----------------------------
-loss: 0.116661 [   64/ 2048]
-loss: 0.102745 [  192/ 2048]
-loss: 0.143594 [  320/ 2048]
-loss: 0.129658 [  448/ 2048]
-loss: 0.141214 [  576/ 2048]
-loss: 0.171136 [  704/ 2048]
-loss: 0.190402 [  832/ 2048]
-loss: 0.112478 [  960/ 2048]
-loss: 0.155183 [ 1088/ 2048]
-loss: 0.125856 [ 1216/ 2048]
-loss: 0.143435 [ 1344/ 2048]
-loss: 0.140060 [ 1472/ 2048]
-loss: 0.166431 [ 1600/ 2048]
-loss: 0.136389 [ 1728/ 2048]
-loss: 0.122190 [ 1856/ 2048]
-loss: 0.107253 [ 1984/ 2048]
+Batch contains 136 positive examples out of 512
+loss: 0.149808 [   64/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.166841 [  192/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.138426 [  320/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.125520 [  448/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.133664 [  576/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.162843 [  704/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.100019 [  832/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.152587 [  960/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.160392 [ 1088/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 176 positive examples out of 512
+loss: 0.191887 [ 1216/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 72 positive examples out of 512
+loss: 0.116129 [ 1344/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.119570 [ 1472/ 2048]
+Batch contains 168 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.176129 [ 1600/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.183124 [ 1728/ 2048]
+Batch contains 168 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.110280 [ 1856/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.103509 [ 1984/ 2048]
+Batch contains 80 positive examples out of 512
 Validation Error: 
-Accuracy: 71.4%, Avg loss: 0.180829
-Epoch time: 45.50 seconds 
+Accuracy: 68.2%, Avg loss: 0.200799, Positive ratio: 0.203125
+Epoch time: 51.56 seconds 
 
 Epoch 13
 ----------------------------
-loss: 0.147815 [   64/ 2048]
-loss: 0.152437 [  192/ 2048]
-loss: 0.182705 [  320/ 2048]
-loss: 0.152816 [  448/ 2048]
-loss: 0.120822 [  576/ 2048]
-loss: 0.102364 [  704/ 2048]
-loss: 0.176444 [  832/ 2048]
-loss: 0.131335 [  960/ 2048]
-loss: 0.144971 [ 1088/ 2048]
-loss: 0.144692 [ 1216/ 2048]
-loss: 0.108766 [ 1344/ 2048]
-loss: 0.141457 [ 1472/ 2048]
-loss: 0.124354 [ 1600/ 2048]
-loss: 0.148001 [ 1728/ 2048]
-loss: 0.183069 [ 1856/ 2048]
-loss: 0.147976 [ 1984/ 2048]
+Batch contains 120 positive examples out of 512
+loss: 0.121579 [   64/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.158043 [  192/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.154642 [  320/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.179268 [  448/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 184 positive examples out of 512
+loss: 0.212525 [  576/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.148720 [  704/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.163120 [  832/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.140763 [  960/ 2048]
+Batch contains 200 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.135666 [ 1088/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.140403 [ 1216/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.132803 [ 1344/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.159853 [ 1472/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.115139 [ 1600/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.127354 [ 1728/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.186739 [ 1856/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.129011 [ 1984/ 2048]
+Batch contains 104 positive examples out of 512
 Validation Error: 
-Accuracy: 75.2%, Avg loss: 0.179654
-Epoch time: 45.60 seconds 
+Accuracy: 72.2%, Avg loss: 0.175285, Positive ratio: 0.334961
+Epoch time: 53.37 seconds 
 
 Epoch 14
 ----------------------------
-loss: 0.109067 [   64/ 2048]
-loss: 0.128370 [  192/ 2048]
-loss: 0.106059 [  320/ 2048]
-loss: 0.133249 [  448/ 2048]
-loss: 0.127290 [  576/ 2048]
-loss: 0.150732 [  704/ 2048]
-loss: 0.115665 [  832/ 2048]
-loss: 0.137480 [  960/ 2048]
-loss: 0.162826 [ 1088/ 2048]
-loss: 0.103588 [ 1216/ 2048]
-loss: 0.157317 [ 1344/ 2048]
-loss: 0.117620 [ 1472/ 2048]
-loss: 0.122619 [ 1600/ 2048]
-loss: 0.140175 [ 1728/ 2048]
-loss: 0.100949 [ 1856/ 2048]
-loss: 0.099918 [ 1984/ 2048]
+Batch contains 104 positive examples out of 512
+loss: 0.128301 [   64/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.124993 [  192/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.121101 [  320/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.137209 [  448/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.121367 [  576/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.115993 [  704/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 56 positive examples out of 512
+loss: 0.118070 [  832/ 2048]
+Batch contains 168 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.144827 [  960/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.128116 [ 1088/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.129988 [ 1216/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.106387 [ 1344/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.188771 [ 1472/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.133066 [ 1600/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.142867 [ 1728/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.134479 [ 1856/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.128120 [ 1984/ 2048]
+Batch contains 128 positive examples out of 512
 Validation Error: 
-Accuracy: 73.8%, Avg loss: 0.172257
+Accuracy: 76.1%, Avg loss: 0.161086, Positive ratio: 0.361816
 Validation loss improved, saving model
-Epoch time: 46.26 seconds 
+Epoch time: 76.14 seconds 
 
 Epoch 15
 ----------------------------
-loss: 0.114847 [   64/ 2048]
-loss: 0.099638 [  192/ 2048]
-loss: 0.109630 [  320/ 2048]
-loss: 0.129727 [  448/ 2048]
-loss: 0.210276 [  576/ 2048]
-loss: 0.156351 [  704/ 2048]
-loss: 0.122563 [  832/ 2048]
-loss: 0.147752 [  960/ 2048]
-loss: 0.110612 [ 1088/ 2048]
-loss: 0.120584 [ 1216/ 2048]
-loss: 0.138779 [ 1344/ 2048]
-loss: 0.179472 [ 1472/ 2048]
-loss: 0.111940 [ 1600/ 2048]
-loss: 0.137917 [ 1728/ 2048]
-loss: 0.120576 [ 1856/ 2048]
-loss: 0.102051 [ 1984/ 2048]
+Batch contains 72 positive examples out of 512
+loss: 0.102667 [   64/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.115771 [  192/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.141204 [  320/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.131974 [  448/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.130165 [  576/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.186670 [  704/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.116025 [  832/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.152641 [  960/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.139827 [ 1088/ 2048]
+Batch contains 192 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.133521 [ 1216/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.160472 [ 1344/ 2048]
+Batch contains 64 positive examples out of 512
+Batch contains 72 positive examples out of 512
+loss: 0.114899 [ 1472/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.115078 [ 1600/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.119182 [ 1728/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.117160 [ 1856/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.146517 [ 1984/ 2048]
+Batch contains 120 positive examples out of 512
 Validation Error: 
-Accuracy: 73.8%, Avg loss: 0.171421
-Validation loss improved, saving model
-Epoch time: 45.20 seconds 
+Accuracy: 64.7%, Avg loss: 0.243217, Positive ratio: 0.098633
+Epoch time: 54.85 seconds 
 
 Epoch 16
 ----------------------------
-loss: 0.159523 [   64/ 2048]
-loss: 0.121218 [  192/ 2048]
-loss: 0.156704 [  320/ 2048]
-loss: 0.161911 [  448/ 2048]
-loss: 0.141434 [  576/ 2048]
-loss: 0.152113 [  704/ 2048]
-loss: 0.165204 [  832/ 2048]
-loss: 0.104237 [  960/ 2048]
-loss: 0.121356 [ 1088/ 2048]
-loss: 0.117972 [ 1216/ 2048]
-loss: 0.135241 [ 1344/ 2048]
-loss: 0.128487 [ 1472/ 2048]
-loss: 0.146454 [ 1600/ 2048]
-loss: 0.140522 [ 1728/ 2048]
-loss: 0.149159 [ 1856/ 2048]
-loss: 0.113356 [ 1984/ 2048]
+Batch contains 120 positive examples out of 512
+loss: 0.111929 [   64/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.102249 [  192/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.170747 [  320/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 192 positive examples out of 512
+loss: 0.168133 [  448/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.109160 [  576/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.151612 [  704/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.134246 [  832/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.105717 [  960/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.136012 [ 1088/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.138202 [ 1216/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.126115 [ 1344/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.142293 [ 1472/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.153081 [ 1600/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.142145 [ 1728/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.148572 [ 1856/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.113211 [ 1984/ 2048]
+Batch contains 112 positive examples out of 512
 Validation Error: 
-Accuracy: 71.3%, Avg loss: 0.179868
-Epoch time: 44.77 seconds 
+Accuracy: 67.8%, Avg loss: 0.210235, Positive ratio: 0.143555
+Epoch time: 68.94 seconds 
 
 Epoch 17
 ----------------------------
-loss: 0.150381 [   64/ 2048]
-loss: 0.140897 [  192/ 2048]
-loss: 0.167871 [  320/ 2048]
-loss: 0.151350 [  448/ 2048]
-loss: 0.105908 [  576/ 2048]
-loss: 0.140558 [  704/ 2048]
-loss: 0.134506 [  832/ 2048]
-loss: 0.110627 [  960/ 2048]
-loss: 0.111293 [ 1088/ 2048]
-loss: 0.114501 [ 1216/ 2048]
-loss: 0.177286 [ 1344/ 2048]
-loss: 0.088593 [ 1472/ 2048]
-loss: 0.109302 [ 1600/ 2048]
-loss: 0.154177 [ 1728/ 2048]
-loss: 0.100634 [ 1856/ 2048]
-loss: 0.120884 [ 1984/ 2048]
+Batch contains 112 positive examples out of 512
+loss: 0.122829 [   64/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.156706 [  192/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.116138 [  320/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 192 positive examples out of 512
+loss: 0.183239 [  448/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.133522 [  576/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.122995 [  704/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.123949 [  832/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.164878 [  960/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.100912 [ 1088/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.125009 [ 1216/ 2048]
+Batch contains 48 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.142816 [ 1344/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.144254 [ 1472/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.099248 [ 1600/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.151043 [ 1728/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.154131 [ 1856/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.095021 [ 1984/ 2048]
+Batch contains 96 positive examples out of 512
 Validation Error: 
-Accuracy: 71.9%, Avg loss: 0.179408
-Epoch time: 45.35 seconds 
+Accuracy: 62.2%, Avg loss: 0.244556, Positive ratio: 0.056152
+Epoch time: 73.06 seconds 
 
 Epoch 18
 ----------------------------
-loss: 0.159358 [   64/ 2048]
-loss: 0.128069 [  192/ 2048]
-loss: 0.151336 [  320/ 2048]
-loss: 0.104364 [  448/ 2048]
-loss: 0.125756 [  576/ 2048]
-loss: 0.110739 [  704/ 2048]
-loss: 0.142662 [  832/ 2048]
-loss: 0.107144 [  960/ 2048]
-loss: 0.131285 [ 1088/ 2048]
-loss: 0.108727 [ 1216/ 2048]
-loss: 0.129805 [ 1344/ 2048]
-loss: 0.113492 [ 1472/ 2048]
-loss: 0.135918 [ 1600/ 2048]
-loss: 0.126190 [ 1728/ 2048]
-loss: 0.105663 [ 1856/ 2048]
-loss: 0.124352 [ 1984/ 2048]
+Batch contains 120 positive examples out of 512
+loss: 0.097983 [   64/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.126805 [  192/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.125124 [  320/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.145521 [  448/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.138186 [  576/ 2048]
+Batch contains 168 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.120729 [  704/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.114908 [  832/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.137740 [  960/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.119745 [ 1088/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.121557 [ 1216/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.155876 [ 1344/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.130738 [ 1472/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.106153 [ 1600/ 2048]
+Batch contains 176 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.119418 [ 1728/ 2048]
+Batch contains 72 positive examples out of 512
+Batch contains 64 positive examples out of 512
+loss: 0.135505 [ 1856/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.113260 [ 1984/ 2048]
+Batch contains 72 positive examples out of 512
 Validation Error: 
-Accuracy: 72.8%, Avg loss: 0.178884
-Epoch time: 45.67 seconds 
+Accuracy: 61.4%, Avg loss: 0.266463, Positive ratio: 0.045898
+Epoch time: 77.74 seconds 
 
 Epoch 19
 ----------------------------
-loss: 0.159201 [   64/ 2048]
-loss: 0.182127 [  192/ 2048]
-loss: 0.134826 [  320/ 2048]
-loss: 0.090929 [  448/ 2048]
-loss: 0.159848 [  576/ 2048]
-loss: 0.109068 [  704/ 2048]
-loss: 0.110802 [  832/ 2048]
-loss: 0.170020 [  960/ 2048]
-loss: 0.104747 [ 1088/ 2048]
-loss: 0.114294 [ 1216/ 2048]
-loss: 0.138179 [ 1344/ 2048]
-loss: 0.162867 [ 1472/ 2048]
-loss: 0.152500 [ 1600/ 2048]
-loss: 0.144071 [ 1728/ 2048]
-loss: 0.143644 [ 1856/ 2048]
-loss: 0.122800 [ 1984/ 2048]
+Batch contains 144 positive examples out of 512
+loss: 0.149650 [   64/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.107445 [  192/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.103519 [  320/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.111690 [  448/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.092674 [  576/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.150459 [  704/ 2048]
+Batch contains 168 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.116071 [  832/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.135093 [  960/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.120366 [ 1088/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.166271 [ 1216/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.122369 [ 1344/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.117298 [ 1472/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.119445 [ 1600/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.143691 [ 1728/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.143569 [ 1856/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.125810 [ 1984/ 2048]
+Batch contains 88 positive examples out of 512
 Validation Error: 
-Accuracy: 72.7%, Avg loss: 0.175268
-Epoch time: 45.77 seconds 
+Accuracy: 75.2%, Avg loss: 0.168173, Positive ratio: 0.320312
+Epoch time: 104.81 seconds 
 
 Epoch 20
 ----------------------------
-loss: 0.125982 [   64/ 2048]
-loss: 0.099312 [  192/ 2048]
-loss: 0.130943 [  320/ 2048]
-loss: 0.113141 [  448/ 2048]
-loss: 0.129217 [  576/ 2048]
-loss: 0.100390 [  704/ 2048]
-loss: 0.146869 [  832/ 2048]
-loss: 0.120635 [  960/ 2048]
-loss: 0.101839 [ 1088/ 2048]
-loss: 0.198138 [ 1216/ 2048]
-loss: 0.136050 [ 1344/ 2048]
-loss: 0.102511 [ 1472/ 2048]
-loss: 0.130867 [ 1600/ 2048]
-loss: 0.120096 [ 1728/ 2048]
-loss: 0.098982 [ 1856/ 2048]
-loss: 0.160730 [ 1984/ 2048]
+Batch contains 120 positive examples out of 512
+loss: 0.104769 [   64/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.126299 [  192/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.125266 [  320/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.126904 [  448/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.103892 [  576/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.100663 [  704/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.153383 [  832/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.131920 [  960/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.168150 [ 1088/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.139388 [ 1216/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.137486 [ 1344/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.122442 [ 1472/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 56 positive examples out of 512
+loss: 0.112639 [ 1600/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.156259 [ 1728/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.141199 [ 1856/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.102871 [ 1984/ 2048]
+Batch contains 80 positive examples out of 512
 Validation Error: 
-Accuracy: 67.0%, Avg loss: 0.200190
-Epoch time: 45.48 seconds 
+Accuracy: 71.5%, Avg loss: 0.185633, Positive ratio: 0.266113
+Epoch time: 92.19 seconds 
 
 Epoch 21
 ----------------------------
-loss: 0.189176 [   64/ 2048]
-loss: 0.154669 [  192/ 2048]
-loss: 0.111968 [  320/ 2048]
-loss: 0.162503 [  448/ 2048]
-loss: 0.149535 [  576/ 2048]
-loss: 0.129889 [  704/ 2048]
-loss: 0.126273 [  832/ 2048]
-loss: 0.121020 [  960/ 2048]
-loss: 0.140672 [ 1088/ 2048]
-loss: 0.145738 [ 1216/ 2048]
-loss: 0.116137 [ 1344/ 2048]
-loss: 0.109005 [ 1472/ 2048]
-loss: 0.190938 [ 1600/ 2048]
-loss: 0.183146 [ 1728/ 2048]
-loss: 0.109616 [ 1856/ 2048]
-loss: 0.147589 [ 1984/ 2048]
+Batch contains 120 positive examples out of 512
+loss: 0.137359 [   64/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.093077 [  192/ 2048]
+Batch contains 176 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.094562 [  320/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.108286 [  448/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.138477 [  576/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.121876 [  704/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.146784 [  832/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.137187 [  960/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.150857 [ 1088/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.113971 [ 1216/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.135725 [ 1344/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.120937 [ 1472/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 72 positive examples out of 512
+loss: 0.086185 [ 1600/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.140401 [ 1728/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.107662 [ 1856/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.136330 [ 1984/ 2048]
+Batch contains 128 positive examples out of 512
 Validation Error: 
-Accuracy: 67.9%, Avg loss: 0.219033
-Epoch time: 45.88 seconds 
+Accuracy: 74.3%, Avg loss: 0.163629, Positive ratio: 0.355957
+Epoch time: 75.59 seconds 
 
 Epoch 22
 ----------------------------
-loss: 0.102314 [   64/ 2048]
-loss: 0.127050 [  192/ 2048]
-loss: 0.106634 [  320/ 2048]
-loss: 0.120492 [  448/ 2048]
-loss: 0.144959 [  576/ 2048]
-loss: 0.086045 [  704/ 2048]
-loss: 0.123312 [  832/ 2048]
-loss: 0.128787 [  960/ 2048]
-loss: 0.120351 [ 1088/ 2048]
-loss: 0.145876 [ 1216/ 2048]
-loss: 0.110136 [ 1344/ 2048]
-loss: 0.149671 [ 1472/ 2048]
-loss: 0.134205 [ 1600/ 2048]
-loss: 0.123219 [ 1728/ 2048]
-loss: 0.157884 [ 1856/ 2048]
-loss: 0.143445 [ 1984/ 2048]
+Batch contains 96 positive examples out of 512
+loss: 0.144744 [   64/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 200 positive examples out of 512
+loss: 0.168140 [  192/ 2048]
+Batch contains 192 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.137162 [  320/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 56 positive examples out of 512
+loss: 0.109603 [  448/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.095710 [  576/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.168310 [  704/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.135399 [  832/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.118605 [  960/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.121865 [ 1088/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.122740 [ 1216/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.169345 [ 1344/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.084391 [ 1472/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.117175 [ 1600/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.150580 [ 1728/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.134077 [ 1856/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.150734 [ 1984/ 2048]
+Batch contains 160 positive examples out of 512
 Validation Error: 
-Accuracy: 73.6%, Avg loss: 0.169363
+Accuracy: 76.8%, Avg loss: 0.157524, Positive ratio: 0.430176
 Validation loss improved, saving model
-Epoch time: 46.08 seconds 
+Epoch time: 71.88 seconds 
 
 Epoch 23
 ----------------------------
-loss: 0.094231 [   64/ 2048]
-loss: 0.168337 [  192/ 2048]
-loss: 0.114465 [  320/ 2048]
-loss: 0.157239 [  448/ 2048]
-loss: 0.105903 [  576/ 2048]
-loss: 0.129328 [  704/ 2048]
-loss: 0.149387 [  832/ 2048]
-loss: 0.123592 [  960/ 2048]
-loss: 0.108520 [ 1088/ 2048]
-loss: 0.148808 [ 1216/ 2048]
-loss: 0.100784 [ 1344/ 2048]
-loss: 0.096946 [ 1472/ 2048]
-loss: 0.161439 [ 1600/ 2048]
-loss: 0.129128 [ 1728/ 2048]
-loss: 0.169606 [ 1856/ 2048]
-loss: 0.102985 [ 1984/ 2048]
+Batch contains 96 positive examples out of 512
+loss: 0.099138 [   64/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.140204 [  192/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.151145 [  320/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.151931 [  448/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.158202 [  576/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.121032 [  704/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.141834 [  832/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.117448 [  960/ 2048]
+Batch contains 72 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.133183 [ 1088/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.126805 [ 1216/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.136205 [ 1344/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.159320 [ 1472/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.155536 [ 1600/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.121616 [ 1728/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.108094 [ 1856/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.109843 [ 1984/ 2048]
+Batch contains 96 positive examples out of 512
 Validation Error: 
-Accuracy: 75.4%, Avg loss: 0.164461
-Validation loss improved, saving model
-Epoch time: 46.51 seconds 
+Accuracy: 74.6%, Avg loss: 0.171543, Positive ratio: 0.297363
+Epoch time: 72.04 seconds 
 
 Epoch 24
 ----------------------------
-loss: 0.135291 [   64/ 2048]
-loss: 0.135041 [  192/ 2048]
-loss: 0.131734 [  320/ 2048]
-loss: 0.170635 [  448/ 2048]
-loss: 0.111666 [  576/ 2048]
-loss: 0.132560 [  704/ 2048]
-loss: 0.083413 [  832/ 2048]
-loss: 0.091541 [  960/ 2048]
-loss: 0.090272 [ 1088/ 2048]
-loss: 0.177789 [ 1216/ 2048]
-loss: 0.179979 [ 1344/ 2048]
-loss: 0.148800 [ 1472/ 2048]
-loss: 0.129067 [ 1600/ 2048]
-loss: 0.118144 [ 1728/ 2048]
-loss: 0.087039 [ 1856/ 2048]
-loss: 0.108996 [ 1984/ 2048]
+Batch contains 96 positive examples out of 512
+loss: 0.099700 [   64/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.128331 [  192/ 2048]
+Batch contains 176 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.133727 [  320/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.157664 [  448/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.141880 [  576/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.132967 [  704/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 72 positive examples out of 512
+loss: 0.142107 [  832/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.147583 [  960/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.128497 [ 1088/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.115933 [ 1216/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.144565 [ 1344/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.150096 [ 1472/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.117685 [ 1600/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.144809 [ 1728/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.127032 [ 1856/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.153942 [ 1984/ 2048]
+Batch contains 112 positive examples out of 512
 Validation Error: 
-Accuracy: 75.3%, Avg loss: 0.174400
-Epoch time: 44.75 seconds 
+Accuracy: 76.1%, Avg loss: 0.165217, Positive ratio: 0.319824
+Epoch time: 57.67 seconds 
 
 Epoch 25
 ----------------------------
-loss: 0.090994 [   64/ 2048]
-loss: 0.173024 [  192/ 2048]
-loss: 0.141040 [  320/ 2048]
-loss: 0.124234 [  448/ 2048]
-loss: 0.138724 [  576/ 2048]
-loss: 0.097685 [  704/ 2048]
-loss: 0.125305 [  832/ 2048]
-loss: 0.107812 [  960/ 2048]
-loss: 0.119700 [ 1088/ 2048]
-loss: 0.112514 [ 1216/ 2048]
-loss: 0.110557 [ 1344/ 2048]
-loss: 0.123744 [ 1472/ 2048]
-loss: 0.117633 [ 1600/ 2048]
-loss: 0.106676 [ 1728/ 2048]
-loss: 0.097889 [ 1856/ 2048]
-loss: 0.137599 [ 1984/ 2048]
+Batch contains 96 positive examples out of 512
+loss: 0.091406 [   64/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.130762 [  192/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.105137 [  320/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.106489 [  448/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.123311 [  576/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.131349 [  704/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.158976 [  832/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.097224 [  960/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.129796 [ 1088/ 2048]
+Batch contains 64 positive examples out of 512
+Batch contains 64 positive examples out of 512
+loss: 0.094362 [ 1216/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.114916 [ 1344/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.110046 [ 1472/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.121967 [ 1600/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.163264 [ 1728/ 2048]
+Batch contains 40 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.129301 [ 1856/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.130624 [ 1984/ 2048]
+Batch contains 176 positive examples out of 512
 Validation Error: 
-Accuracy: 70.1%, Avg loss: 0.205145
-Epoch time: 45.24 seconds 
+Accuracy: 75.5%, Avg loss: 0.167468, Positive ratio: 0.459961
+Epoch time: 65.94 seconds 
 
 Epoch 26
 ----------------------------
-loss: 0.129676 [   64/ 2048]
-loss: 0.129981 [  192/ 2048]
-loss: 0.108047 [  320/ 2048]
-loss: 0.123951 [  448/ 2048]
-loss: 0.130164 [  576/ 2048]
-loss: 0.096140 [  704/ 2048]
-loss: 0.092050 [  832/ 2048]
-loss: 0.137743 [  960/ 2048]
-loss: 0.147321 [ 1088/ 2048]
-loss: 0.159393 [ 1216/ 2048]
-loss: 0.156917 [ 1344/ 2048]
-loss: 0.135911 [ 1472/ 2048]
-loss: 0.092347 [ 1600/ 2048]
-loss: 0.171889 [ 1728/ 2048]
-loss: 0.173960 [ 1856/ 2048]
-loss: 0.135034 [ 1984/ 2048]
+Batch contains 120 positive examples out of 512
+loss: 0.148515 [   64/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.109726 [  192/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.127882 [  320/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.145637 [  448/ 2048]
+Batch contains 72 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.106785 [  576/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.143740 [  704/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.119209 [  832/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.142854 [  960/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.129577 [ 1088/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.121644 [ 1216/ 2048]
+Batch contains 64 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.144629 [ 1344/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.107807 [ 1472/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.188853 [ 1600/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.160486 [ 1728/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.099718 [ 1856/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.124998 [ 1984/ 2048]
+Batch contains 80 positive examples out of 512
 Validation Error: 
-Accuracy: 69.7%, Avg loss: 0.188467
-Epoch time: 45.40 seconds 
+Accuracy: 71.8%, Avg loss: 0.184965, Positive ratio: 0.571777
+Epoch time: 53.55 seconds 
 
 Epoch 27
 ----------------------------
-loss: 0.131556 [   64/ 2048]
-loss: 0.144375 [  192/ 2048]
-loss: 0.147402 [  320/ 2048]
-loss: 0.114206 [  448/ 2048]
-loss: 0.138730 [  576/ 2048]
-loss: 0.120444 [  704/ 2048]
-loss: 0.120241 [  832/ 2048]
-loss: 0.101021 [  960/ 2048]
-loss: 0.060914 [ 1088/ 2048]
-loss: 0.104580 [ 1216/ 2048]
-loss: 0.099751 [ 1344/ 2048]
-loss: 0.123629 [ 1472/ 2048]
-loss: 0.135492 [ 1600/ 2048]
-loss: 0.089347 [ 1728/ 2048]
-loss: 0.130126 [ 1856/ 2048]
-loss: 0.089015 [ 1984/ 2048]
+Batch contains 128 positive examples out of 512
+loss: 0.125987 [   64/ 2048]
+Batch contains 176 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.110995 [  192/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.148335 [  320/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.112304 [  448/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.106075 [  576/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.113656 [  704/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.124131 [  832/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.121489 [  960/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.100516 [ 1088/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.111309 [ 1216/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.095438 [ 1344/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.130430 [ 1472/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.128431 [ 1600/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.163084 [ 1728/ 2048]
+Batch contains 176 positive examples out of 512
+Batch contains 56 positive examples out of 512
+loss: 0.089036 [ 1856/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.123734 [ 1984/ 2048]
+Batch contains 128 positive examples out of 512
 Validation Error: 
-Accuracy: 76.0%, Avg loss: 0.161953
-Validation loss improved, saving model
-Epoch time: 45.02 seconds 
+Accuracy: 76.2%, Avg loss: 0.163360, Positive ratio: 0.341309
+Epoch time: 55.08 seconds 
 
 Epoch 28
 ----------------------------
-loss: 0.100842 [   64/ 2048]
-loss: 0.129213 [  192/ 2048]
-loss: 0.140160 [  320/ 2048]
-loss: 0.122752 [  448/ 2048]
-loss: 0.131325 [  576/ 2048]
-loss: 0.123132 [  704/ 2048]
-loss: 0.162238 [  832/ 2048]
-loss: 0.099956 [  960/ 2048]
-loss: 0.148193 [ 1088/ 2048]
-loss: 0.137296 [ 1216/ 2048]
-loss: 0.097596 [ 1344/ 2048]
-loss: 0.138191 [ 1472/ 2048]
-loss: 0.124448 [ 1600/ 2048]
-loss: 0.120009 [ 1728/ 2048]
-loss: 0.097083 [ 1856/ 2048]
-loss: 0.092706 [ 1984/ 2048]
+Batch contains 128 positive examples out of 512
+loss: 0.118306 [   64/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.099599 [  192/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.117872 [  320/ 2048]
+Batch contains 176 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.127990 [  448/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.117252 [  576/ 2048]
+Batch contains 48 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.129829 [  704/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.104441 [  832/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.132301 [  960/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.135199 [ 1088/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.137579 [ 1216/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.128483 [ 1344/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.152469 [ 1472/ 2048]
+Batch contains 192 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.123939 [ 1600/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.144034 [ 1728/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.138511 [ 1856/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 72 positive examples out of 512
+loss: 0.125325 [ 1984/ 2048]
+Batch contains 144 positive examples out of 512
 Validation Error: 
-Accuracy: 70.5%, Avg loss: 0.202575
-Epoch time: 45.11 seconds 
+Accuracy: 70.8%, Avg loss: 0.190197, Positive ratio: 0.270996
+Epoch time: 66.69 seconds 
 
 Epoch 29
 ----------------------------
-loss: 0.111143 [   64/ 2048]
-loss: 0.142372 [  192/ 2048]
-loss: 0.143972 [  320/ 2048]
-loss: 0.168537 [  448/ 2048]
-loss: 0.114145 [  576/ 2048]
-loss: 0.144654 [  704/ 2048]
-loss: 0.119309 [  832/ 2048]
-loss: 0.118580 [  960/ 2048]
-loss: 0.139217 [ 1088/ 2048]
-loss: 0.150425 [ 1216/ 2048]
-loss: 0.138499 [ 1344/ 2048]
-loss: 0.122550 [ 1472/ 2048]
-loss: 0.100810 [ 1600/ 2048]
-loss: 0.102209 [ 1728/ 2048]
-loss: 0.103063 [ 1856/ 2048]
-loss: 0.104573 [ 1984/ 2048]
+Batch contains 120 positive examples out of 512
+loss: 0.134262 [   64/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.137571 [  192/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.103473 [  320/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.089257 [  448/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.130131 [  576/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.128686 [  704/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.127849 [  832/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.118323 [  960/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.126763 [ 1088/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.126685 [ 1216/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.069794 [ 1344/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 64 positive examples out of 512
+loss: 0.117255 [ 1472/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.136106 [ 1600/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.146834 [ 1728/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.110510 [ 1856/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.147370 [ 1984/ 2048]
+Batch contains 128 positive examples out of 512
 Validation Error: 
-Accuracy: 72.3%, Avg loss: 0.185490
-Epoch time: 45.41 seconds 
+Accuracy: 67.1%, Avg loss: 0.214413, Positive ratio: 0.169434
+Epoch time: 50.39 seconds 
 
 Epoch 30
 ----------------------------
-loss: 0.108388 [   64/ 2048]
-loss: 0.139190 [  192/ 2048]
-loss: 0.125579 [  320/ 2048]
-loss: 0.111493 [  448/ 2048]
-loss: 0.121568 [  576/ 2048]
-loss: 0.129362 [  704/ 2048]
-loss: 0.108682 [  832/ 2048]
-loss: 0.126507 [  960/ 2048]
-loss: 0.098456 [ 1088/ 2048]
-loss: 0.106493 [ 1216/ 2048]
-loss: 0.169887 [ 1344/ 2048]
-loss: 0.129026 [ 1472/ 2048]
-loss: 0.091856 [ 1600/ 2048]
-loss: 0.115557 [ 1728/ 2048]
-loss: 0.178888 [ 1856/ 2048]
-loss: 0.129851 [ 1984/ 2048]
+Batch contains 168 positive examples out of 512
+loss: 0.145720 [   64/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.124023 [  192/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.155425 [  320/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.125085 [  448/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.152498 [  576/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.127185 [  704/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 176 positive examples out of 512
+loss: 0.147503 [  832/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.170661 [  960/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.181986 [ 1088/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 176 positive examples out of 512
+loss: 0.126769 [ 1216/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.125942 [ 1344/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.102660 [ 1472/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.152724 [ 1600/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.145525 [ 1728/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.121367 [ 1856/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.102459 [ 1984/ 2048]
+Batch contains 120 positive examples out of 512
 Validation Error: 
-Accuracy: 60.2%, Avg loss: 0.278290
-Epoch time: 45.35 seconds 
+Accuracy: 70.1%, Avg loss: 0.205969, Positive ratio: 0.149414
+Epoch time: 50.82 seconds 
 
 Epoch 31
 ----------------------------
-loss: 0.121115 [   64/ 2048]
-loss: 0.104496 [  192/ 2048]
-loss: 0.143997 [  320/ 2048]
-loss: 0.151951 [  448/ 2048]
-loss: 0.137125 [  576/ 2048]
-loss: 0.119667 [  704/ 2048]
-loss: 0.131866 [  832/ 2048]
-loss: 0.097327 [  960/ 2048]
-loss: 0.109561 [ 1088/ 2048]
-loss: 0.121349 [ 1216/ 2048]
-loss: 0.138577 [ 1344/ 2048]
-loss: 0.113337 [ 1472/ 2048]
-loss: 0.122715 [ 1600/ 2048]
-loss: 0.141036 [ 1728/ 2048]
-loss: 0.106085 [ 1856/ 2048]
-loss: 0.101303 [ 1984/ 2048]
+Batch contains 136 positive examples out of 512
+loss: 0.133919 [   64/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.118340 [  192/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.149799 [  320/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.102114 [  448/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.137046 [  576/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.144095 [  704/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.101780 [  832/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.141921 [  960/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.149277 [ 1088/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.107704 [ 1216/ 2048]
+Batch contains 72 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.146452 [ 1344/ 2048]
+Batch contains 72 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.109135 [ 1472/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.142220 [ 1600/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.112441 [ 1728/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.146226 [ 1856/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.123183 [ 1984/ 2048]
+Batch contains 104 positive examples out of 512
 Validation Error: 
-Accuracy: 72.2%, Avg loss: 0.179017
-Epoch time: 44.86 seconds 
+Accuracy: 73.6%, Avg loss: 0.174192, Positive ratio: 0.332031
+Epoch time: 70.51 seconds 
 
 Epoch 32
 ----------------------------
-loss: 0.115705 [   64/ 2048]
-loss: 0.150978 [  192/ 2048]
-loss: 0.167151 [  320/ 2048]
-loss: 0.137146 [  448/ 2048]
-loss: 0.184396 [  576/ 2048]
-loss: 0.104916 [  704/ 2048]
-loss: 0.127149 [  832/ 2048]
-loss: 0.121294 [  960/ 2048]
-loss: 0.138916 [ 1088/ 2048]
-loss: 0.076503 [ 1216/ 2048]
-loss: 0.141379 [ 1344/ 2048]
-loss: 0.181046 [ 1472/ 2048]
-loss: 0.115177 [ 1600/ 2048]
-loss: 0.095145 [ 1728/ 2048]
-loss: 0.086512 [ 1856/ 2048]
-loss: 0.106168 [ 1984/ 2048]
+Batch contains 104 positive examples out of 512
+loss: 0.113543 [   64/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.126474 [  192/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.106085 [  320/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.102594 [  448/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.132344 [  576/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.130058 [  704/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.144214 [  832/ 2048]
+Batch contains 176 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.110460 [  960/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.079267 [ 1088/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.133937 [ 1216/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.111700 [ 1344/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.131850 [ 1472/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.135696 [ 1600/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.121916 [ 1728/ 2048]
+Batch contains 64 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.092747 [ 1856/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.135189 [ 1984/ 2048]
+Batch contains 96 positive examples out of 512
 Validation Error: 
-Accuracy: 71.0%, Avg loss: 0.189415
-Epoch time: 44.72 seconds 
+Accuracy: 70.6%, Avg loss: 0.184445, Positive ratio: 0.218750
+Epoch time: 49.45 seconds 
 
 Epoch 33
 ----------------------------
-loss: 0.166692 [   64/ 2048]
-loss: 0.204924 [  192/ 2048]
-loss: 0.208748 [  320/ 2048]
-loss: 0.132069 [  448/ 2048]
-loss: 0.133117 [  576/ 2048]
-loss: 0.122341 [  704/ 2048]
-loss: 0.105790 [  832/ 2048]
-loss: 0.131316 [  960/ 2048]
-loss: 0.109022 [ 1088/ 2048]
-loss: 0.107141 [ 1216/ 2048]
-loss: 0.130110 [ 1344/ 2048]
-loss: 0.137430 [ 1472/ 2048]
-loss: 0.142106 [ 1600/ 2048]
-loss: 0.114323 [ 1728/ 2048]
-loss: 0.133004 [ 1856/ 2048]
-loss: 0.126326 [ 1984/ 2048]
+Batch contains 168 positive examples out of 512
+loss: 0.157710 [   64/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.102221 [  192/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.135759 [  320/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.116154 [  448/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.145737 [  576/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.107504 [  704/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.127189 [  832/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.123711 [  960/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.126939 [ 1088/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.117833 [ 1216/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 176 positive examples out of 512
+loss: 0.140574 [ 1344/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.088488 [ 1472/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.141308 [ 1600/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.139654 [ 1728/ 2048]
+Batch contains 72 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.125845 [ 1856/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.102216 [ 1984/ 2048]
+Batch contains 88 positive examples out of 512
 Validation Error: 
-Accuracy: 76.3%, Avg loss: 0.159610
-Validation loss improved, saving model
-Epoch time: 45.28 seconds 
+Accuracy: 75.4%, Avg loss: 0.171020, Positive ratio: 0.244141
+Epoch time: 47.67 seconds 
 
 Epoch 34
 ----------------------------
-loss: 0.132114 [   64/ 2048]
-loss: 0.115441 [  192/ 2048]
-loss: 0.116920 [  320/ 2048]
-loss: 0.149216 [  448/ 2048]
-loss: 0.108883 [  576/ 2048]
-loss: 0.087333 [  704/ 2048]
-loss: 0.165316 [  832/ 2048]
-loss: 0.094998 [  960/ 2048]
-loss: 0.163799 [ 1088/ 2048]
-loss: 0.144316 [ 1216/ 2048]
-loss: 0.130655 [ 1344/ 2048]
-loss: 0.099794 [ 1472/ 2048]
-loss: 0.111809 [ 1600/ 2048]
-loss: 0.104375 [ 1728/ 2048]
-loss: 0.145574 [ 1856/ 2048]
-loss: 0.139720 [ 1984/ 2048]
+Batch contains 120 positive examples out of 512
+loss: 0.124364 [   64/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.110383 [  192/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.143207 [  320/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.102002 [  448/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.095479 [  576/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.134837 [  704/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.099038 [  832/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.155098 [  960/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.163072 [ 1088/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.126625 [ 1216/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.113715 [ 1344/ 2048]
+Batch contains 64 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.142716 [ 1472/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.111168 [ 1600/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.114472 [ 1728/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.093861 [ 1856/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.107564 [ 1984/ 2048]
+Batch contains 160 positive examples out of 512
 Validation Error: 
-Accuracy: 72.9%, Avg loss: 0.176123
-Epoch time: 45.90 seconds 
+Accuracy: 74.9%, Avg loss: 0.165430, Positive ratio: 0.301758
+Epoch time: 76.50 seconds 
 
 Epoch 35
 ----------------------------
-loss: 0.128494 [   64/ 2048]
-loss: 0.130151 [  192/ 2048]
-loss: 0.147227 [  320/ 2048]
-loss: 0.107656 [  448/ 2048]
-loss: 0.116226 [  576/ 2048]
-loss: 0.120721 [  704/ 2048]
-loss: 0.120416 [  832/ 2048]
-loss: 0.143786 [  960/ 2048]
-loss: 0.134949 [ 1088/ 2048]
-loss: 0.133573 [ 1216/ 2048]
-loss: 0.138834 [ 1344/ 2048]
-loss: 0.114521 [ 1472/ 2048]
-loss: 0.106297 [ 1600/ 2048]
-loss: 0.151975 [ 1728/ 2048]
-loss: 0.123174 [ 1856/ 2048]
-loss: 0.109742 [ 1984/ 2048]
+Batch contains 184 positive examples out of 512
+loss: 0.178849 [   64/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.112515 [  192/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.121927 [  320/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.125554 [  448/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.124317 [  576/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.114749 [  704/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.133174 [  832/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.166179 [  960/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.114344 [ 1088/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.087969 [ 1216/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.070574 [ 1344/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.124788 [ 1472/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.146325 [ 1600/ 2048]
+Batch contains 64 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.093163 [ 1728/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.114059 [ 1856/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.097961 [ 1984/ 2048]
+Batch contains 72 positive examples out of 512
 Validation Error: 
-Accuracy: 64.3%, Avg loss: 0.231075
-Epoch time: 44.59 seconds 
+Accuracy: 75.0%, Avg loss: 0.165748, Positive ratio: 0.278809
+Epoch time: 52.07 seconds 
 
 Epoch 36
 ----------------------------
-loss: 0.188759 [   64/ 2048]
-loss: 0.157926 [  192/ 2048]
-loss: 0.133334 [  320/ 2048]
-loss: 0.106663 [  448/ 2048]
-loss: 0.118534 [  576/ 2048]
-loss: 0.136113 [  704/ 2048]
-loss: 0.164338 [  832/ 2048]
-loss: 0.115990 [  960/ 2048]
-loss: 0.172130 [ 1088/ 2048]
-loss: 0.136377 [ 1216/ 2048]
-loss: 0.114163 [ 1344/ 2048]
-loss: 0.113050 [ 1472/ 2048]
-loss: 0.093522 [ 1600/ 2048]
-loss: 0.107056 [ 1728/ 2048]
-loss: 0.132507 [ 1856/ 2048]
-loss: 0.117168 [ 1984/ 2048]
+Batch contains 192 positive examples out of 512
+loss: 0.148089 [   64/ 2048]
+Batch contains 168 positive examples out of 512
+Batch contains 64 positive examples out of 512
+loss: 0.102707 [  192/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.121994 [  320/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.133734 [  448/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.099298 [  576/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.135798 [  704/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.105534 [  832/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.103773 [  960/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 176 positive examples out of 512
+loss: 0.149031 [ 1088/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.156344 [ 1216/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.097480 [ 1344/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.073972 [ 1472/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.084433 [ 1600/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.123867 [ 1728/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.141056 [ 1856/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.104186 [ 1984/ 2048]
+Batch contains 112 positive examples out of 512
 Validation Error: 
-Accuracy: 75.8%, Avg loss: 0.157102
-Validation loss improved, saving model
-Epoch time: 44.65 seconds 
+Accuracy: 74.9%, Avg loss: 0.165618, Positive ratio: 0.301758
+Epoch time: 55.46 seconds 
 
 Epoch 37
 ----------------------------
-loss: 0.109861 [   64/ 2048]
-loss: 0.075578 [  192/ 2048]
-loss: 0.120683 [  320/ 2048]
-loss: 0.132078 [  448/ 2048]
-loss: 0.102697 [  576/ 2048]
-loss: 0.103788 [  704/ 2048]
-loss: 0.092546 [  832/ 2048]
-loss: 0.098568 [  960/ 2048]
-loss: 0.127492 [ 1088/ 2048]
-loss: 0.149888 [ 1216/ 2048]
-loss: 0.178024 [ 1344/ 2048]
-loss: 0.120368 [ 1472/ 2048]
-loss: 0.086684 [ 1600/ 2048]
-loss: 0.146442 [ 1728/ 2048]
-loss: 0.106592 [ 1856/ 2048]
-loss: 0.172594 [ 1984/ 2048]
+Batch contains 168 positive examples out of 512
+loss: 0.146034 [   64/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.138348 [  192/ 2048]
+Batch contains 184 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.092581 [  320/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.102160 [  448/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.126284 [  576/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.143567 [  704/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.113811 [  832/ 2048]
+Batch contains 184 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.115366 [  960/ 2048]
+Batch contains 200 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.121867 [ 1088/ 2048]
+Batch contains 168 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.103360 [ 1216/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.130648 [ 1344/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.121438 [ 1472/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.113868 [ 1600/ 2048]
+Batch contains 56 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.085876 [ 1728/ 2048]
+Batch contains 72 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.084160 [ 1856/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 72 positive examples out of 512
+loss: 0.078890 [ 1984/ 2048]
+Batch contains 168 positive examples out of 512
 Validation Error: 
-Accuracy: 76.1%, Avg loss: 0.163000
-Epoch time: 44.61 seconds 
+Accuracy: 75.5%, Avg loss: 0.162009, Positive ratio: 0.277832
+Epoch time: 78.42 seconds 
 
 Epoch 38
 ----------------------------
-loss: 0.130478 [   64/ 2048]
-loss: 0.153717 [  192/ 2048]
-loss: 0.094491 [  320/ 2048]
-loss: 0.105905 [  448/ 2048]
-loss: 0.122350 [  576/ 2048]
-loss: 0.113807 [  704/ 2048]
-loss: 0.087238 [  832/ 2048]
-loss: 0.142718 [  960/ 2048]
-loss: 0.102826 [ 1088/ 2048]
-loss: 0.119448 [ 1216/ 2048]
-loss: 0.156642 [ 1344/ 2048]
-loss: 0.118336 [ 1472/ 2048]
-loss: 0.122289 [ 1600/ 2048]
-loss: 0.157195 [ 1728/ 2048]
-loss: 0.078519 [ 1856/ 2048]
-loss: 0.126980 [ 1984/ 2048]
+Batch contains 152 positive examples out of 512
+loss: 0.118313 [   64/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.134730 [  192/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.134370 [  320/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.109655 [  448/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.092117 [  576/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.101861 [  704/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.142873 [  832/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.097583 [  960/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.143903 [ 1088/ 2048]
+Batch contains 72 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.160794 [ 1216/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.088432 [ 1344/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.102230 [ 1472/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.135418 [ 1600/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.124802 [ 1728/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.094071 [ 1856/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.109027 [ 1984/ 2048]
+Batch contains 64 positive examples out of 512
 Validation Error: 
-Accuracy: 74.9%, Avg loss: 0.170750
-Epoch time: 44.84 seconds 
+Accuracy: 74.3%, Avg loss: 0.169235, Positive ratio: 0.287109
+Epoch time: 56.22 seconds 
 
 Epoch 39
 ----------------------------
-loss: 0.121971 [   64/ 2048]
-loss: 0.158035 [  192/ 2048]
-loss: 0.127578 [  320/ 2048]
-loss: 0.121136 [  448/ 2048]
-loss: 0.101247 [  576/ 2048]
-loss: 0.124797 [  704/ 2048]
-loss: 0.149946 [  832/ 2048]
-loss: 0.120844 [  960/ 2048]
-loss: 0.121638 [ 1088/ 2048]
-loss: 0.075067 [ 1216/ 2048]
-loss: 0.101517 [ 1344/ 2048]
-loss: 0.109557 [ 1472/ 2048]
-loss: 0.095881 [ 1600/ 2048]
-loss: 0.105142 [ 1728/ 2048]
-loss: 0.113026 [ 1856/ 2048]
-loss: 0.098707 [ 1984/ 2048]
+Batch contains 104 positive examples out of 512
+loss: 0.112292 [   64/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.143771 [  192/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.155843 [  320/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 192 positive examples out of 512
+loss: 0.164896 [  448/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.087682 [  576/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.102965 [  704/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.096553 [  832/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.129587 [  960/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.138276 [ 1088/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.155683 [ 1216/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.142129 [ 1344/ 2048]
+Batch contains 72 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.090483 [ 1472/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.105243 [ 1600/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.132626 [ 1728/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.098691 [ 1856/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.114784 [ 1984/ 2048]
+Batch contains 136 positive examples out of 512
 Validation Error: 
-Accuracy: 69.0%, Avg loss: 0.208392
-Epoch time: 44.85 seconds 
+Accuracy: 74.7%, Avg loss: 0.169249, Positive ratio: 0.294434
+Epoch time: 50.91 seconds 
 
 Epoch 40
 ----------------------------
-loss: 0.148381 [   64/ 2048]
-loss: 0.108955 [  192/ 2048]
-loss: 0.103565 [  320/ 2048]
-loss: 0.103272 [  448/ 2048]
-loss: 0.104711 [  576/ 2048]
-loss: 0.122546 [  704/ 2048]
-loss: 0.088468 [  832/ 2048]
-loss: 0.111476 [  960/ 2048]
-loss: 0.161270 [ 1088/ 2048]
-loss: 0.105679 [ 1216/ 2048]
-loss: 0.192031 [ 1344/ 2048]
-loss: 0.097314 [ 1472/ 2048]
-loss: 0.138464 [ 1600/ 2048]
-loss: 0.125707 [ 1728/ 2048]
-loss: 0.107183 [ 1856/ 2048]
-loss: 0.111147 [ 1984/ 2048]
+Batch contains 160 positive examples out of 512
+loss: 0.134710 [   64/ 2048]
+Batch contains 168 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.149942 [  192/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.110425 [  320/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.112797 [  448/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.108484 [  576/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.125575 [  704/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.117482 [  832/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.119770 [  960/ 2048]
+Batch contains 176 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.096306 [ 1088/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.153121 [ 1216/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 64 positive examples out of 512
+loss: 0.107616 [ 1344/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.093728 [ 1472/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.100394 [ 1600/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.106477 [ 1728/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.127767 [ 1856/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.125482 [ 1984/ 2048]
+Batch contains 96 positive examples out of 512
 Validation Error: 
-Accuracy: 76.2%, Avg loss: 0.155851
+Accuracy: 77.4%, Avg loss: 0.153007, Positive ratio: 0.318848
 Validation loss improved, saving model
-Epoch time: 44.31 seconds 
+Epoch time: 47.50 seconds 
 
 Epoch 41
 ----------------------------
-loss: 0.145352 [   64/ 2048]
-loss: 0.146208 [  192/ 2048]
-loss: 0.116150 [  320/ 2048]
-loss: 0.129848 [  448/ 2048]
-loss: 0.123772 [  576/ 2048]
-loss: 0.177757 [  704/ 2048]
-loss: 0.103014 [  832/ 2048]
-loss: 0.161001 [  960/ 2048]
-loss: 0.121782 [ 1088/ 2048]
-loss: 0.140817 [ 1216/ 2048]
-loss: 0.153217 [ 1344/ 2048]
-loss: 0.183153 [ 1472/ 2048]
-loss: 0.094722 [ 1600/ 2048]
-loss: 0.149075 [ 1728/ 2048]
-loss: 0.122198 [ 1856/ 2048]
-loss: 0.115307 [ 1984/ 2048]
+Batch contains 168 positive examples out of 512
+loss: 0.112680 [   64/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.096043 [  192/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.133307 [  320/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.115704 [  448/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.125825 [  576/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.097091 [  704/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.120502 [  832/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.104907 [  960/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 64 positive examples out of 512
+loss: 0.079800 [ 1088/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.129089 [ 1216/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.104949 [ 1344/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.173281 [ 1472/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.091761 [ 1600/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.138983 [ 1728/ 2048]
+Batch contains 184 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.166475 [ 1856/ 2048]
+Batch contains 72 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.124508 [ 1984/ 2048]
+Batch contains 96 positive examples out of 512
 Validation Error: 
-Accuracy: 73.6%, Avg loss: 0.165497
-Epoch time: 44.21 seconds 
+Accuracy: 74.4%, Avg loss: 0.170859, Positive ratio: 0.277832
+Epoch time: 70.84 seconds 
 
 Epoch 42
 ----------------------------
-loss: 0.109170 [   64/ 2048]
-loss: 0.141794 [  192/ 2048]
-loss: 0.079349 [  320/ 2048]
-loss: 0.168229 [  448/ 2048]
-loss: 0.095673 [  576/ 2048]
-loss: 0.126776 [  704/ 2048]
-loss: 0.120123 [  832/ 2048]
-loss: 0.096071 [  960/ 2048]
-loss: 0.133597 [ 1088/ 2048]
-loss: 0.120967 [ 1216/ 2048]
-loss: 0.145088 [ 1344/ 2048]
-loss: 0.150502 [ 1472/ 2048]
-loss: 0.092720 [ 1600/ 2048]
-loss: 0.103152 [ 1728/ 2048]
-loss: 0.133236 [ 1856/ 2048]
-loss: 0.142737 [ 1984/ 2048]
+Batch contains 136 positive examples out of 512
+loss: 0.108884 [   64/ 2048]
+Batch contains 64 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.156922 [  192/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.133567 [  320/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.107912 [  448/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.113568 [  576/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.133495 [  704/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.118502 [  832/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.107177 [  960/ 2048]
+Batch contains 168 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.084848 [ 1088/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 176 positive examples out of 512
+loss: 0.126208 [ 1216/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.139865 [ 1344/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.109194 [ 1472/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.134979 [ 1600/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.115189 [ 1728/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.110914 [ 1856/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.089191 [ 1984/ 2048]
+Batch contains 136 positive examples out of 512
 Validation Error: 
-Accuracy: 75.1%, Avg loss: 0.162128
-Epoch time: 44.22 seconds 
+Accuracy: 75.3%, Avg loss: 0.164156, Positive ratio: 0.301758
+Epoch time: 48.78 seconds 
 
 Epoch 43
 ----------------------------
-loss: 0.089372 [   64/ 2048]
-loss: 0.149641 [  192/ 2048]
-loss: 0.134061 [  320/ 2048]
-loss: 0.099256 [  448/ 2048]
-loss: 0.104620 [  576/ 2048]
-loss: 0.093789 [  704/ 2048]
-loss: 0.106333 [  832/ 2048]
-loss: 0.137281 [  960/ 2048]
-loss: 0.132238 [ 1088/ 2048]
-loss: 0.125099 [ 1216/ 2048]
-loss: 0.142574 [ 1344/ 2048]
-loss: 0.092099 [ 1472/ 2048]
-loss: 0.103087 [ 1600/ 2048]
-loss: 0.071569 [ 1728/ 2048]
-loss: 0.139055 [ 1856/ 2048]
-loss: 0.104475 [ 1984/ 2048]
+Batch contains 128 positive examples out of 512
+loss: 0.111662 [   64/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.123696 [  192/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.153521 [  320/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.106718 [  448/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.099240 [  576/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 184 positive examples out of 512
+loss: 0.179500 [  704/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.095594 [  832/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.122500 [  960/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.165953 [ 1088/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.094199 [ 1216/ 2048]
+Batch contains 168 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.108405 [ 1344/ 2048]
+Batch contains 184 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.094681 [ 1472/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.118896 [ 1600/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.076035 [ 1728/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.091326 [ 1856/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.139244 [ 1984/ 2048]
+Batch contains 136 positive examples out of 512
 Validation Error: 
-Accuracy: 73.0%, Avg loss: 0.173713
-Epoch time: 44.87 seconds 
+Accuracy: 75.6%, Avg loss: 0.164629, Positive ratio: 0.307129
+Epoch time: 47.20 seconds 
 
 Epoch 44
 ----------------------------
-loss: 0.147863 [   64/ 2048]
-loss: 0.137889 [  192/ 2048]
-loss: 0.105883 [  320/ 2048]
-loss: 0.108523 [  448/ 2048]
-loss: 0.139154 [  576/ 2048]
-loss: 0.128618 [  704/ 2048]
-loss: 0.115531 [  832/ 2048]
-loss: 0.073095 [  960/ 2048]
-loss: 0.119149 [ 1088/ 2048]
-loss: 0.095569 [ 1216/ 2048]
-loss: 0.091410 [ 1344/ 2048]
-loss: 0.179575 [ 1472/ 2048]
-loss: 0.105369 [ 1600/ 2048]
-loss: 0.125737 [ 1728/ 2048]
-loss: 0.116722 [ 1856/ 2048]
-loss: 0.090736 [ 1984/ 2048]
+Batch contains 176 positive examples out of 512
+loss: 0.155745 [   64/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.120995 [  192/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.126808 [  320/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.093916 [  448/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 216 positive examples out of 512
+loss: 0.180286 [  576/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.082788 [  704/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.115324 [  832/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.103445 [  960/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.125969 [ 1088/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.119400 [ 1216/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.109794 [ 1344/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 72 positive examples out of 512
+loss: 0.115166 [ 1472/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.102050 [ 1600/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 72 positive examples out of 512
+loss: 0.074634 [ 1728/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.074303 [ 1856/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.122085 [ 1984/ 2048]
+Batch contains 160 positive examples out of 512
 Validation Error: 
-Accuracy: 71.5%, Avg loss: 0.184448
-Epoch time: 44.08 seconds 
+Accuracy: 75.7%, Avg loss: 0.166386, Positive ratio: 0.242676
+Epoch time: 69.89 seconds 
 
 Epoch 45
 ----------------------------
-loss: 0.085454 [   64/ 2048]
-loss: 0.128580 [  192/ 2048]
-loss: 0.128170 [  320/ 2048]
-loss: 0.085035 [  448/ 2048]
-loss: 0.133065 [  576/ 2048]
-loss: 0.168659 [  704/ 2048]
-loss: 0.138054 [  832/ 2048]
-loss: 0.104853 [  960/ 2048]
-loss: 0.118583 [ 1088/ 2048]
-loss: 0.108348 [ 1216/ 2048]
-loss: 0.124194 [ 1344/ 2048]
-loss: 0.119390 [ 1472/ 2048]
-loss: 0.123394 [ 1600/ 2048]
-loss: 0.107248 [ 1728/ 2048]
-loss: 0.115703 [ 1856/ 2048]
-loss: 0.071395 [ 1984/ 2048]
+Batch contains 176 positive examples out of 512
+loss: 0.148367 [   64/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.085918 [  192/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.127877 [  320/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.103121 [  448/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.086479 [  576/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 64 positive examples out of 512
+loss: 0.130574 [  704/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.114366 [  832/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.127231 [  960/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.112250 [ 1088/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.155686 [ 1216/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.108536 [ 1344/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.101924 [ 1472/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.121727 [ 1600/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.102108 [ 1728/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.096704 [ 1856/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.123200 [ 1984/ 2048]
+Batch contains 112 positive examples out of 512
 Validation Error: 
-Accuracy: 72.7%, Avg loss: 0.185037
-Epoch time: 43.91 seconds 
+Accuracy: 76.1%, Avg loss: 0.162886, Positive ratio: 0.290527
+Epoch time: 47.78 seconds 
 
 Epoch 46
 ----------------------------
-loss: 0.141891 [   64/ 2048]
-loss: 0.158386 [  192/ 2048]
-loss: 0.125035 [  320/ 2048]
-loss: 0.126924 [  448/ 2048]
-loss: 0.116224 [  576/ 2048]
-loss: 0.095072 [  704/ 2048]
-loss: 0.090017 [  832/ 2048]
-loss: 0.113421 [  960/ 2048]
-loss: 0.135147 [ 1088/ 2048]
-loss: 0.131106 [ 1216/ 2048]
-loss: 0.122879 [ 1344/ 2048]
-loss: 0.099466 [ 1472/ 2048]
-loss: 0.124037 [ 1600/ 2048]
-loss: 0.087325 [ 1728/ 2048]
-loss: 0.124923 [ 1856/ 2048]
-loss: 0.165686 [ 1984/ 2048]
+Batch contains 136 positive examples out of 512
+loss: 0.094311 [   64/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.108807 [  192/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.101961 [  320/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.147073 [  448/ 2048]
+Batch contains 184 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.097216 [  576/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.126935 [  704/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.148178 [  832/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.099975 [  960/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.083944 [ 1088/ 2048]
+Batch contains 64 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.117019 [ 1216/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.117636 [ 1344/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 208 positive examples out of 512
+loss: 0.126974 [ 1472/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 72 positive examples out of 512
+loss: 0.108067 [ 1600/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.146314 [ 1728/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.096961 [ 1856/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.115096 [ 1984/ 2048]
+Batch contains 136 positive examples out of 512
 Validation Error: 
-Accuracy: 71.8%, Avg loss: 0.183733
-Epoch time: 43.62 seconds 
+Accuracy: 75.7%, Avg loss: 0.167102, Positive ratio: 0.322754
+Epoch time: 50.61 seconds 
 
 Epoch 47
 ----------------------------
-loss: 0.109998 [   64/ 2048]
-loss: 0.149367 [  192/ 2048]
-loss: 0.150310 [  320/ 2048]
-loss: 0.106093 [  448/ 2048]
-loss: 0.103692 [  576/ 2048]
-loss: 0.084006 [  704/ 2048]
-loss: 0.122342 [  832/ 2048]
-loss: 0.122839 [  960/ 2048]
-loss: 0.116706 [ 1088/ 2048]
-loss: 0.151440 [ 1216/ 2048]
-loss: 0.125792 [ 1344/ 2048]
-loss: 0.125553 [ 1472/ 2048]
-loss: 0.118614 [ 1600/ 2048]
-loss: 0.094001 [ 1728/ 2048]
-loss: 0.136844 [ 1856/ 2048]
-loss: 0.087107 [ 1984/ 2048]
+Batch contains 144 positive examples out of 512
+loss: 0.121226 [   64/ 2048]
+Batch contains 200 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.081504 [  192/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.115319 [  320/ 2048]
+Batch contains 72 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.109869 [  448/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.134413 [  576/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.105847 [  704/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.118006 [  832/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.120955 [  960/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.090924 [ 1088/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.063532 [ 1216/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.123584 [ 1344/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.108750 [ 1472/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.142760 [ 1600/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.111199 [ 1728/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.147671 [ 1856/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.100109 [ 1984/ 2048]
+Batch contains 88 positive examples out of 512
 Validation Error: 
-Accuracy: 75.9%, Avg loss: 0.154731
-Validation loss improved, saving model
-Epoch time: 44.44 seconds 
+Accuracy: 76.8%, Avg loss: 0.161611, Positive ratio: 0.321777
+Epoch time: 72.05 seconds 
 
 Epoch 48
 ----------------------------
-loss: 0.138214 [   64/ 2048]
-loss: 0.119181 [  192/ 2048]
-loss: 0.117188 [  320/ 2048]
-loss: 0.111194 [  448/ 2048]
-loss: 0.154214 [  576/ 2048]
-loss: 0.158457 [  704/ 2048]
-loss: 0.100315 [  832/ 2048]
-loss: 0.162531 [  960/ 2048]
-loss: 0.109212 [ 1088/ 2048]
-loss: 0.102524 [ 1216/ 2048]
-loss: 0.091267 [ 1344/ 2048]
-loss: 0.167997 [ 1472/ 2048]
-loss: 0.085871 [ 1600/ 2048]
-loss: 0.097860 [ 1728/ 2048]
-loss: 0.092197 [ 1856/ 2048]
-loss: 0.149805 [ 1984/ 2048]
+Batch contains 120 positive examples out of 512
+loss: 0.129745 [   64/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 184 positive examples out of 512
+loss: 0.178402 [  192/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 56 positive examples out of 512
+loss: 0.081079 [  320/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 64 positive examples out of 512
+loss: 0.085475 [  448/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.126226 [  576/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.118101 [  704/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.084992 [  832/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.129589 [  960/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.095284 [ 1088/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.091967 [ 1216/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.100979 [ 1344/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.092619 [ 1472/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.124814 [ 1600/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.109729 [ 1728/ 2048]
+Batch contains 56 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.139755 [ 1856/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.125655 [ 1984/ 2048]
+Batch contains 144 positive examples out of 512
 Validation Error: 
-Accuracy: 72.0%, Avg loss: 0.189364
-Epoch time: 44.11 seconds 
+Accuracy: 74.5%, Avg loss: 0.170758, Positive ratio: 0.287109
+Epoch time: 46.38 seconds 
 
 Epoch 49
 ----------------------------
-loss: 0.116755 [   64/ 2048]
-loss: 0.100110 [  192/ 2048]
-loss: 0.102864 [  320/ 2048]
-loss: 0.109240 [  448/ 2048]
-loss: 0.110282 [  576/ 2048]
-loss: 0.154002 [  704/ 2048]
-loss: 0.079895 [  832/ 2048]
-loss: 0.127374 [  960/ 2048]
-loss: 0.124994 [ 1088/ 2048]
-loss: 0.111777 [ 1216/ 2048]
-loss: 0.113387 [ 1344/ 2048]
-loss: 0.117039 [ 1472/ 2048]
-loss: 0.095001 [ 1600/ 2048]
-loss: 0.132938 [ 1728/ 2048]
-loss: 0.111989 [ 1856/ 2048]
-loss: 0.174852 [ 1984/ 2048]
+Batch contains 160 positive examples out of 512
+loss: 0.146389 [   64/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.097258 [  192/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.117264 [  320/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.131386 [  448/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.117661 [  576/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.127180 [  704/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.150180 [  832/ 2048]
+Batch contains 64 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.112601 [  960/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.088873 [ 1088/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.114289 [ 1216/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.139987 [ 1344/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.109336 [ 1472/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.138401 [ 1600/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 72 positive examples out of 512
+loss: 0.082958 [ 1728/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.136633 [ 1856/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.112616 [ 1984/ 2048]
+Batch contains 128 positive examples out of 512
 Validation Error: 
-Accuracy: 76.9%, Avg loss: 0.157246
-Epoch time: 44.23 seconds 
+Accuracy: 76.9%, Avg loss: 0.164022, Positive ratio: 0.296875
+Epoch time: 48.71 seconds 
 
 Epoch 50
 ----------------------------
-loss: 0.083064 [   64/ 2048]
-loss: 0.093317 [  192/ 2048]
-loss: 0.121466 [  320/ 2048]
-loss: 0.088843 [  448/ 2048]
-loss: 0.137609 [  576/ 2048]
-loss: 0.109639 [  704/ 2048]
-loss: 0.153311 [  832/ 2048]
-loss: 0.085038 [  960/ 2048]
-loss: 0.101083 [ 1088/ 2048]
-loss: 0.087185 [ 1216/ 2048]
-loss: 0.108710 [ 1344/ 2048]
-loss: 0.105133 [ 1472/ 2048]
-loss: 0.066522 [ 1600/ 2048]
-loss: 0.113832 [ 1728/ 2048]
-loss: 0.102228 [ 1856/ 2048]
-loss: 0.127670 [ 1984/ 2048]
+Batch contains 152 positive examples out of 512
+loss: 0.118786 [   64/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.133193 [  192/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.094087 [  320/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.089688 [  448/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.141407 [  576/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.153071 [  704/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.106634 [  832/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.102721 [  960/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.103217 [ 1088/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.115490 [ 1216/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.117898 [ 1344/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.124338 [ 1472/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 64 positive examples out of 512
+loss: 0.084018 [ 1600/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.085592 [ 1728/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.127967 [ 1856/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.133433 [ 1984/ 2048]
+Batch contains 112 positive examples out of 512
 Validation Error: 
-Accuracy: 73.4%, Avg loss: 0.170066
-Epoch time: 45.07 seconds 
+Accuracy: 73.9%, Avg loss: 0.176867, Positive ratio: 0.304688
+Epoch time: 45.33 seconds 
 
 Epoch 51
 ----------------------------
-loss: 0.135752 [   64/ 2048]
-loss: 0.122098 [  192/ 2048]
-loss: 0.131775 [  320/ 2048]
-loss: 0.135495 [  448/ 2048]
-loss: 0.106860 [  576/ 2048]
-loss: 0.092548 [  704/ 2048]
-loss: 0.117719 [  832/ 2048]
-loss: 0.092277 [  960/ 2048]
-loss: 0.128493 [ 1088/ 2048]
-loss: 0.136153 [ 1216/ 2048]
-loss: 0.088273 [ 1344/ 2048]
-loss: 0.155317 [ 1472/ 2048]
-loss: 0.121594 [ 1600/ 2048]
-loss: 0.110837 [ 1728/ 2048]
-loss: 0.104424 [ 1856/ 2048]
-loss: 0.090560 [ 1984/ 2048]
+Batch contains 136 positive examples out of 512
+loss: 0.101961 [   64/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.086446 [  192/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.134322 [  320/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.117341 [  448/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.093930 [  576/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.115591 [  704/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.090143 [  832/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.090053 [  960/ 2048]
+Batch contains 176 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.119109 [ 1088/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.090725 [ 1216/ 2048]
+Batch contains 184 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.098159 [ 1344/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.103092 [ 1472/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.076051 [ 1600/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.102420 [ 1728/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.112181 [ 1856/ 2048]
+Batch contains 168 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.109727 [ 1984/ 2048]
+Batch contains 152 positive examples out of 512
 Validation Error: 
-Accuracy: 75.5%, Avg loss: 0.161269
-Epoch time: 44.22 seconds 
+Accuracy: 74.0%, Avg loss: 0.174672, Positive ratio: 0.288574
+Epoch time: 74.50 seconds 
 
 Epoch 52
 ----------------------------
+Batch contains 128 positive examples out of 512
+loss: 0.092146 [   64/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.113787 [  192/ 2048]
+Batch contains 200 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.130027 [  320/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.166342 [  448/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.083289 [  576/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.119532 [  704/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.093445 [  832/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.128266 [  960/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.140963 [ 1088/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.116060 [ 1216/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.110629 [ 1344/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.095032 [ 1472/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 72 positive examples out of 512
+loss: 0.099034 [ 1600/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.128295 [ 1728/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.113631 [ 1856/ 2048]
+Batch contains 72 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.142562 [ 1984/ 2048]
+Batch contains 112 positive examples out of 512
+Validation Error: 
+Accuracy: 74.9%, Avg loss: 0.168960, Positive ratio: 0.301270
+Epoch time: 46.16 seconds 
+
+Epoch 53
+----------------------------
+Batch contains 128 positive examples out of 512
+loss: 0.121427 [   64/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.122533 [  192/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.140276 [  320/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.090649 [  448/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.109586 [  576/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.108723 [  704/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.111299 [  832/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.116506 [  960/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.112013 [ 1088/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.109015 [ 1216/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.115380 [ 1344/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.098282 [ 1472/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 176 positive examples out of 512
+loss: 0.122577 [ 1600/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 64 positive examples out of 512
+loss: 0.095252 [ 1728/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.088104 [ 1856/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.113136 [ 1984/ 2048]
+Batch contains 96 positive examples out of 512
+Validation Error: 
+Accuracy: 74.2%, Avg loss: 0.170325, Positive ratio: 0.326660
+Epoch time: 48.08 seconds 
+
+Epoch 54
+----------------------------
+Batch contains 168 positive examples out of 512
+loss: 0.137183 [   64/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.113783 [  192/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 184 positive examples out of 512
+loss: 0.122134 [  320/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.148696 [  448/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.112627 [  576/ 2048]
+Batch contains 72 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.109658 [  704/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.080790 [  832/ 2048]
+Batch contains 56 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.092122 [  960/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.105415 [ 1088/ 2048]
+Batch contains 168 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.148111 [ 1216/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 72 positive examples out of 512
+loss: 0.088414 [ 1344/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.106421 [ 1472/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.111235 [ 1600/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.114560 [ 1728/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.157126 [ 1856/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.080352 [ 1984/ 2048]
+Batch contains 120 positive examples out of 512
+Validation Error: 
+Accuracy: 74.8%, Avg loss: 0.172272, Positive ratio: 0.295410
+Epoch time: 56.33 seconds 
+
+Epoch 55
+----------------------------
+Batch contains 144 positive examples out of 512
+loss: 0.102747 [   64/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 192 positive examples out of 512
+loss: 0.172196 [  192/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.128342 [  320/ 2048]
+Batch contains 168 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.110729 [  448/ 2048]
+Batch contains 184 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.106542 [  576/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 176 positive examples out of 512
+loss: 0.132197 [  704/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.111555 [  832/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.092631 [  960/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.077155 [ 1088/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.147652 [ 1216/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.093014 [ 1344/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.106777 [ 1472/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.118440 [ 1600/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.092422 [ 1728/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.120815 [ 1856/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.130372 [ 1984/ 2048]
+Batch contains 88 positive examples out of 512
+Validation Error: 
+Accuracy: 76.2%, Avg loss: 0.162648, Positive ratio: 0.310059
+Epoch time: 55.03 seconds 
+
+Epoch 56
+----------------------------
+Batch contains 104 positive examples out of 512
+loss: 0.076587 [   64/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.097357 [  192/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.123644 [  320/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 184 positive examples out of 512
+loss: 0.144738 [  448/ 2048]
+Batch contains 64 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.110922 [  576/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.098189 [  704/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.095370 [  832/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.172131 [  960/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 72 positive examples out of 512
+loss: 0.088610 [ 1088/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.101655 [ 1216/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.101695 [ 1344/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.085776 [ 1472/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.104028 [ 1600/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.077076 [ 1728/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.081510 [ 1856/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.126377 [ 1984/ 2048]
+Batch contains 112 positive examples out of 512
+Validation Error: 
+Accuracy: 73.9%, Avg loss: 0.176539, Positive ratio: 0.315430
+Epoch time: 49.20 seconds 
+
+Epoch 57
+----------------------------
+Batch contains 128 positive examples out of 512
+loss: 0.138602 [   64/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.098206 [  192/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.099354 [  320/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.106266 [  448/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.117393 [  576/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.093469 [  704/ 2048]
+Batch contains 72 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.171233 [  832/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.100906 [  960/ 2048]
+Batch contains 152 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.079345 [ 1088/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 152 positive examples out of 512
+loss: 0.129145 [ 1216/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.121223 [ 1344/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 168 positive examples out of 512
+loss: 0.148760 [ 1472/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.124265 [ 1600/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 200 positive examples out of 512
+loss: 0.178883 [ 1728/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.095054 [ 1856/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.067492 [ 1984/ 2048]
+Batch contains 112 positive examples out of 512
+Validation Error: 
+Accuracy: 74.2%, Avg loss: 0.172211, Positive ratio: 0.317383
+Epoch time: 44.14 seconds 
+
+Epoch 58
+----------------------------
+Batch contains 120 positive examples out of 512
+loss: 0.106261 [   64/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.159844 [  192/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.104554 [  320/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.057831 [  448/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.170218 [  576/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.083388 [  704/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.075185 [  832/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.105252 [  960/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.106161 [ 1088/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.114359 [ 1216/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.082690 [ 1344/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.068908 [ 1472/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.097531 [ 1600/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.120941 [ 1728/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.117495 [ 1856/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.104327 [ 1984/ 2048]
+Batch contains 112 positive examples out of 512
+Validation Error: 
+Accuracy: 75.7%, Avg loss: 0.165585, Positive ratio: 0.297852
+Epoch time: 69.93 seconds 
+
+Epoch 59
+----------------------------
+Batch contains 128 positive examples out of 512
+loss: 0.114774 [   64/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.089608 [  192/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.105494 [  320/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.102727 [  448/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.099045 [  576/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 80 positive examples out of 512
+loss: 0.135695 [  704/ 2048]
+Batch contains 160 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.128274 [  832/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 160 positive examples out of 512
+loss: 0.157550 [  960/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.131420 [ 1088/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.127006 [ 1216/ 2048]
+Batch contains 144 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.080555 [ 1344/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.113022 [ 1472/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.093539 [ 1600/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 112 positive examples out of 512
+loss: 0.111724 [ 1728/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.136835 [ 1856/ 2048]
+Batch contains 96 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.107178 [ 1984/ 2048]
+Batch contains 112 positive examples out of 512
+Validation Error: 
+Accuracy: 75.1%, Avg loss: 0.169476, Positive ratio: 0.311035
+Epoch time: 46.22 seconds 
+
+Epoch 60
+----------------------------
+Batch contains 64 positive examples out of 512
+loss: 0.083420 [   64/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.108978 [  192/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.143206 [  320/ 2048]
+Batch contains 168 positive examples out of 512
+Batch contains 176 positive examples out of 512
+loss: 0.110040 [  448/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 120 positive examples out of 512
+loss: 0.119095 [  576/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.104225 [  704/ 2048]
+Batch contains 112 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.137756 [  832/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 88 positive examples out of 512
+loss: 0.109431 [  960/ 2048]
+Batch contains 136 positive examples out of 512
+Batch contains 144 positive examples out of 512
+loss: 0.075969 [ 1088/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.146278 [ 1216/ 2048]
+Batch contains 104 positive examples out of 512
+Batch contains 104 positive examples out of 512
+loss: 0.100843 [ 1344/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 96 positive examples out of 512
+loss: 0.103227 [ 1472/ 2048]
+Batch contains 128 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.088215 [ 1600/ 2048]
+Batch contains 88 positive examples out of 512
+Batch contains 136 positive examples out of 512
+loss: 0.173537 [ 1728/ 2048]
+Batch contains 120 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.099195 [ 1856/ 2048]
+Batch contains 80 positive examples out of 512
+Batch contains 128 positive examples out of 512
+loss: 0.118508 [ 1984/ 2048]
+Batch contains 168 positive examples out of 512
+Validation Error: 
+Accuracy: 74.1%, Avg loss: 0.176753, Positive ratio: 0.291504
+Early stopping with minimum validation loss of 0.15300698718056083
+Done! Total training time: 60 minutes, 10.42 seconds, average epoch time: 3.61 seconds
