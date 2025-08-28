@@ -234,7 +234,7 @@ class aug_crossentropy_RI_Dataset(Dataset):
             torch.tensor(ds.satellite_predictors_gridded.values.astype(np.float32)),
             (1, 380, 540),
         )
-        label = torch.tensor(label)
+        label = torch.tensor(label, dtype=torch.long)
         if self.transforms is not None:
             images = torch.stack(
                 [image] + [transform(image) for transform in self.transforms]

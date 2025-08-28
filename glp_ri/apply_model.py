@@ -4,8 +4,11 @@ import torch
 import xarray as xr
 from data_utils import DATA_DIR, aug_crossentropy_RI_Dataset, load_labels
 from network_def import CNN
+from network_def_glp import glp_rotation_CNN
 from torch.utils.data import DataLoader
 from torchinfo import summary
+
+model_name = "crps"
 
 # PyTorch dropout rate is probability of dropping; TF is probability of retaining
 dropout_rate = 0.2
@@ -24,12 +27,15 @@ valid_labels, valid_weights = load_labels(
 
 cnn_valid_ds = aug_crossentropy_RI_Dataset(valid_labels)
 
-batch_size = 64
+batch_size = 16
 cnn_valid_dataloader = DataLoader(cnn_valid_ds, num_workers=8, batch_size=batch_size)
 
-cnn_model = CNN(dropout_rate)
+if model_name == "crps":
+    cnn_model = CNN(dropout_rate)
+elif model_name == "glp":
+    cnn_model = glp_rotation_CNN(dropout_rate)
 cnn_model.load_state_dict(
-    torch.load("./saved_models/crossentropy_cnn.pt", weights_only=True)
+    torch.load(f"./saved_models/{model_name}_cnn.pt", weights_only=True)
 )
 cnn_model.to(device)
 
@@ -54,8 +60,9 @@ with torch.no_grad():
         except NameError:
             preds = pred
             truth = y
-softmax = torch.nn.Softmax(dim=1)
-preds = softmax(preds)
+if model_name in ["crossentropy"]:
+    softmax = torch.nn.Softmax(dim=1)
+    preds = softmax(preds)
 t_time = perf_counter() - t_time_start
 print(
     f"Done! Total evaluation time: {t_time // 60:.0f} minutes, {t_time % 60:.2f} seconds"
@@ -68,4 +75,4 @@ preds_ds = xr.Dataset(
         "labels": ("example", truth),
     }
 )
-preds_ds.to_netcdf("~/glp/glp_ri/data/crossentropy_cnn_validation_preds.nc")
+preds_ds.to_netcdf(f"~/glp/glp_ri/data/{model_name}_cnn_validation_preds.nc")
