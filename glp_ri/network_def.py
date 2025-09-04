@@ -150,7 +150,7 @@ def validate(dataloader, model, loss_fn, device="cpu"):
     print(
         f"Validation Error: \nAccuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f}, Positive ratio: {positive_preds:>6f}"
     )
-    return test_loss
+    return test_loss, correct
 
 
 class EarlyStopper:
@@ -161,10 +161,12 @@ class EarlyStopper:
         self.min_delta = min_delta
         self.counter = 0
         self.min_validation_loss = float("inf")
+        self.max_accuracy = 0.0
 
-    def early_stop(self, validation_loss):
+    def early_stop(self, validation_loss, accuracy):
         if validation_loss < self.min_validation_loss - self.min_delta:
             self.min_validation_loss = validation_loss
+            self.max_accuracy = accuracy
             self.counter = 0
         else:
             self.counter += 1

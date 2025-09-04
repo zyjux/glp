@@ -2,12 +2,8 @@ from time import perf_counter
 
 import torch
 import torchvision.transforms.v2 as tvtf
-from data_utils import (
-    DATA_DIR,
-    AddGaussianNoise,
-    aug_crossentropy_RI_Dataset,
-    load_labels,
-)
+from data_utils import (DATA_DIR, AddGaussianNoise,
+                        aug_crossentropy_RI_Dataset, load_labels)
 from network_def import CNN, EarlyStopper, crps_loss, train, validate
 from torch.utils.data import DataLoader, WeightedRandomSampler
 from torchinfo import summary
@@ -83,11 +79,14 @@ for t in range(epochs):
         accumulation_batches=2,
         device=device,
     )
-    val_loss = validate(cnn_valid_dataloader, cnn_model, cnn_loss_fn, device=device)
+    val_loss, val_accuracy = validate(
+        cnn_valid_dataloader, cnn_model, cnn_loss_fn, device=device
+    )
     scheduler.step(val_loss)
-    if early_stopper.early_stop(val_loss):
+    if early_stopper.early_stop(val_loss, val_accuracy):
         print(
             f"Early stopping with minimum validation loss of {early_stopper.min_validation_loss}"
+            f", max accuracy of {early_stopper.max_accuracy}"
         )
         break
     if early_stopper.counter == 0:
