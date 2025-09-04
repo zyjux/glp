@@ -23,7 +23,7 @@ for model_name in model_names:
     print("\nRaw prediction info:\n----------")
     print(f"Positive prediction ratio: {positive_ratio:.3f}")
 
-    # Accuracy
+    # Confusion matrix
     print("\nConfusion Matrix\n----------")
     true_positive_count = (
         np.logical_and(ds["labels"] == 1, mean_preds.round() == 1).sum().item()
@@ -40,13 +40,18 @@ for model_name in model_names:
     print(f"TP: {true_positive_count} | FP: {false_positive_count}")
     print(f"FN: {false_negative_count} | TN: {true_negative_count}")
 
+    # Accuracy
+    print("\nAccuracy\n----------")
+    accuracy = (true_positive_count + true_negative_count) * 100 / ds.sizes["example"]
+    print(f"Accuracy: {accuracy:.2f}%")
+
     # Crossentropy
     print("\nCrossentropy\n----------")
     crossentropy = (
         -1
         * (
-            ds["labels"] * np.log(mean_preds)
-            + (1 - ds["labels"]) * np.log(1 - mean_preds)
+            ds["labels"] * np.log(mean_preds + 1e-7)
+            + (1 - ds["labels"]) * np.log(1 - mean_preds + 1e-7)
         ).mean()
     )
     print(f"Binary crossentropy: {crossentropy:.4f}")
