@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 import torch
 from torch import nn
 
@@ -26,7 +28,7 @@ class crps_loss(nn.Module):
         )  # type: ignore
 
 
-def conv_block(in_channels, out_channels):
+def conv_block(in_channels, out_channels, leaky_relu_slope=LEAKY_RELU_SLOPE):
     layers = nn.Sequential(
         nn.Conv2d(
             in_channels=in_channels,
@@ -35,7 +37,7 @@ def conv_block(in_channels, out_channels):
             padding=1,
             padding_mode="reflect",
         ),
-        nn.LeakyReLU(LEAKY_RELU_SLOPE),
+        nn.LeakyReLU(leaky_relu_slope),
         nn.BatchNorm2d(out_channels),
         nn.Conv2d(
             in_channels=out_channels,
@@ -44,45 +46,113 @@ def conv_block(in_channels, out_channels):
             padding=1,
             padding_mode="reflect",
         ),
-        nn.LeakyReLU(LEAKY_RELU_SLOPE),
+        nn.LeakyReLU(leaky_relu_slope),
         nn.BatchNorm2d(out_channels),
         nn.MaxPool2d(kernel_size=2),
     )
     return layers
 
 
+def dense_block(
+    in_neurons, out_neurons, dropout_rate, leaky_relu_slope=LEAKY_RELU_SLOPE
+):
+    layers = nn.Sequential(
+        nn.Linear(in_neurons, out_neurons),
+        nn.LeakyReLU(leaky_relu_slope),
+        nn.Dropout(dropout_rate),
+        nn.BatchNorm1d(out_neurons),
+    )
+    return layers
+
+
+"""
+conv_block(1, 8),
+conv_block(8, 16),
+conv_block(16, 32),
+conv_block(32, 64),
+conv_block(64, 128),
+conv_block(128, 256),
+
+            OrderedDict(
+                [
+                    (
+                        f"dense_block_{i}",
+                        dense_block(
+                            dense_neurons[i],
+                            dense_neurons[i + 1],
+                            dropout_rate,
+                            LEAKY_RELU_SLOPE,
+                        ),
+                    )
+                    for i in range(len(conv_channels) - 2)
+                ]
+                + [("output_layer", nn.Linear(dense_neurons[-2], dense_neurons[-1]))]
+            )
+            dense_block(10240, 1740, dropout_rate, LEAKY_RELU_SLOPE),
+            dense_block(1740, 1305, dropout_rate, LEAKY_RELU_SLOPE),
+            dense_block(1305, 870, dropout_rate, LEAKY_RELU_SLOPE),
+            dense_block(870, 435, dropout_rate, LEAKY_RELU_SLOPE),
+            nn.Linear(435, 100),
+"""
+
+LAYER_NAME_TRANSLATION = {
+    "conv_block": conv_block,
+    "dense_block": dense_block,
+    "linear": nn.Linear,
+}
+
+
 class CNN(nn.Module):
-    def __init__(self, dropout_rate):
+    def __init__(
+        self,
+        encoding_layers: dict,
+        dense_layers: dict,
+        model_construction_defaults: dict,
+    ):
         super().__init__()
 
-        self.conv_layers = nn.Sequential(
-            conv_block(1, 8),
-            conv_block(8, 16),
-            conv_block(16, 32),
-            conv_block(32, 64),
-            conv_block(64, 128),
-            conv_block(128, 256),
+        for key in encoding_layers:
+            if "leaky_relu_slope" not in encoding_layers[key]:
+                encoding_layers[key]["leaky_relu_slope"] = model_construction_defaults[
+                    "encoding_leaky_relu_slope"
+                ]
+        for key in dense_layers:
+            if "leaky_relu_slope" not in dense_layers[key]:
+                dense_layers[key]["leaky_relu_slope"] = model_construction_defaults[
+                    "dense_leaky_relu_slope"
+                ]
+            if "dropout_rate" not in dense_layers[key]:
+                dense_layers[key]["dropout_rate"] = model_construction_defaults[
+                    "dropout_rate"
+                ]
+
+        translated_encoding_layers = OrderedDict(
+            [
+                (
+                    layer_name,
+                    LAYER_NAME_TRANSLATION[encoding_layers[layer_name].pop("type")](
+                        **encoding_layers[layer_name]
+                    ),
+                )
+                for layer_name in encoding_layers
+            ]
         )
+
+        translated_dense_layers = OrderedDict(
+            [
+                (
+                    layer_name,
+                    LAYER_NAME_TRANSLATION[dense_layers[layer_name].pop("type")](
+                        **dense_layers[layer_name]
+                    ),
+                )
+                for layer_name in dense_layers
+            ]
+        )
+
+        self.conv_layers = nn.Sequential(translated_encoding_layers)
         self.flatten = nn.Flatten()
-        self.dense_layers = nn.Sequential(
-            nn.Linear(10240, 1740),
-            nn.LeakyReLU(LEAKY_RELU_SLOPE),
-            nn.Dropout(dropout_rate),
-            nn.BatchNorm1d(1740),
-            nn.Linear(1740, 1305),
-            nn.LeakyReLU(LEAKY_RELU_SLOPE),
-            nn.Dropout(dropout_rate),
-            nn.BatchNorm1d(1305),
-            nn.Linear(1305, 870),
-            nn.LeakyReLU(LEAKY_RELU_SLOPE),
-            nn.Dropout(dropout_rate),
-            nn.BatchNorm1d(870),
-            nn.Linear(870, 435),
-            nn.LeakyReLU(LEAKY_RELU_SLOPE),
-            nn.Dropout(dropout_rate),
-            nn.BatchNorm1d(435),
-            nn.Linear(435, 100),
-        )
+        self.dense_layers = nn.Sequential(translated_dense_layers)
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):

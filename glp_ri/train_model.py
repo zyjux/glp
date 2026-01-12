@@ -2,14 +2,21 @@ from time import perf_counter
 
 import torch
 import torchvision.transforms.v2 as tvtf
-from data_utils import (DATA_DIR, AddGaussianNoise,
-                        aug_crossentropy_RI_Dataset, load_labels)
+import yaml
+from data_utils import (
+    DATA_DIR,
+    AddGaussianNoise,
+    aug_crossentropy_RI_Dataset,
+    load_labels,
+)
 from network_def import CNN, EarlyStopper, crps_loss, train, validate
 from torch.utils.data import DataLoader, WeightedRandomSampler
 from torchinfo import summary
 
-# PyTorch dropout rate is probability of dropping; TF is probability of retaining
-dropout_rate = 0.2
+# Load config file
+CONFIG_FILE = "./test_config_file.yml"
+with open(CONFIG_FILE, "r") as f:
+    config_dict = yaml.load(f, Loader=yaml.SafeLoader)
 
 # Get cpu, gpu or mps device for training.
 device = (
@@ -52,7 +59,11 @@ cnn_valid_dataloader = DataLoader(
     cnn_valid_ds, num_workers=8, batch_size=batch_size, sampler=valid_sampler
 )
 
-cnn_model = CNN(dropout_rate).to(device)
+cnn_model = CNN(
+    config_dict["encoding_layers"],
+    config_dict["dense_layers"],
+    config_dict["model_construction_defaults"],
+).to(device)
 cnn_loss_fn = crps_loss()
 cnn_optimizer = torch.optim.Adam(cnn_model.parameters(), lr=1e-3)
 scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(cnn_optimizer, "min")
@@ -60,6 +71,8 @@ scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(cnn_optimizer, "min")
 early_stopper = EarlyStopper(patience=20, min_delta=1e-4)
 
 summary(cnn_model, input_size=(batch_size, 1, 380, 540))
+
+"""
 
 print(
     f"Validation true percentage: {valid_labels[:, -1].sum()/valid_labels.shape[0] * 100}%"
@@ -98,3 +111,4 @@ t_time = perf_counter() - t_time_start
 print(
     f"Done! Total training time: {t_time // 60:.0f} minutes, {t_time % 60:.2f} seconds, average epoch time: {t_time/epochs:.2f} seconds"
 )
+"""
