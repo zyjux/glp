@@ -14,7 +14,8 @@ from torch.utils.data import Dataset
 
 CYCLONE_ID_REGEX = "[0-9][0-9][0-9][0-9][A-Z][A-Z][0-9][0-9]"
 VALID_BASIN_ID_STRINGS = ["AL", "SL", "EP", "CP", "WP", "IO", "SH"]
-DATA_DIR = "/nfs/home/lverho/research_data/RI"
+DATA_DIR = "/mnt/data2/lverhoef/RI/learning_examples/rotated_with_storm_motion/imputed/normalized"
+# DATA_DIR = "/nfs/home/lverho/research_data/RI"
 # DATA_DIR = '/nfs/home/lverho/research_data/GLP/synthetic_data/synth_storms'
 
 

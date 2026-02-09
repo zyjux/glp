@@ -16,10 +16,10 @@ dependencies:
   - dask
   - pandas
   - matplotlib
-  - torchinfo
+    # - torchinfo
   - ipywidgets
   - phate
-  - pytorch
-  - torchvision
-  - torchaudio
-  - pytorch-cuda=12.1
+    # - pytorch
+    # - torchvision
+    # - torchaudio
+    # - pytorch-cuda =12.4
