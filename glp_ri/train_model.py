@@ -14,12 +14,15 @@ CONFIG_FILE = "./test_config_file.yml"
 with open(CONFIG_FILE, "r") as f:
     config_dict = yaml.load(f, Loader=yaml.SafeLoader)
 
+loss_function_translation = {"crps": crps_loss}
+
+hyperparam_config = config_dict["training_hyperparameters"]
+
 # Get cpu, gpu or mps device for training.
 device = (
-    # "cuda"
-    # if torch.cuda.is_available()
-    # else "mps" if torch.backends.mps.is_available() else "cpu"
-    "cpu"
+    "cuda"
+    if torch.cuda.is_available()
+    else "mps" if torch.backends.mps.is_available() else "cpu"
 )
 print(f"Using {device} device")
 
@@ -30,19 +33,27 @@ valid_labels, valid_weights = load_labels(
     DATA_DIR + "/valid_labels.json", desired_ratio=(4, 1)
 )
 
-rotate_transform = tvtf.RandomRotation(50)  # type: ignore
-noise_transform = AddGaussianNoise(std=0.5)
-translate_transform = tvtf.RandomAffine(0, translate=(0.05, 0.05))  # type: ignore
-
-transform_list = (
-    [rotate_transform] * 2 + [translate_transform] * 2 + [noise_transform] * 3
-)
+aug_config = config_dict["data_augmentation"]
+transform_list = []
+if "rotations" in aug_config.keys():
+    rotate_transform = tvtf.RandomRotation(aug_config["rotations"]["max_degrees"])  # type: ignore
+    transform_list += [rotate_transform] * aug_config["rotations"]["num_rotations"]
+if "noisings" in aug_config.keys():
+    noise_transform = AddGaussianNoise(std=aug_config["noisings"]["standard_deviation"])
+    transform_list += [noise_transform] * aug_config["noisings"]["num_noisings"]
+if "translations" in aug_config.keys():
+    max_shift = aug_config["translations"]["max_shift"]
+    translate_transform = tvtf.RandomAffine(0, translate=(max_shift, max_shift))  # type: ignore
+    transform_list += [translate_transform] * aug_config["translations"][
+        "num_translations"
+    ]
+transform_list = tuple(transform_list)
 
 cnn_train_ds = aug_crossentropy_RI_Dataset(train_labels, transforms=transform_list)
 cnn_valid_ds = aug_crossentropy_RI_Dataset(valid_labels)
 
-batches_per_epoch = 32 * 2
-batch_size = 64
+batches_per_epoch = hyperparam_config["batches_per_epoch"]
+batch_size = hyperparam_config["batch_size"]
 wtd_sampler = WeightedRandomSampler(
     train_weights, batches_per_epoch * batch_size, replacement=False  # type: ignore
 )
@@ -63,21 +74,25 @@ cnn_model = CNN(
     config_dict["encoding_layer_defaults"],
     config_dict["dense_layer_defaults"],
 ).to(device)
-cnn_loss_fn = crps_loss()
-cnn_optimizer = torch.optim.Adam(cnn_model.parameters(), lr=1e-3)
+cnn_loss_fn = loss_function_translation[hyperparam_config["loss_function"]]()
+cnn_optimizer = torch.optim.Adam(
+    cnn_model.parameters(), lr=hyperparam_config["learning_rate"]
+)
 scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(cnn_optimizer, "min")
 
-early_stopper = EarlyStopper(patience=20, min_delta=1e-4)
+if hyperparam_config["early_stopping"]["enabled"]:
+    early_stopper = EarlyStopper(
+        patience=hyperparam_config["early_stopping"]["patience"],
+        min_delta=hyperparam_config["early_stopping"]["min_delta"],
+    )
 
 summary(cnn_model, input_size=(batch_size, 1, 380, 540))
-
-"""
 
 print(
     f"Validation true percentage: {valid_labels[:, -1].sum()/valid_labels.shape[0] * 100}%"
 )
 
-epochs = 1000
+epochs = hyperparam_config["epochs"]
 print("Training CNN \n")
 t_time_start = perf_counter()
 for t in range(epochs):
@@ -88,26 +103,28 @@ for t in range(epochs):
         cnn_model,
         cnn_loss_fn,
         cnn_optimizer,
-        accumulation_batches=2,
+        accumulation_batches=hyperparam_config["accumulation_batches"],
         device=device,
     )
     val_loss, val_accuracy = validate(
         cnn_valid_dataloader, cnn_model, cnn_loss_fn, device=device
     )
     scheduler.step(val_loss)
-    if early_stopper.early_stop(val_loss, val_accuracy):
-        print(
-            f"Early stopping with minimum validation loss of {early_stopper.min_validation_loss}"
-            f", max accuracy of {early_stopper.max_accuracy}"
-        )
-        break
-    if early_stopper.counter == 0:
-        print(f"Validation loss improved, saving model")
-        torch.save(cnn_model.state_dict(), "./saved_models/crps_cnn.pt")
+    if hyperparam_config["early_stopping"]["enabled"]:
+        if early_stopper.early_stop(val_loss, val_accuracy):
+            print(
+                f"Early stopping with minimum validation loss of {early_stopper.min_validation_loss}"
+                f", max accuracy of {early_stopper.max_accuracy}"
+            )
+            break
+        if early_stopper.counter == 0:
+            print(f"Validation loss improved, saving model")
+            torch.save(cnn_model.state_dict(), config_dict["model_save_file"])
+    else:
+        torch.save(cnn_model.state_dict(), config_dict["model_save_file"])
 
     print(f"Epoch time: {perf_counter() - start_time:.2f} seconds \n")
 t_time = perf_counter() - t_time_start
 print(
     f"Done! Total training time: {t_time // 60:.0f} minutes, {t_time % 60:.2f} seconds, average epoch time: {t_time/epochs:.2f} seconds"
 )
-"""

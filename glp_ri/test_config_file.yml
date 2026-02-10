@@ -1,5 +1,30 @@
 # Test configuration file recreating development defaults
 
+model_save_file: /home/lverhoef/glp/glp_ri/saved_models/crps_cnn.pt
+
+training_hyperparameters:
+  batches_per_epoch: 64
+  batch_size: 64
+  epochs: 1000
+  accumulation_batches: 2
+  loss_function: crps
+  learning_rate: 1.0e-3
+  early_stopping:
+    enabled: True
+    patience: 20
+    min_delta: 1e-4
+
+data_augmentation:
+  rotations:
+    max_degrees: 50
+    num_rotations: 2
+  noisings:
+    standard_deviation: 0.5
+    num_noisings: 2
+  translations:
+    max_shift: 0.05
+    num_translations: 3
+
 encoding_layers:
   conv_block_1:
     type: conv_block
@@ -56,11 +81,3 @@ output_layer:
     type: linear
     in_features: 435
     out_features: 100
-
-training_hyperparameters:
-  loss_function: crps
-  learning_rate: 1e-3
-  early_stopping:
-    enabled: True
-    patience: 20
-    min_delta: 1e-4
