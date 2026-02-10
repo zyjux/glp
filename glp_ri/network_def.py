@@ -3,8 +3,6 @@ from collections import OrderedDict
 import torch
 from torch import nn
 
-LEAKY_RELU_SLOPE = 0.2
-
 
 class crps_loss(nn.Module):
     def __init__(self, reduction: str = "mean"):
@@ -28,7 +26,7 @@ class crps_loss(nn.Module):
         )  # type: ignore
 
 
-def conv_block(in_channels, out_channels, leaky_relu_slope=LEAKY_RELU_SLOPE):
+def conv_block(in_channels, out_channels, leaky_relu_slope):
     layers = nn.Sequential(
         nn.Conv2d(
             in_channels=in_channels,
@@ -53,9 +51,7 @@ def conv_block(in_channels, out_channels, leaky_relu_slope=LEAKY_RELU_SLOPE):
     return layers
 
 
-def dense_block(
-    in_neurons, out_neurons, dropout_rate, leaky_relu_slope=LEAKY_RELU_SLOPE
-):
+def dense_block(in_neurons, out_neurons, dropout_rate, leaky_relu_slope):
     layers = nn.Sequential(
         nn.Linear(in_neurons, out_neurons),
         nn.LeakyReLU(leaky_relu_slope),
@@ -107,24 +103,24 @@ class CNN(nn.Module):
         self,
         encoding_layers: dict,
         dense_layers: dict,
-        model_construction_defaults: dict,
+        output_layer: dict,
+        encoding_layer_defaults: dict,
+        dense_layer_defaults: dict,
     ):
         super().__init__()
 
-        for key in encoding_layers:
-            if "leaky_relu_slope" not in encoding_layers[key]:
-                encoding_layers[key]["leaky_relu_slope"] = model_construction_defaults[
-                    "encoding_leaky_relu_slope"
-                ]
-        for key in dense_layers:
-            if "leaky_relu_slope" not in dense_layers[key]:
-                dense_layers[key]["leaky_relu_slope"] = model_construction_defaults[
-                    "dense_leaky_relu_slope"
-                ]
-            if "dropout_rate" not in dense_layers[key]:
-                dense_layers[key]["dropout_rate"] = model_construction_defaults[
-                    "dropout_rate"
-                ]
+        for layer_name in encoding_layers:
+            for default_name in encoding_layer_defaults:
+                if default_name not in encoding_layers[layer_name]:
+                    encoding_layers[layer_name][default_name] = encoding_layer_defaults[
+                        default_name
+                    ]
+        for layer_name in dense_layers:
+            for default_name in dense_layer_defaults:
+                if default_name not in dense_layers[layer_name]:
+                    dense_layers[layer_name][default_name] = dense_layer_defaults[
+                        default_name
+                    ]
 
         translated_encoding_layers = OrderedDict(
             [
@@ -150,16 +146,30 @@ class CNN(nn.Module):
             ]
         )
 
+        translated_output_layer = OrderedDict(
+            [
+                (
+                    layer_name,
+                    LAYER_NAME_TRANSLATION[output_layer[layer_name].pop("type")](
+                        **output_layer[layer_name]
+                    ),
+                )
+                for layer_name in output_layer
+            ]
+        )
+
         self.conv_layers = nn.Sequential(translated_encoding_layers)
         self.flatten = nn.Flatten()
         self.dense_layers = nn.Sequential(translated_dense_layers)
+        self.output_layer = nn.Sequential(translated_output_layer)
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
         conv_out = self.conv_layers(x)
         conv_out = self.flatten(conv_out)
         dense_out = self.dense_layers(conv_out)
-        sig_out = self.sigmoid(dense_out)
+        logit_out = self.output_layer(dense_out)
+        sig_out = self.sigmoid(logit_out)
         return sig_out
 
 

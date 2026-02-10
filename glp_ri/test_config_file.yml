@@ -26,6 +26,9 @@ encoding_layers:
     in_channels: 128
     out_channels: 256
 
+encoding_layer_defaults:
+  leaky_relu_slope: 0.2
+
 dense_layers:
   dense_block_1:
     type: dense_block
@@ -43,15 +46,16 @@ dense_layers:
     type: dense_block
     in_neurons: 870
     out_neurons: 435
-  linear:
+
+dense_layer_defaults:
+  dropout_rate: 0.2
+  leaky_relu_slope: 0.2
+
+output_layer:
+  out_layer:
     type: linear
     in_features: 435
     out_features: 100
-
-model_construction_defaults:
-  dense_dropout_rate: 0.2
-  encoding_leaky_relu_slope: 0.2
-  dense_leaky_relu_slope: 0.2
 
 training_hyperparameters:
   loss_function: crps

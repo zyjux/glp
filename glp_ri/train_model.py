@@ -3,12 +3,8 @@ from time import perf_counter
 import torch
 import torchvision.transforms.v2 as tvtf
 import yaml
-from data_utils import (
-    DATA_DIR,
-    AddGaussianNoise,
-    aug_crossentropy_RI_Dataset,
-    load_labels,
-)
+from data_utils import (DATA_DIR, AddGaussianNoise,
+                        aug_crossentropy_RI_Dataset, load_labels)
 from network_def import CNN, EarlyStopper, crps_loss, train, validate
 from torch.utils.data import DataLoader, WeightedRandomSampler
 from torchinfo import summary
@@ -20,9 +16,10 @@ with open(CONFIG_FILE, "r") as f:
 
 # Get cpu, gpu or mps device for training.
 device = (
-    "cuda"
-    if torch.cuda.is_available()
-    else "mps" if torch.backends.mps.is_available() else "cpu"
+    # "cuda"
+    # if torch.cuda.is_available()
+    # else "mps" if torch.backends.mps.is_available() else "cpu"
+    "cpu"
 )
 print(f"Using {device} device")
 
@@ -62,7 +59,9 @@ cnn_valid_dataloader = DataLoader(
 cnn_model = CNN(
     config_dict["encoding_layers"],
     config_dict["dense_layers"],
-    config_dict["model_construction_defaults"],
+    config_dict["output_layer"],
+    config_dict["encoding_layer_defaults"],
+    config_dict["dense_layer_defaults"],
 ).to(device)
 cnn_loss_fn = crps_loss()
 cnn_optimizer = torch.optim.Adam(cnn_model.parameters(), lr=1e-3)
