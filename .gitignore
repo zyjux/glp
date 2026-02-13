@@ -10,5 +10,3 @@ ipython_config.py
 glp_ri/__pycache__/
 synthetic_data/__pycache__/
 glp.egg-info/
-
-glp_ri/saved_models/
