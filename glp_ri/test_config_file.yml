@@ -12,7 +12,7 @@ training_hyperparameters:
   early_stopping:
     enabled: True
     patience: 20
-    min_delta: 1e-4
+    min_delta: 1.0e-4
 
 data_augmentation:
   rotations:
