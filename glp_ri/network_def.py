@@ -1,7 +1,9 @@
 from collections import OrderedDict
+from dataclasses import dataclass, field
 
 import torch
 from torch import nn
+from torchvision.transforms.functional import rotate
 
 
 class crps_loss(nn.Module):
@@ -26,13 +28,50 @@ class crps_loss(nn.Module):
         )  # type: ignore
 
 
-def conv_block(in_channels, out_channels, leaky_relu_slope):
+class glp_rotation_stack(nn.Module):
+    def __init__(self, num_angles=None, angle_inc=None):
+        super().__init__()
+        if angle_inc is not None:
+            self.num_angles = 360 / angle_inc
+            self.angle_inc = angle_inc
+        elif num_angles is not None:
+            self.angle_inc = 360 / num_angles
+            self.num_angles = num_angles
+        else:
+            raise ValueError("Need either num_angles or angle_inc to be defined")
+
+    def __call__(self, image):
+        temp_list = [
+            rotate(image, self.angle_inc * i) for i in range(int(self.num_angles))
+        ]
+        return torch.stack(temp_list, dim=-1)
+
+
+class glp_rotation_pool(nn.Module):
+    def __init__(self, kernel_size: int):
+        super().__init__()
+        self.kernel_size = kernel_size
+
+    def __call__(self, image):
+        num_angles = image.shape[-1]
+        angle_increment = 360 / num_angles
+        output_image = torch.empty(image.shape).to(image.device)
+        for i in range(num_angles):
+            relative_offset = i % self.kernel_size
+            output_image[..., i] = rotate(
+                image[..., i], -angle_increment * relative_offset
+            )
+        return nn.MaxPool3d(kernel_size=(1, 1, self.kernel_size))(output_image)
+
+
+def conv_block(in_channels, out_channels, leaky_relu_slope, kernel_size):
+    padding = int(kernel_size / 2)
     layers = nn.Sequential(
         nn.Conv2d(
             in_channels=in_channels,
             out_channels=out_channels,
-            kernel_size=3,
-            padding=1,
+            kernel_size=kernel_size,
+            padding=padding,
             padding_mode="reflect",
         ),
         nn.LeakyReLU(leaky_relu_slope),
@@ -40,13 +79,38 @@ def conv_block(in_channels, out_channels, leaky_relu_slope):
         nn.Conv2d(
             in_channels=out_channels,
             out_channels=out_channels,
-            kernel_size=3,
-            padding=1,
+            kernel_size=kernel_size,
+            padding=padding,
             padding_mode="reflect",
         ),
         nn.LeakyReLU(leaky_relu_slope),
         nn.BatchNorm2d(out_channels),
         nn.MaxPool2d(kernel_size=2),
+    )
+    return layers
+
+
+def glp_conv_block(in_channels, out_channels, leaky_relu_slope):
+    layers = nn.Sequential(
+        nn.Conv3d(
+            in_channels=in_channels,
+            out_channels=out_channels,
+            kernel_size=(3, 3, 1),
+            padding=(1, 1, 0),
+            padding_mode="reflect",
+        ),
+        nn.LeakyReLU(leaky_relu_slope),
+        nn.BatchNorm3d(out_channels),
+        nn.Conv3d(
+            in_channels=out_channels,
+            out_channels=out_channels,
+            kernel_size=(3, 3, 1),
+            padding=(1, 1, 0),
+            padding_mode="reflect",
+        ),
+        nn.LeakyReLU(leaky_relu_slope),
+        nn.BatchNorm3d(out_channels),
+        nn.MaxPool3d(kernel_size=(2, 2, 1)),
     )
     return layers
 
@@ -61,114 +125,89 @@ def dense_block(in_neurons, out_neurons, dropout_rate, leaky_relu_slope):
     return layers
 
 
-"""
-conv_block(1, 8),
-conv_block(8, 16),
-conv_block(16, 32),
-conv_block(32, 64),
-conv_block(64, 128),
-conv_block(128, 256),
-
-            OrderedDict(
-                [
-                    (
-                        f"dense_block_{i}",
-                        dense_block(
-                            dense_neurons[i],
-                            dense_neurons[i + 1],
-                            dropout_rate,
-                            LEAKY_RELU_SLOPE,
-                        ),
-                    )
-                    for i in range(len(conv_channels) - 2)
-                ]
-                + [("output_layer", nn.Linear(dense_neurons[-2], dense_neurons[-1]))]
-            )
-            dense_block(10240, 1740, dropout_rate, LEAKY_RELU_SLOPE),
-            dense_block(1740, 1305, dropout_rate, LEAKY_RELU_SLOPE),
-            dense_block(1305, 870, dropout_rate, LEAKY_RELU_SLOPE),
-            dense_block(870, 435, dropout_rate, LEAKY_RELU_SLOPE),
-            nn.Linear(435, 100),
-"""
-
 LAYER_NAME_TRANSLATION = {
     "conv_block": conv_block,
     "dense_block": dense_block,
     "linear": nn.Linear,
+    "glp_rotation_stack": glp_rotation_stack,
+    "glp_rotation_pool": glp_rotation_pool,
+    "glp_conv_block": glp_conv_block,
 }
 
 
+@dataclass
+class model_config:
+    model_save_file: str
+    training_hyperparameters: dict
+    data_augmentation: dict = field(default_factory=dict)
+    setup_layers: dict = field(default_factory=dict)
+    encoding_layers: dict = field(default_factory=dict)
+    encoding_layer_defaults: dict = field(default_factory=dict)
+    dense_layers: dict = field(default_factory=dict)
+    dense_layer_defaults: dict = field(default_factory=dict)
+    output_layers: dict = field(default_factory=dict)
+
+    def apply_defaults(self, layers: dict, defaults: dict) -> dict:
+        new_layers = layers.copy()
+        for layer_name in new_layers:
+            for default_name in defaults:
+                if default_name not in new_layers[layer_name]:
+                    new_layers[layer_name][default_name] = defaults[default_name]
+        return new_layers
+
+    def translate_layers(self, layers: dict) -> OrderedDict:
+        translated_layers = OrderedDict(
+            [
+                (
+                    layer_name,
+                    self.layer_name_translation[layers[layer_name].pop("type")](
+                        **layers[layer_name]
+                    ),
+                )
+                for layer_name in layers
+            ]
+        )
+        return translated_layers
+
+    def __post_init__(self):
+        self.layer_name_translation = {
+            "conv_block": conv_block,
+            "dense_block": dense_block,
+            "linear": nn.Linear,
+            "glp_rotation_stack": glp_rotation_stack,
+            "glp_rotation_pool": glp_rotation_pool,
+            "glp_conv_block": glp_conv_block,
+        }
+
+        self.encoding_layers = self.apply_defaults(
+            self.encoding_layers, self.encoding_layer_defaults
+        )
+        self.dense_layers = self.apply_defaults(
+            self.dense_layers, self.dense_layer_defaults
+        )
+        self.setup_layers_trans = self.translate_layers(self.setup_layers)
+        self.encoding_layers_trans = self.translate_layers(self.encoding_layers)
+        self.dense_layers_trans = self.translate_layers(self.dense_layers)
+        self.output_layers_trans = self.translate_layers(self.output_layers)
+
+
 class CNN(nn.Module):
-    def __init__(
-        self,
-        encoding_layers: dict,
-        dense_layers: dict,
-        output_layer: dict,
-        encoding_layer_defaults: dict,
-        dense_layer_defaults: dict,
-    ):
+    def __init__(self, cfg: model_config):
         super().__init__()
 
-        for layer_name in encoding_layers:
-            for default_name in encoding_layer_defaults:
-                if default_name not in encoding_layers[layer_name]:
-                    encoding_layers[layer_name][default_name] = encoding_layer_defaults[
-                        default_name
-                    ]
-        for layer_name in dense_layers:
-            for default_name in dense_layer_defaults:
-                if default_name not in dense_layers[layer_name]:
-                    dense_layers[layer_name][default_name] = dense_layer_defaults[
-                        default_name
-                    ]
-
-        translated_encoding_layers = OrderedDict(
-            [
-                (
-                    layer_name,
-                    LAYER_NAME_TRANSLATION[encoding_layers[layer_name].pop("type")](
-                        **encoding_layers[layer_name]
-                    ),
-                )
-                for layer_name in encoding_layers
-            ]
-        )
-
-        translated_dense_layers = OrderedDict(
-            [
-                (
-                    layer_name,
-                    LAYER_NAME_TRANSLATION[dense_layers[layer_name].pop("type")](
-                        **dense_layers[layer_name]
-                    ),
-                )
-                for layer_name in dense_layers
-            ]
-        )
-
-        translated_output_layer = OrderedDict(
-            [
-                (
-                    layer_name,
-                    LAYER_NAME_TRANSLATION[output_layer[layer_name].pop("type")](
-                        **output_layer[layer_name]
-                    ),
-                )
-                for layer_name in output_layer
-            ]
-        )
-
-        self.conv_layers = nn.Sequential(translated_encoding_layers)
+        self.setup_layers = nn.Sequential(cfg.setup_layers_trans)
+        self.encoding_layers = nn.Sequential(cfg.encoding_layers_trans)
         self.flatten = nn.Flatten()
-        self.dense_layers = nn.Sequential(translated_dense_layers)
-        self.output_layer = nn.Sequential(translated_output_layer)
+        self.dense_layers = nn.Sequential(cfg.dense_layers_trans)
+        self.output_layers = nn.Sequential(cfg.output_layers_trans)
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
-        conv_out = self.conv_layers(x)
-        conv_out = self.flatten(conv_out)
-        dense_out = self.dense_layers(conv_out)
-        logit_out = self.output_layer(dense_out)
+        setup_out = self.setup_layers(x)
+        encoding_out = self.encoding_layers(setup_out)
+        flattened_out = self.flatten(encoding_out)
+        dense_out = self.dense_layers(flattened_out)
+        logit_out = self.output_layers(dense_out)
         sig_out = self.sigmoid(logit_out)
         return sig_out
 

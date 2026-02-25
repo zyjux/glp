@@ -5,18 +5,19 @@ import torchvision.transforms.v2 as tvtf
 import yaml
 from data_utils import (DATA_DIR, AddGaussianNoise,
                         aug_crossentropy_RI_Dataset, load_labels)
-from network_def import CNN, EarlyStopper, crps_loss, train, validate
+from network_def import (CNN, EarlyStopper, crps_loss, model_config, train,
+                         validate)
 from torch.utils.data import DataLoader, WeightedRandomSampler
 from torchinfo import summary
 
 # Load config file
 CONFIG_FILE = "./test_config_file.yml"
 with open(CONFIG_FILE, "r") as f:
-    config_dict = yaml.load(f, Loader=yaml.SafeLoader)
+    cfg = model_config(**yaml.load(f, Loader=yaml.SafeLoader))
 
 loss_function_translation = {"crps": crps_loss}
 
-hyperparam_config = config_dict["training_hyperparameters"]
+hyperparam_config = cfg.training_hyperparameters
 
 # Get cpu, gpu or mps device for training.
 device = (
@@ -33,7 +34,7 @@ valid_labels, valid_weights = load_labels(
     DATA_DIR + "/valid_labels.json", desired_ratio=(4, 1)
 )
 
-aug_config = config_dict["data_augmentation"]
+aug_config = cfg.data_augmentation
 transform_list = []
 if "rotations" in aug_config.keys():
     rotate_transform = tvtf.RandomRotation(aug_config["rotations"]["max_degrees"])  # type: ignore
@@ -67,13 +68,7 @@ cnn_valid_dataloader = DataLoader(
     cnn_valid_ds, num_workers=8, batch_size=batch_size, sampler=valid_sampler
 )
 
-cnn_model = CNN(
-    config_dict["encoding_layers"],
-    config_dict["dense_layers"],
-    config_dict["output_layer"],
-    config_dict["encoding_layer_defaults"],
-    config_dict["dense_layer_defaults"],
-).to(device)
+cnn_model = CNN(cfg).to(device)
 cnn_loss_fn = loss_function_translation[hyperparam_config["loss_function"]]()
 cnn_optimizer = torch.optim.Adam(
     cnn_model.parameters(), lr=hyperparam_config["learning_rate"]
@@ -92,6 +87,7 @@ print(
     f"Validation true percentage: {valid_labels[:, -1].sum()/valid_labels.shape[0] * 100}%"
 )
 
+"""
 epochs = hyperparam_config["epochs"]
 print("Training CNN \n")
 t_time_start = perf_counter()
@@ -128,3 +124,4 @@ t_time = perf_counter() - t_time_start
 print(
     f"Done! Total training time: {t_time // 60:.0f} minutes, {t_time % 60:.2f} seconds, average epoch time: {t_time/epochs:.2f} seconds"
 )
+"""
