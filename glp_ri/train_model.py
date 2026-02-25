@@ -1,3 +1,4 @@
+import argparse
 from time import perf_counter
 
 import torch
@@ -10,9 +11,12 @@ from network_def import (CNN, EarlyStopper, crps_loss, model_config, train,
 from torch.utils.data import DataLoader, WeightedRandomSampler
 from torchinfo import summary
 
+parser = argparse.ArgumentParser(prog="TrainModel", description="Trains GLP models")
+parser.add_argument("config_file")
+args = parser.parse_args()
+
 # Load config file
-CONFIG_FILE = "./test_config_file.yml"
-with open(CONFIG_FILE, "r") as f:
+with open(args.config_file, "r") as f:
     cfg = model_config(**yaml.load(f, Loader=yaml.SafeLoader))
 
 loss_function_translation = {"crps": crps_loss}
@@ -87,7 +91,6 @@ print(
     f"Validation true percentage: {valid_labels[:, -1].sum()/valid_labels.shape[0] * 100}%"
 )
 
-"""
 epochs = hyperparam_config["epochs"]
 print("Training CNN \n")
 t_time_start = perf_counter()
@@ -115,13 +118,12 @@ for t in range(epochs):
             break
         if early_stopper.counter == 0:
             print(f"Validation loss improved, saving model")
-            torch.save(cnn_model.state_dict(), config_dict["model_save_file"])
+            torch.save(cnn_model.state_dict(), cfg.model_save_file)
     else:
-        torch.save(cnn_model.state_dict(), config_dict["model_save_file"])
+        torch.save(cnn_model.state_dict(), cfg.model_save_file)
 
     print(f"Epoch time: {perf_counter() - start_time:.2f} seconds \n")
 t_time = perf_counter() - t_time_start
 print(
     f"Done! Total training time: {t_time // 60:.0f} minutes, {t_time % 60:.2f} seconds, average epoch time: {t_time/epochs:.2f} seconds"
 )
-"""
