@@ -1,12 +1,14 @@
 # Test configuration file recreating development defaults
 
-model_save_file: /home/lverhoef/glp/glp_ri/saved_models/crps_cnn.pt
+# Required
+model_save_file: /home/lverhoef/glp/glp_ri/experiments/starting_baseline/glp_cnn.pt
 
+# Required
 training_hyperparameters:
   batches_per_epoch: 64
-  batch_size: 64
+  batch_size: 8
   epochs: 1000
-  accumulation_batches: 2
+  accumulation_batches: 16
   loss_function: crps
   learning_rate: 1.0e-3
   early_stopping:
@@ -14,10 +16,11 @@ training_hyperparameters:
     patience: 20
     min_delta: 1.0e-4
 
+### data_augmentation
+# rotations: max_degrees, num_rotations
+# noisings: standard_deviation, num_noisings
+# translations: max_shift, num_translations
 data_augmentation:
-  rotations:
-    max_degrees: 50
-    num_rotations: 2
   noisings:
     standard_deviation: 0.5
     num_noisings: 2
@@ -25,40 +28,58 @@ data_augmentation:
     max_shift: 0.05
     num_translations: 3
 
+### setup_layers
+# glp_rotation_stack: num_angles, angle_inc (only one needed)
+setup_layers:
+  glp_rotation_stack:
+    type: glp_rotation_stack
+    angle_inc: 30 
+
+### encoding_layers
+# conv_block: in_channels, out_channels, kernel_size, pooling_size
+# glp_conv_block: in_channels, out_channels, kernel_size, pooling_size
+# glp_rotation_pool: glp_pooling_size
 encoding_layers:
   conv_block_1:
-    type: conv_block
+    type: glp_conv_block
     in_channels: 1
     out_channels: 8
   conv_block_2:
-    type: conv_block
+    type: glp_conv_block
     in_channels: 8
     out_channels: 16
   conv_block_3:
-    type: conv_block
+    type: glp_conv_block
     in_channels: 16
     out_channels: 32
+  glp_pooling_1:
+    type: glp_rotation_pool
+    glp_pooling_size: 2
   conv_block_4:
-    type: conv_block
+    type: glp_conv_block
     in_channels: 32
     out_channels: 64
   conv_block_5:
-    type: conv_block
+    type: glp_conv_block
     in_channels: 64
-    out_channels: 128
+    out_channels: 64
   conv_block_6:
-    type: conv_block
-    in_channels: 128
-    out_channels: 256
+    type: glp_conv_block
+    in_channels: 64
+    out_channels: 64
 
+### encoding_layer_defaults
 encoding_layer_defaults:
   leaky_relu_slope: 0.2
   kernel_size: 3
+  pooling_size: 2
 
+### dense_layers
+# dense_block: in_neurons, out_neurons, dropout_rate, leaky_relu_slope
 dense_layers:
   dense_block_1:
     type: dense_block
-    in_neurons: 10240
+    in_neurons: 15360
     out_neurons: 1740
   dense_block_2:
     type: dense_block
@@ -73,10 +94,13 @@ dense_layers:
     in_neurons: 870
     out_neurons: 435
 
+### dense_layer_defaults
 dense_layer_defaults:
   dropout_rate: 0.2
   leaky_relu_slope: 0.2
 
+### output_layers
+# linear: in_features, out_features
 output_layers:
   out_layer:
     type: linear

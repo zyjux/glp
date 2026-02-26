@@ -48,9 +48,9 @@ class glp_rotation_stack(nn.Module):
 
 
 class glp_rotation_pool(nn.Module):
-    def __init__(self, kernel_size: int):
+    def __init__(self, glp_pooling_size: int, **kwargs):
         super().__init__()
-        self.kernel_size = kernel_size
+        self.kernel_size = glp_pooling_size
 
     def __call__(self, image):
         num_angles = image.shape[-1]
@@ -64,7 +64,7 @@ class glp_rotation_pool(nn.Module):
         return nn.MaxPool3d(kernel_size=(1, 1, self.kernel_size))(output_image)
 
 
-def conv_block(in_channels, out_channels, leaky_relu_slope, kernel_size):
+def conv_block(in_channels, out_channels, leaky_relu_slope, kernel_size, pooling_size):
     padding = int(kernel_size / 2)
     layers = nn.Sequential(
         nn.Conv2d(
@@ -85,18 +85,21 @@ def conv_block(in_channels, out_channels, leaky_relu_slope, kernel_size):
         ),
         nn.LeakyReLU(leaky_relu_slope),
         nn.BatchNorm2d(out_channels),
-        nn.MaxPool2d(kernel_size=2),
+        nn.MaxPool2d(kernel_size=pooling_size),
     )
     return layers
 
 
-def glp_conv_block(in_channels, out_channels, leaky_relu_slope):
+def glp_conv_block(
+    in_channels, out_channels, leaky_relu_slope, kernel_size, pooling_size
+):
+    padding = int(kernel_size / 2)
     layers = nn.Sequential(
         nn.Conv3d(
             in_channels=in_channels,
             out_channels=out_channels,
-            kernel_size=(3, 3, 1),
-            padding=(1, 1, 0),
+            kernel_size=(kernel_size, kernel_size, 1),
+            padding=(padding, padding, 0),
             padding_mode="reflect",
         ),
         nn.LeakyReLU(leaky_relu_slope),
@@ -104,13 +107,13 @@ def glp_conv_block(in_channels, out_channels, leaky_relu_slope):
         nn.Conv3d(
             in_channels=out_channels,
             out_channels=out_channels,
-            kernel_size=(3, 3, 1),
-            padding=(1, 1, 0),
+            kernel_size=(kernel_size, kernel_size, 1),
+            padding=(padding, padding, 0),
             padding_mode="reflect",
         ),
         nn.LeakyReLU(leaky_relu_slope),
         nn.BatchNorm3d(out_channels),
-        nn.MaxPool3d(kernel_size=(2, 2, 1)),
+        nn.MaxPool3d(kernel_size=(pooling_size, pooling_size, 1)),
     )
     return layers
 
@@ -123,16 +126,6 @@ def dense_block(in_neurons, out_neurons, dropout_rate, leaky_relu_slope):
         nn.BatchNorm1d(out_neurons),
     )
     return layers
-
-
-LAYER_NAME_TRANSLATION = {
-    "conv_block": conv_block,
-    "dense_block": dense_block,
-    "linear": nn.Linear,
-    "glp_rotation_stack": glp_rotation_stack,
-    "glp_rotation_pool": glp_rotation_pool,
-    "glp_conv_block": glp_conv_block,
-}
 
 
 @dataclass
