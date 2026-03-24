@@ -5,6 +5,7 @@
 import glob
 import json
 import os
+from pathlib import Path
 from typing import Optional
 
 import numpy as np
@@ -144,7 +145,7 @@ def find_cyclones(directory_name, raise_error_if_all_missing=True):
     return cyclone_id_strings
 
 
-def load_labels(fn: str, desired_ratio: Optional[tuple[int, int]] = None):
+def load_labels(fn: str | Path, desired_ratio: Optional[tuple[int, int]] = None):
     """Data utility to parse labels json file into numpy array
 
     args:
