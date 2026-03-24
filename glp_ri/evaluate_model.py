@@ -1,16 +1,26 @@
+import argparse
+from pathlib import Path
+
 import numpy as np
 import xarray as xr
 
-# Open predictions dataset
-model_names = ["crps", "glp"]
+parser = argparse.ArgumentParser(prog="EvalModel", description="Evaluates models")
+parser.add_argument("experiment_dir", type=Path)
+parser.add_argument("-f", "--model_files", nargs="+", type=Path)
+args = parser.parse_args()
 
-for model_name in model_names:
-    ds = xr.open_dataset(f"~/glp/glp_ri/data/{model_name}_cnn_validation_preds.nc")
+# Open predictions dataset
+model_files = [Path(args.experiment_dir, file) for file in args.model_files]
+
+for model_file in model_files:
+    ds = xr.open_dataset(model_file)
+    print(ds["predictions"].shape)
+    #### NEED TO UPDATE THIS TO WORK FOR CRPS OUTPUTS
 
     # Get deterministic mean predictions
     mean_preds = ds["predictions"][:, 1]
 
-    print(f"\nModel type: {model_name}")
+    print(f"\nEvaluating {model_file}")
 
     # Dataset info
     print(f"\nDataset information:\n----------")
