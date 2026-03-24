@@ -15,11 +15,12 @@ parser.add_argument("config_file", type=Path)
 parser.add_argument("save_file", type=Path)
 parser.add_argument("--data_file", default=Path("valid_labels.json"), type=Path)
 parser.add_argument("--data_dir", default=Path(DATA_DIR), type=Path)
+parser.add_argument("--batch_size", type=int)
 args = parser.parse_args()
 
 # Load config file
 with open(args.config_file, "r") as f:
-    cfg = model_config(**yaml.load(f, Loader=yaml.SafeLoader))
+    cfg = model_config(**yaml.safe_load(f))
 
 loss_function_translation = {"crps": crps_loss}
 
@@ -35,7 +36,10 @@ labels, weights = load_labels(Path(args.data_dir, args.data_file), desired_ratio
 
 ds = aug_crossentropy_RI_Dataset(labels)
 
-batch_size = cfg.training_hyperparameters["batch_size"]
+if args.batch_size is None:
+    batch_size = cfg.training_hyperparameters["batch_size"]
+else:
+    batch_size = args.batch_size
 dataloader = DataLoader(ds, num_workers=8, batch_size=batch_size)
 
 model = CNN(cfg)
