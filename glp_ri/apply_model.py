@@ -9,7 +9,6 @@ from data_utils import DATA_DIR, aug_crossentropy_RI_Dataset, load_labels
 from network_def import CNN, crps_loss, model_config
 from torch.utils.data import DataLoader
 from torchinfo import summary
-from tqdm import tqdm
 
 parser = argparse.ArgumentParser(prog="ApplyModel", description="Applies GLP models")
 parser.add_argument("config_file", type=Path)
@@ -51,7 +50,7 @@ print(f"Applying model to {Path(args.data_dir, args.data_file)} \n")
 t_time_start = perf_counter()
 model.eval()
 with torch.no_grad():
-    for X, y in tqdm(dataloader):
+    for X, y in dataloader:
         X = X.to(device)
         X = X.view(-1, 1, 380, 540)
         y = y.view(-1)
