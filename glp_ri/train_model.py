@@ -4,10 +4,13 @@ from time import perf_counter
 import torch
 import torchvision.transforms.v2 as tvtf
 import yaml
-from data_utils import (DATA_DIR, AddGaussianNoise,
-                        aug_crossentropy_RI_Dataset, load_labels)
-from network_def import (CNN, EarlyStopper, crps_loss, model_config, train,
-                         validate)
+from data_utils import (
+    DATA_DIR,
+    AddGaussianNoise,
+    aug_crossentropy_RI_Dataset,
+    load_labels,
+)
+from network_def import CNN, EarlyStopper, crps_loss, model_config, train, validate
 from torch.utils.data import DataLoader, WeightedRandomSampler
 from torchinfo import summary
 
@@ -32,10 +35,10 @@ device = (
 print(f"Using {device} device")
 
 train_labels, train_weights = load_labels(
-    DATA_DIR + "/train_labels.json", desired_ratio=(4, 1)
+    DATA_DIR + "/train_labels.json", desired_ratio=hyperparam_config["sampling_ratio"]
 )
 valid_labels, valid_weights = load_labels(
-    DATA_DIR + "/valid_labels.json", desired_ratio=(4, 1)
+    DATA_DIR + "/valid_labels.json", desired_ratio=hyperparam_config["sampling_ratio"]
 )
 
 aug_config = cfg.data_augmentation
