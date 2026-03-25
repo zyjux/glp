@@ -9,6 +9,9 @@ training_hyperparameters:
   batch_size: 8
   epochs: 1000
   accumulation_batches: 16
+  sampling_ratio:
+    - 4
+    - 1
   loss_function: crps
   learning_rate: 1.0e-3
   early_stopping:
