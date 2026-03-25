@@ -14,11 +14,9 @@ model_files = [Path(args.experiment_dir, file) for file in args.model_files]
 
 for model_file in model_files:
     ds = xr.open_dataset(model_file)
-    print(ds["predictions"].shape)
-    #### NEED TO UPDATE THIS TO WORK FOR CRPS OUTPUTS
 
     # Get deterministic mean predictions
-    mean_preds = ds["predictions"][:, 1]
+    mean_preds = ds["predictions"].mean(dim="class")
 
     print(f"\nEvaluating {model_file}")
 
