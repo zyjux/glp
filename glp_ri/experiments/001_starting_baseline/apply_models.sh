@@ -9,7 +9,7 @@ APPLY_SCRIPT="/home/lverhoef/glp/glp_ri/apply_model.py"
 DATA_DIR="/mnt/data2/lverhoef/RI/learning_examples/rotated_with_storm_motion/imputed/normalized"
 DATA_FILE="valid_labels.json"
 
-EXPERIMENT_DIR="/home/lverhoef/glp/glp_ri/experiments/starting_baseline/"
+EXPERIMENT_DIR="/home/lverhoef/glp/glp_ri/experiments/001_starting_baseline/"
 
 # Train CNN while creating the appropriate logs
 printf "\nApplying CNN"

@@ -6,7 +6,7 @@ conda activate glp
 
 TRAIN_SCRIPT="/home/lverhoef/glp/glp_ri/train_model.py"
 
-EXPERIMENT_DIR="/home/lverhoef/glp/glp_ri/experiments/starting_baseline/"
+EXPERIMENT_DIR="/home/lverhoef/glp/glp_ri/experiments/001_starting_baseline/"
 
 # Train CNN while creating the appropriate logs
 printf "\nTraining CNN"
