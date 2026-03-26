@@ -1,7 +1,7 @@
 # Test configuration file recreating development defaults
 
 # Required
-model_save_file: "/home/lverhoef/glp/glp_ri/experiments/starting_baseline/cnn.pt"
+model_save_file: "/home/lverhoef/glp/glp_ri/001_experiments/starting_baseline/cnn.pt"
 
 # Required
 training_hyperparameters:
