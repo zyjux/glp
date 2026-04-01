@@ -43,10 +43,11 @@ else:
 dataloader = DataLoader(ds, num_workers=8, batch_size=batch_size)
 
 model = CNN(cfg)
+summary(model, input_size=(batch_size, 1, 380, 540))
+
 model.load_state_dict(torch.load(cfg.model_save_file, weights_only=True))
 model.to(device)
 
-summary(model, input_size=(batch_size, 1, 380, 540))
 
 print(f"Validation true percentage: {labels[:, -1].sum()/labels.shape[0] * 100}%")
 
