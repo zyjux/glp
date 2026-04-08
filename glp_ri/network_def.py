@@ -40,7 +40,7 @@ class glp_rotation_stack(nn.Module):
         else:
             raise ValueError("Need either num_angles or angle_inc to be defined")
 
-    def __call__(self, image):
+    def forward(self, image):
         temp_list = [
             rotate(image, self.angle_inc * i) for i in range(int(self.num_angles))
         ]
@@ -52,16 +52,36 @@ class glp_rotation_pool(nn.Module):
         super().__init__()
         self.kernel_size = glp_pooling_size
 
-    def __call__(self, image):
+    def forward(self, image):
         num_angles = image.shape[-1]
         angle_increment = 360 / num_angles
-        output_image = torch.empty(image.shape).to(image.device)
+        output_image = torch.empty(image.shape, device=image.device)
         for i in range(num_angles):
             relative_offset = i % self.kernel_size
             output_image[..., i] = rotate(
                 image[..., i], -angle_increment * relative_offset
             )
         return nn.MaxPool3d(kernel_size=(1, 1, self.kernel_size))(output_image)
+
+
+class glp_linear(nn.Module):
+    def __init__(
+        self, in_features: int, out_features: int, bias=True, device=None, dtype=None
+    ):
+        super().__init__()
+        self.linear = nn.Linear(
+            in_features=in_features,
+            out_features=out_features,
+            bias=bias,
+            device=device,
+            dtype=dtype,
+        )
+
+    def forward(self, in_stack):
+        return torch.stack(
+            [self.linear(torch.squeeze(x)) for x in torch.split(in_stack, 1, dim=-1)],
+            dim=-1,
+        )
 
 
 def conv_block(in_channels, out_channels, leaky_relu_slope, kernel_size, pooling_size):
@@ -128,6 +148,21 @@ def dense_block(in_neurons, out_neurons, dropout_rate, leaky_relu_slope):
     return layers
 
 
+def glp_dense_block(
+    in_neurons: int,
+    out_neurons: int,
+    dropout_rate: float,
+    leaky_relu_slope: float,
+):
+    layers = nn.Sequential(
+        glp_linear(in_neurons, out_neurons),
+        nn.LeakyReLU(leaky_relu_slope),
+        nn.Dropout(dropout_rate),
+        nn.LazyBatchNorm1d(),
+    )
+    return layers
+
+
 @dataclass
 class model_config:
     model_save_file: str
@@ -138,14 +173,14 @@ class model_config:
     encoding_layer_defaults: dict = field(default_factory=dict)
     dense_layers: dict = field(default_factory=dict)
     dense_layer_defaults: dict = field(default_factory=dict)
-    output_layers: dict = field(default_factory=dict)
 
     def apply_defaults(self, layers: dict, defaults: dict) -> dict:
         new_layers = layers.copy()
         for layer_name in new_layers:
-            for default_name in defaults:
-                if default_name not in new_layers[layer_name]:
-                    new_layers[layer_name][default_name] = defaults[default_name]
+            if not new_layers[layer_name].pop("no_defaults", False):
+                for default_name in defaults:
+                    if default_name not in new_layers[layer_name]:
+                        new_layers[layer_name][default_name] = defaults[default_name]
         return new_layers
 
     def translate_layers(self, layers: dict) -> OrderedDict:
@@ -170,6 +205,9 @@ class model_config:
             "glp_rotation_stack": glp_rotation_stack,
             "glp_rotation_pool": glp_rotation_pool,
             "glp_conv_block": glp_conv_block,
+            "glp_dense_block": glp_dense_block,
+            "flatten": nn.Flatten,
+            "pool_1d": nn.MaxPool1d,
         }
 
         self.encoding_layers = self.apply_defaults(
@@ -181,7 +219,6 @@ class model_config:
         self.setup_layers_trans = self.translate_layers(self.setup_layers)
         self.encoding_layers_trans = self.translate_layers(self.encoding_layers)
         self.dense_layers_trans = self.translate_layers(self.dense_layers)
-        self.output_layers_trans = self.translate_layers(self.output_layers)
 
 
 class CNN(nn.Module):
@@ -190,18 +227,14 @@ class CNN(nn.Module):
 
         self.setup_layers = nn.Sequential(cfg.setup_layers_trans)
         self.encoding_layers = nn.Sequential(cfg.encoding_layers_trans)
-        self.flatten = nn.Flatten()
         self.dense_layers = nn.Sequential(cfg.dense_layers_trans)
-        self.output_layers = nn.Sequential(cfg.output_layers_trans)
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
         setup_out = self.setup_layers(x)
         encoding_out = self.encoding_layers(setup_out)
-        flattened_out = self.flatten(encoding_out)
-        dense_out = self.dense_layers(flattened_out)
-        logit_out = self.output_layers(dense_out)
-        sig_out = self.sigmoid(logit_out)
+        dense_out = self.dense_layers(encoding_out)
+        sig_out = self.sigmoid(dense_out)
         return sig_out
 
 
@@ -227,7 +260,7 @@ def train(dataloader, model, loss_fn, optimizer, accumulation_batches=1, device=
             optimizer.step()
             optimizer.zero_grad()
 
-        if batch % 2 == 0:
+        if batch % (4 * accumulation_batches) == 0:
             loss, current = loss.item(), (batch + 1) * true_x_len
             print(f"loss: {loss: >7f} [{current: >5d}/{size:>5d}]")
 
