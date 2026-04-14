@@ -1,0 +1,4897 @@
+Using cuda device
+==========================================================================================
+Layer (type:depth-idx)                   Output Shape              Param #
+==========================================================================================
+CNN                                      [96, 100]                 --
+├─Sequential: 1-1                        [96, 1, 380, 540]         --
+├─Sequential: 1-2                        [96, 10240]               --
+│    └─Sequential: 2-1                   [96, 8, 190, 270]         --
+│    │    └─Conv2d: 3-1                  [96, 8, 380, 540]         80
+│    │    └─LeakyReLU: 3-2               [96, 8, 380, 540]         --
+│    │    └─BatchNorm2d: 3-3             [96, 8, 380, 540]         16
+│    │    └─Conv2d: 3-4                  [96, 8, 380, 540]         584
+│    │    └─LeakyReLU: 3-5               [96, 8, 380, 540]         --
+│    │    └─BatchNorm2d: 3-6             [96, 8, 380, 540]         16
+│    │    └─MaxPool2d: 3-7               [96, 8, 190, 270]         --
+│    └─Sequential: 2-2                   [96, 16, 95, 135]         --
+│    │    └─Conv2d: 3-8                  [96, 16, 190, 270]        1,168
+│    │    └─LeakyReLU: 3-9               [96, 16, 190, 270]        --
+│    │    └─BatchNorm2d: 3-10            [96, 16, 190, 270]        32
+│    │    └─Conv2d: 3-11                 [96, 16, 190, 270]        2,320
+│    │    └─LeakyReLU: 3-12              [96, 16, 190, 270]        --
+│    │    └─BatchNorm2d: 3-13            [96, 16, 190, 270]        32
+│    │    └─MaxPool2d: 3-14              [96, 16, 95, 135]         --
+│    └─Sequential: 2-3                   [96, 32, 47, 67]          --
+│    │    └─Conv2d: 3-15                 [96, 32, 95, 135]         4,640
+│    │    └─LeakyReLU: 3-16              [96, 32, 95, 135]         --
+│    │    └─BatchNorm2d: 3-17            [96, 32, 95, 135]         64
+│    │    └─Conv2d: 3-18                 [96, 32, 95, 135]         9,248
+│    │    └─LeakyReLU: 3-19              [96, 32, 95, 135]         --
+│    │    └─BatchNorm2d: 3-20            [96, 32, 95, 135]         64
+│    │    └─MaxPool2d: 3-21              [96, 32, 47, 67]          --
+│    └─Sequential: 2-4                   [96, 64, 23, 33]          --
+│    │    └─Conv2d: 3-22                 [96, 64, 47, 67]          18,496
+│    │    └─LeakyReLU: 3-23              [96, 64, 47, 67]          --
+│    │    └─BatchNorm2d: 3-24            [96, 64, 47, 67]          128
+│    │    └─Conv2d: 3-25                 [96, 64, 47, 67]          36,928
+│    │    └─LeakyReLU: 3-26              [96, 64, 47, 67]          --
+│    │    └─BatchNorm2d: 3-27            [96, 64, 47, 67]          128
+│    │    └─MaxPool2d: 3-28              [96, 64, 23, 33]          --
+│    └─Sequential: 2-5                   [96, 128, 11, 16]         --
+│    │    └─Conv2d: 3-29                 [96, 128, 23, 33]         73,856
+│    │    └─LeakyReLU: 3-30              [96, 128, 23, 33]         --
+│    │    └─BatchNorm2d: 3-31            [96, 128, 23, 33]         256
+│    │    └─Conv2d: 3-32                 [96, 128, 23, 33]         147,584
+│    │    └─LeakyReLU: 3-33              [96, 128, 23, 33]         --
+│    │    └─BatchNorm2d: 3-34            [96, 128, 23, 33]         256
+│    │    └─MaxPool2d: 3-35              [96, 128, 11, 16]         --
+│    └─Sequential: 2-6                   [96, 256, 5, 8]           --
+│    │    └─Conv2d: 3-36                 [96, 256, 11, 16]         295,168
+│    │    └─LeakyReLU: 3-37              [96, 256, 11, 16]         --
+│    │    └─BatchNorm2d: 3-38            [96, 256, 11, 16]         512
+│    │    └─Conv2d: 3-39                 [96, 256, 11, 16]         590,080
+│    │    └─LeakyReLU: 3-40              [96, 256, 11, 16]         --
+│    │    └─BatchNorm2d: 3-41            [96, 256, 11, 16]         512
+│    │    └─MaxPool2d: 3-42              [96, 256, 5, 8]           --
+│    └─Flatten: 2-7                      [96, 10240]               --
+├─Sequential: 1-3                        [96, 100]                 --
+│    └─Sequential: 2-8                   [96, 1740]                --
+│    │    └─Linear: 3-43                 [96, 1740]                17,819,340
+│    │    └─LeakyReLU: 3-44              [96, 1740]                --
+│    │    └─Dropout: 3-45                [96, 1740]                --
+│    │    └─BatchNorm1d: 3-46            [96, 1740]                3,480
+│    └─Sequential: 2-9                   [96, 1305]                --
+│    │    └─Linear: 3-47                 [96, 1305]                2,272,005
+│    │    └─LeakyReLU: 3-48              [96, 1305]                --
+│    │    └─Dropout: 3-49                [96, 1305]                --
+│    │    └─BatchNorm1d: 3-50            [96, 1305]                2,610
+│    └─Sequential: 2-10                  [96, 870]                 --
+│    │    └─Linear: 3-51                 [96, 870]                 1,136,220
+│    │    └─LeakyReLU: 3-52              [96, 870]                 --
+│    │    └─Dropout: 3-53                [96, 870]                 --
+│    │    └─BatchNorm1d: 3-54            [96, 870]                 1,740
+│    └─Sequential: 2-11                  [96, 435]                 --
+│    │    └─Linear: 3-55                 [96, 435]                 378,885
+│    │    └─LeakyReLU: 3-56              [96, 435]                 --
+│    │    └─Dropout: 3-57                [96, 435]                 --
+│    │    └─BatchNorm1d: 3-58            [96, 435]                 870
+│    └─Linear: 2-12                      [96, 100]                 43,600
+├─Sigmoid: 1-4                           [96, 100]                 --
+==========================================================================================
+Total params: 22,840,918
+Trainable params: 22,840,918
+Non-trainable params: 0
+Total mult-adds (G): 97.28
+==========================================================================================
+Input size (MB): 78.80
+Forward/backward pass size (MB): 9887.98
+Params size (MB): 91.36
+Estimated Total Size (MB): 10058.14
+==========================================================================================
+Validation true percentage: 6.225031827560472%
+Training CNN 
+
+Epoch 1
+----------------------------
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.425094 [   96/ 6144]
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+loss: 0.335072 [  480/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.284045 [  864/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.262688 [ 1248/ 6144]
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.223092 [ 1632/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.209577 [ 2016/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.202621 [ 2400/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.185788 [ 2784/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.209668 [ 3168/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.176386 [ 3552/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.184145 [ 3936/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.149490 [ 4320/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 72 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.179699 [ 4704/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.165327 [ 5088/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.149191 [ 5472/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 72 positive examples out of 768
+Optimization step
+loss: 0.138414 [ 5856/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 78.7%, Avg loss: 0.140666, Positive ratio: 0.203125
+Validation loss improved, saving model
+Epoch time: 158.41 seconds 
+
+Epoch 2
+----------------------------
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.171414 [   96/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.150108 [  480/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.169319 [  864/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.148148 [ 1248/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.151720 [ 1632/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+loss: 0.158911 [ 2016/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.152920 [ 2400/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 216 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.136908 [ 2784/ 6144]
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.124880 [ 3168/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 64 positive examples out of 768
+Optimization step
+loss: 0.107118 [ 3552/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.145771 [ 3936/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.119194 [ 4320/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+loss: 0.173115 [ 4704/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.175568 [ 5088/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.143964 [ 5472/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.138442 [ 5856/ 6144]
+Batch contains 64 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 58.2%, Avg loss: 0.183161, Positive ratio: 0.541667
+Epoch time: 160.04 seconds 
+
+Epoch 3
+----------------------------
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.154670 [   96/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.152612 [  480/ 6144]
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.144851 [  864/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.132903 [ 1248/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.163237 [ 1632/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.150066 [ 2016/ 6144]
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.153402 [ 2400/ 6144]
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.121745 [ 2784/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+loss: 0.163156 [ 3168/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.139507 [ 3552/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.132035 [ 3936/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 256 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.135359 [ 4320/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.138954 [ 4704/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.146853 [ 5088/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.160242 [ 5472/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 80 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.115635 [ 5856/ 6144]
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 84.7%, Avg loss: 0.124632, Positive ratio: 0.028971
+Validation loss improved, saving model
+Epoch time: 165.29 seconds 
+
+Epoch 4
+----------------------------
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.146128 [   96/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.156160 [  480/ 6144]
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.152185 [  864/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 224 positive examples out of 768
+Optimization step
+loss: 0.184944 [ 1248/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.146013 [ 1632/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.129594 [ 2016/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.141519 [ 2400/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.171674 [ 2784/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.156075 [ 3168/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.105792 [ 3552/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.134659 [ 3936/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.125804 [ 4320/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.139437 [ 4704/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.129180 [ 5088/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 80 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.133803 [ 5472/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 48 positive examples out of 768
+Optimization step
+loss: 0.084578 [ 5856/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 64.4%, Avg loss: 0.168904, Positive ratio: 0.463542
+Epoch time: 155.25 seconds 
+
+Epoch 5
+----------------------------
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.143101 [   96/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.146925 [  480/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.134297 [  864/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.135568 [ 1248/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+loss: 0.173864 [ 1632/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 208 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.133749 [ 2016/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.136727 [ 2400/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.125812 [ 2784/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+loss: 0.107178 [ 3168/ 6144]
+Batch contains 80 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.119925 [ 3552/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+loss: 0.162726 [ 3936/ 6144]
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.123577 [ 4320/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.166982 [ 4704/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.162170 [ 5088/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.133449 [ 5472/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.134218 [ 5856/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 80 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 80.7%, Avg loss: 0.132177, Positive ratio: 0.211426
+Epoch time: 158.16 seconds 
+
+Epoch 6
+----------------------------
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.114623 [   96/ 6144]
+Batch contains 232 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.130422 [  480/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.138479 [  864/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.123769 [ 1248/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.121654 [ 1632/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.136765 [ 2016/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.127941 [ 2400/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.119671 [ 2784/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.160053 [ 3168/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.111555 [ 3552/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.105163 [ 3936/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.126600 [ 4320/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.115792 [ 4704/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.127572 [ 5088/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+loss: 0.153680 [ 5472/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.141931 [ 5856/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 75.0%, Avg loss: 0.147384, Positive ratio: 0.310384
+Epoch time: 156.87 seconds 
+
+Epoch 7
+----------------------------
+Batch contains 192 positive examples out of 768
+Optimization step
+loss: 0.169280 [   96/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.118461 [  480/ 6144]
+Batch contains 224 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+loss: 0.095300 [  864/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.122375 [ 1248/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.145522 [ 1632/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.111352 [ 2016/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.140183 [ 2400/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.119263 [ 2784/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.123786 [ 3168/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.113580 [ 3552/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.104446 [ 3936/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.107150 [ 4320/ 6144]
+Batch contains 72 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 64 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.137014 [ 4704/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.129604 [ 5088/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.098912 [ 5472/ 6144]
+Batch contains 56 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.110534 [ 5856/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 62.6%, Avg loss: 0.194199, Positive ratio: 0.488770
+Epoch time: 155.83 seconds 
+
+Epoch 8
+----------------------------
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.118028 [   96/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.149850 [  480/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.111873 [  864/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.099964 [ 1248/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.094720 [ 1632/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.138263 [ 2016/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.125012 [ 2400/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.108789 [ 2784/ 6144]
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 208 positive examples out of 768
+Optimization step
+loss: 0.147178 [ 3168/ 6144]
+Batch contains 40 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.115200 [ 3552/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.126441 [ 3936/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.123518 [ 4320/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.080126 [ 4704/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.098077 [ 5088/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.174446 [ 5472/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+loss: 0.140334 [ 5856/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 84.0%, Avg loss: 0.110902, Positive ratio: 0.133789
+Validation loss improved, saving model
+Epoch time: 160.31 seconds 
+
+Epoch 9
+----------------------------
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.149722 [   96/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.149838 [  480/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.113030 [  864/ 6144]
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.103559 [ 1248/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 224 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.103520 [ 1632/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.123490 [ 2016/ 6144]
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+loss: 0.147519 [ 2400/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+loss: 0.148476 [ 2784/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.114400 [ 3168/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.093464 [ 3552/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.114404 [ 3936/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.113210 [ 4320/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 72 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.105662 [ 4704/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.114236 [ 5088/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.092052 [ 5472/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.108034 [ 5856/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 74.3%, Avg loss: 0.151504, Positive ratio: 0.334310
+Epoch time: 160.23 seconds 
+
+Epoch 10
+----------------------------
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.137146 [   96/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.095379 [  480/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.117994 [  864/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 208 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.132082 [ 1248/ 6144]
+Batch contains 208 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.120990 [ 1632/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.137935 [ 2016/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.089252 [ 2400/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.116803 [ 2784/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.095114 [ 3168/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.128367 [ 3552/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.091453 [ 3936/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.131123 [ 4320/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.123772 [ 4704/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.092443 [ 5088/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.101276 [ 5472/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.137552 [ 5856/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 81.6%, Avg loss: 0.126449, Positive ratio: 0.194173
+Epoch time: 159.57 seconds 
+
+Epoch 11
+----------------------------
+Batch contains 192 positive examples out of 768
+Optimization step
+loss: 0.136616 [   96/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.098047 [  480/ 6144]
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.115133 [  864/ 6144]
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 216 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.105395 [ 1248/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+loss: 0.129862 [ 1632/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.123531 [ 2016/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 232 positive examples out of 768
+Optimization step
+loss: 0.151164 [ 2400/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.089820 [ 2784/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.098565 [ 3168/ 6144]
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.143136 [ 3552/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.095136 [ 3936/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.087789 [ 4320/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 80 positive examples out of 768
+Optimization step
+Batch contains 80 positive examples out of 768
+Optimization step
+loss: 0.087118 [ 4704/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.108846 [ 5088/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 80 positive examples out of 768
+Optimization step
+loss: 0.085453 [ 5472/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.112464 [ 5856/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 78.5%, Avg loss: 0.139854, Positive ratio: 0.271159
+Epoch time: 163.27 seconds 
+
+Epoch 12
+----------------------------
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.110261 [   96/ 6144]
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.141297 [  480/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 208 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.138117 [  864/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+loss: 0.102928 [ 1248/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.086112 [ 1632/ 6144]
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+loss: 0.138888 [ 2016/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.137266 [ 2400/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+loss: 0.146344 [ 2784/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.128560 [ 3168/ 6144]
+Batch contains 56 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.123548 [ 3552/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.112160 [ 3936/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.108728 [ 4320/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.107898 [ 4704/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+loss: 0.095387 [ 5088/ 6144]
+Batch contains 80 positive examples out of 768
+Optimization step
+Batch contains 80 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.091900 [ 5472/ 6144]
+Batch contains 80 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.133532 [ 5856/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 86.1%, Avg loss: 0.097686, Positive ratio: 0.068359
+Validation loss improved, saving model
+Epoch time: 156.63 seconds 
+
+Epoch 13
+----------------------------
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.120102 [   96/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.122686 [  480/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.112668 [  864/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.129285 [ 1248/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.127774 [ 1632/ 6144]
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.129416 [ 2016/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.103043 [ 2400/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 208 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.089453 [ 2784/ 6144]
+Batch contains 48 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.116355 [ 3168/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.105704 [ 3552/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.092974 [ 3936/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.110078 [ 4320/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.087808 [ 4704/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.124122 [ 5088/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.143565 [ 5472/ 6144]
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.068542 [ 5856/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 84.6%, Avg loss: 0.105061, Positive ratio: 0.130208
+Epoch time: 157.06 seconds 
+
+Epoch 14
+----------------------------
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.098079 [   96/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.119600 [  480/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.080293 [  864/ 6144]
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.090869 [ 1248/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.110268 [ 1632/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 64 positive examples out of 768
+Optimization step
+loss: 0.090479 [ 2016/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+loss: 0.159944 [ 2400/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.115168 [ 2784/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.115904 [ 3168/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.123837 [ 3552/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.112865 [ 3936/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.099756 [ 4320/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.126213 [ 4704/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.104362 [ 5088/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.131251 [ 5472/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.091161 [ 5856/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 82.3%, Avg loss: 0.115822, Positive ratio: 0.176432
+Epoch time: 159.88 seconds 
+
+Epoch 15
+----------------------------
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.106300 [   96/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 232 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.116966 [  480/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 208 positive examples out of 768
+Optimization step
+loss: 0.120671 [  864/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.085128 [ 1248/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 224 positive examples out of 768
+Optimization step
+loss: 0.159723 [ 1632/ 6144]
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+loss: 0.089489 [ 2016/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+loss: 0.105806 [ 2400/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.096527 [ 2784/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.096314 [ 3168/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.111613 [ 3552/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.097983 [ 3936/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.106165 [ 4320/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+loss: 0.088636 [ 4704/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.096624 [ 5088/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 80 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.119159 [ 5472/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.113527 [ 5856/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 77.8%, Avg loss: 0.141523, Positive ratio: 0.275716
+Epoch time: 158.14 seconds 
+
+Epoch 16
+----------------------------
+Batch contains 184 positive examples out of 768
+Optimization step
+loss: 0.131331 [   96/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.137649 [  480/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.127462 [  864/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.102151 [ 1248/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.106566 [ 1632/ 6144]
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.108762 [ 2016/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.097966 [ 2400/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.103741 [ 2784/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.073743 [ 3168/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 72 positive examples out of 768
+Optimization step
+loss: 0.081119 [ 3552/ 6144]
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.118548 [ 3936/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.135457 [ 4320/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.130052 [ 4704/ 6144]
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.119684 [ 5088/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.139524 [ 5472/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.093515 [ 5856/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 82.5%, Avg loss: 0.118068, Positive ratio: 0.196452
+Epoch time: 164.09 seconds 
+
+Epoch 17
+----------------------------
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.131355 [   96/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.103942 [  480/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.111339 [  864/ 6144]
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.088182 [ 1248/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.120815 [ 1632/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.106058 [ 2016/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.113452 [ 2400/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.128467 [ 2784/ 6144]
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.108349 [ 3168/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.082141 [ 3552/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.115987 [ 3936/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.100987 [ 4320/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+loss: 0.136150 [ 4704/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.101752 [ 5088/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 80 positive examples out of 768
+Optimization step
+loss: 0.060367 [ 5472/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.075514 [ 5856/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 72 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 85.6%, Avg loss: 0.103287, Positive ratio: 0.090983
+Epoch time: 160.20 seconds 
+
+Epoch 18
+----------------------------
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.121152 [   96/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.091142 [  480/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.104771 [  864/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.093901 [ 1248/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.086781 [ 1632/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.108700 [ 2016/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.116910 [ 2400/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.105368 [ 2784/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.115180 [ 3168/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.107900 [ 3552/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.084047 [ 3936/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.080325 [ 4320/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.092240 [ 4704/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.124873 [ 5088/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.125460 [ 5472/ 6144]
+Batch contains 72 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+loss: 0.159906 [ 5856/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 85.0%, Avg loss: 0.105017, Positive ratio: 0.046061
+Epoch time: 157.12 seconds 
+
+Epoch 19
+----------------------------
+Batch contains 184 positive examples out of 768
+Optimization step
+loss: 0.130658 [   96/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 232 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.103055 [  480/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.083600 [  864/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.116727 [ 1248/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.120380 [ 1632/ 6144]
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.113245 [ 2016/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.095232 [ 2400/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.104650 [ 2784/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.104673 [ 3168/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.108063 [ 3552/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.063281 [ 3936/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.127322 [ 4320/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.062444 [ 4704/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 80 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.100056 [ 5088/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.098001 [ 5472/ 6144]
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.091585 [ 5856/ 6144]
+Batch contains 80 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 85.4%, Avg loss: 0.101168, Positive ratio: 0.077962
+Epoch time: 156.10 seconds 
+
+Epoch 20
+----------------------------
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.080190 [   96/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.104906 [  480/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.092289 [  864/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 256 positive examples out of 768
+Optimization step
+loss: 0.139858 [ 1248/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.119709 [ 1632/ 6144]
+Batch contains 216 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.099938 [ 2016/ 6144]
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.089791 [ 2400/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.090582 [ 2784/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.115580 [ 3168/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.136577 [ 3552/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.074556 [ 3936/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 72 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.106216 [ 4320/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.103605 [ 4704/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.099322 [ 5088/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.090953 [ 5472/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.109359 [ 5856/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 84.7%, Avg loss: 0.105274, Positive ratio: 0.129069
+Epoch time: 162.36 seconds 
+
+Epoch 21
+----------------------------
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.107272 [   96/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.097483 [  480/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.088340 [  864/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 232 positive examples out of 768
+Optimization step
+loss: 0.143948 [ 1248/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.107946 [ 1632/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+loss: 0.111642 [ 2016/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 80 positive examples out of 768
+Optimization step
+loss: 0.090114 [ 2400/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.082663 [ 2784/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.079421 [ 3168/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.091564 [ 3552/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.098875 [ 3936/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.113346 [ 4320/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.088782 [ 4704/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.115902 [ 5088/ 6144]
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 80 positive examples out of 768
+Optimization step
+loss: 0.102542 [ 5472/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.094645 [ 5856/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 84.5%, Avg loss: 0.103608, Positive ratio: 0.137695
+Epoch time: 161.03 seconds 
+
+Epoch 22
+----------------------------
+Batch contains 192 positive examples out of 768
+Optimization step
+loss: 0.133005 [   96/ 6144]
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.105891 [  480/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+loss: 0.116593 [  864/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 232 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.123715 [ 1248/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 208 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.090027 [ 1632/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.094562 [ 2016/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.080569 [ 2400/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.102268 [ 2784/ 6144]
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.093829 [ 3168/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.096840 [ 3552/ 6144]
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.122902 [ 3936/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.095223 [ 4320/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.104101 [ 4704/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.113741 [ 5088/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.082961 [ 5472/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.096918 [ 5856/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 80.0%, Avg loss: 0.125102, Positive ratio: 0.228678
+Epoch time: 157.79 seconds 
+
+Epoch 23
+----------------------------
+Batch contains 216 positive examples out of 768
+Optimization step
+loss: 0.151431 [   96/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.085376 [  480/ 6144]
+Batch contains 208 positive examples out of 768
+Optimization step
+Batch contains 208 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.085531 [  864/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.096765 [ 1248/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.135467 [ 1632/ 6144]
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.088275 [ 2016/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.062202 [ 2400/ 6144]
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.104892 [ 2784/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.135211 [ 3168/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 72 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.090467 [ 3552/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.067240 [ 3936/ 6144]
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.102802 [ 4320/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.130506 [ 4704/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.092337 [ 5088/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.105857 [ 5472/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 80 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.095424 [ 5856/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 64 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 85.8%, Avg loss: 0.106361, Positive ratio: 0.064128
+Epoch time: 156.32 seconds 
+
+Epoch 24
+----------------------------
+Batch contains 184 positive examples out of 768
+Optimization step
+loss: 0.104569 [   96/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+loss: 0.099016 [  480/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.084550 [  864/ 6144]
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.102669 [ 1248/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.120856 [ 1632/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.087441 [ 2016/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 224 positive examples out of 768
+Optimization step
+loss: 0.159811 [ 2400/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 232 positive examples out of 768
+Optimization step
+loss: 0.143636 [ 2784/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 208 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.134570 [ 3168/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.090707 [ 3552/ 6144]
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.109333 [ 3936/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.080988 [ 4320/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.085598 [ 4704/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.103674 [ 5088/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.081034 [ 5472/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.080316 [ 5856/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 85.7%, Avg loss: 0.099444, Positive ratio: 0.099447
+Epoch time: 162.82 seconds 
+
+Epoch 25
+----------------------------
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.089308 [   96/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.076204 [  480/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.097782 [  864/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+loss: 0.128788 [ 1248/ 6144]
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.117169 [ 1632/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 80 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.114521 [ 2016/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.062841 [ 2400/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.077719 [ 2784/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.082396 [ 3168/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.132342 [ 3552/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.069839 [ 3936/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.097149 [ 4320/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.085487 [ 4704/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.069881 [ 5088/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 56 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.103483 [ 5472/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.105362 [ 5856/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 85.7%, Avg loss: 0.099316, Positive ratio: 0.090332
+Epoch time: 155.24 seconds 
+
+Epoch 26
+----------------------------
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.108871 [   96/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.079813 [  480/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.093005 [  864/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.089685 [ 1248/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.110938 [ 1632/ 6144]
+Batch contains 208 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.128238 [ 2016/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.103237 [ 2400/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.078126 [ 2784/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.100650 [ 3168/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+loss: 0.081346 [ 3552/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.067782 [ 3936/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.100585 [ 4320/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+loss: 0.110319 [ 4704/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.070408 [ 5088/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.096963 [ 5472/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.071617 [ 5856/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 85.2%, Avg loss: 0.102668, Positive ratio: 0.115560
+Epoch time: 156.41 seconds 
+
+Epoch 27
+----------------------------
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.080097 [   96/ 6144]
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.100152 [  480/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.092001 [  864/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.084918 [ 1248/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.099923 [ 1632/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.071478 [ 2016/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.119021 [ 2400/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 72 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 80 positive examples out of 768
+Optimization step
+loss: 0.059588 [ 2784/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.110790 [ 3168/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.092676 [ 3552/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.081357 [ 3936/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.091776 [ 4320/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 80 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.101380 [ 4704/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.064173 [ 5088/ 6144]
+Batch contains 208 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.081195 [ 5472/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.093149 [ 5856/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 85.1%, Avg loss: 0.103947, Positive ratio: 0.101074
+Epoch time: 160.50 seconds 
+
+Epoch 28
+----------------------------
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.118346 [   96/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.112356 [  480/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+loss: 0.098331 [  864/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.089492 [ 1248/ 6144]
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.072672 [ 1632/ 6144]
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.069915 [ 2016/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.076231 [ 2400/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.080025 [ 2784/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.090323 [ 3168/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.079447 [ 3552/ 6144]
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.076258 [ 3936/ 6144]
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.107981 [ 4320/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.083158 [ 4704/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.095402 [ 5088/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.075441 [ 5472/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+loss: 0.073985 [ 5856/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 84.8%, Avg loss: 0.104099, Positive ratio: 0.107910
+Epoch time: 160.22 seconds 
+
+Epoch 29
+----------------------------
+Batch contains 64 positive examples out of 768
+Optimization step
+loss: 0.059363 [   96/ 6144]
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.081335 [  480/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.110496 [  864/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 216 positive examples out of 768
+Optimization step
+loss: 0.141485 [ 1248/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.072865 [ 1632/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.103926 [ 2016/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.100307 [ 2400/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.095760 [ 2784/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.077996 [ 3168/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.086132 [ 3552/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+loss: 0.079704 [ 3936/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.103520 [ 4320/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+loss: 0.102627 [ 4704/ 6144]
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.087364 [ 5088/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.095026 [ 5472/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.126236 [ 5856/ 6144]
+Batch contains 216 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 84.8%, Avg loss: 0.103820, Positive ratio: 0.102865
+Epoch time: 158.39 seconds 
+
+Epoch 30
+----------------------------
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.092576 [   96/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.087071 [  480/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.116026 [  864/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 200 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.107455 [ 1248/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 72 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.062558 [ 1632/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.103484 [ 2016/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.109875 [ 2400/ 6144]
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.074649 [ 2784/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.072585 [ 3168/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.099165 [ 3552/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 208 positive examples out of 768
+Optimization step
+loss: 0.129216 [ 3936/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.086018 [ 4320/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.075951 [ 4704/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.102845 [ 5088/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.082064 [ 5472/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.086355 [ 5856/ 6144]
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 84.9%, Avg loss: 0.104340, Positive ratio: 0.106283
+Epoch time: 157.93 seconds 
+
+Epoch 31
+----------------------------
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.081213 [   96/ 6144]
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.056171 [  480/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.080800 [  864/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.096399 [ 1248/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+loss: 0.123074 [ 1632/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.079047 [ 2016/ 6144]
+Batch contains 192 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.083994 [ 2400/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+loss: 0.104655 [ 2784/ 6144]
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.089478 [ 3168/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 72 positive examples out of 768
+Optimization step
+Batch contains 56 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.110659 [ 3552/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.064546 [ 3936/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 192 positive examples out of 768
+Optimization step
+loss: 0.094557 [ 4320/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+loss: 0.111987 [ 4704/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+loss: 0.071029 [ 5088/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+loss: 0.121649 [ 5472/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.111552 [ 5856/ 6144]
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 85.0%, Avg loss: 0.104542, Positive ratio: 0.119466
+Epoch time: 159.70 seconds 
+
+Epoch 32
+----------------------------
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.112447 [   96/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 216 positive examples out of 768
+Optimization step
+loss: 0.131151 [  480/ 6144]
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 208 positive examples out of 768
+Optimization step
+loss: 0.098499 [  864/ 6144]
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.073539 [ 1248/ 6144]
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 136 positive examples out of 768
+Optimization step
+loss: 0.059526 [ 1632/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.095030 [ 2016/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 184 positive examples out of 768
+Optimization step
+loss: 0.098553 [ 2400/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 80 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+loss: 0.091515 [ 2784/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+Batch contains 176 positive examples out of 768
+Optimization step
+loss: 0.116054 [ 3168/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.068395 [ 3552/ 6144]
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 168 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+loss: 0.059038 [ 3936/ 6144]
+Batch contains 208 positive examples out of 768
+Optimization step
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+loss: 0.042432 [ 4320/ 6144]
+Batch contains 80 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.103318 [ 4704/ 6144]
+Batch contains 112 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 80 positive examples out of 768
+Optimization step
+Batch contains 88 positive examples out of 768
+Optimization step
+loss: 0.053780 [ 5088/ 6144]
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 128 positive examples out of 768
+Optimization step
+Batch contains 112 positive examples out of 768
+Optimization step
+loss: 0.062241 [ 5472/ 6144]
+Batch contains 144 positive examples out of 768
+Optimization step
+Batch contains 96 positive examples out of 768
+Optimization step
+Batch contains 120 positive examples out of 768
+Optimization step
+Batch contains 152 positive examples out of 768
+Optimization step
+loss: 0.090903 [ 5856/ 6144]
+Batch contains 136 positive examples out of 768
+Optimization step
+Batch contains 160 positive examples out of 768
+Optimization step
+Batch contains 104 positive examples out of 768
+Optimization step
+Validation Error: 
+Accuracy: 85.1%, Avg loss: 0.103746, Positive ratio: 0.105957
+Early stopping with minimum validation loss of 0.09768622153205797, max accuracy of 0.8606770833333334
+Done! Total training time: 84 minutes, 49.74 seconds, average epoch time: 5.09 seconds
