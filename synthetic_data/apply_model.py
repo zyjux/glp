@@ -59,7 +59,7 @@ model.load_state_dict(torch.load(cfg.model_save_file, weights_only=True))
 model.to(device)
 
 
-print(f"Applying model to {Path(args.data_dir, args.data_file)} \n")
+print(f"Applying model to {Path(args.data_file)} \n")
 t_time_start = perf_counter()
 model.eval()
 with torch.no_grad():
