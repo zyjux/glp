@@ -1,0 +1,23 @@
+#!/usr/bin/bash
+
+# Activate conda environment
+eval "$(conda shell.bash hook)"
+conda activate glp
+
+TRAIN_SCRIPT="/home/lverhoef/glp/glp_ri/train_model.py"
+
+EXPERIMENT_DIR="/home/lverhoef/glp/glp_ri/experiments/007_restricted_training_years_smaller_model"
+
+# Train CNN while creating the appropriate logs
+printf "\nTraining CNN"
+CFG_FILE="$EXPERIMENT_DIR/test_config_file.yml"
+LOG_FILE="$EXPERIMENT_DIR/cnn.log"
+ERR_FILE="$EXPERIMENT_DIR/cnn.err"
+python $TRAIN_SCRIPT $CFG_FILE > $LOG_FILE 2> $ERR_FILE
+
+# Then train GLP CNN
+printf "\nTraining GLP CNN"
+CFG_FILE="$EXPERIMENT_DIR/test_glp_config_file.yml"
+LOG_FILE="$EXPERIMENT_DIR/glp.log"
+ERR_FILE="$EXPERIMENT_DIR/glp.err"
+python $TRAIN_SCRIPT $CFG_FILE > $LOG_FILE 2> $ERR_FILE

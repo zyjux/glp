@@ -245,7 +245,7 @@ def train(dataloader, model, loss_fn, optimizer, accumulation_batches=1, device=
         true_x_len = X.shape[0]
         X = X.view(-1, 1, 380, 540)
         y = y.view(-1)
-        print(f"Batch contains {torch.sum(y)} positive examples out of {X.shape[0]}")
+        # print(f"Batch contains {torch.sum(y)} positive examples out of {X.shape[0]}")
         X, y = X.to(device), y.to(device)
 
         pred = model(X)
@@ -256,7 +256,7 @@ def train(dataloader, model, loss_fn, optimizer, accumulation_batches=1, device=
         loss.backward()
 
         if ((batch + 1) % accumulation_batches == 0) or (batch + 1 == len(dataloader)):
-            print("Optimization step")
+            # print("Optimization step")
             optimizer.step()
             optimizer.zero_grad()
 

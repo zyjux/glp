@@ -145,7 +145,11 @@ def find_cyclones(directory_name, raise_error_if_all_missing=True):
     return cyclone_id_strings
 
 
-def load_labels(fn: str | Path, desired_ratio: Optional[tuple[int, int]] = None):
+def load_labels(
+    fn: str | Path,
+    desired_ratio: Optional[tuple[int, int]] = None,
+    years_to_import: Optional[list[str]] = None,
+):
     """Data utility to parse labels json file into numpy array
 
     args:
@@ -155,6 +159,8 @@ def load_labels(fn: str | Path, desired_ratio: Optional[tuple[int, int]] = None)
             WeightedRandomSampler, the sampler should return desired_ratio[0] negative
             examples for every desired_ratio[1] positive examples. If None, weights will
             be all set to 1.
+        years_to_import (list of strings): Which years to load; any examples from other
+            years will not be loaded.
 
     returns:
         labels (np.ndarray): A 3xN array, where N is the number of samples in the json
@@ -169,8 +175,9 @@ def load_labels(fn: str | Path, desired_ratio: Optional[tuple[int, int]] = None)
 
     labels = []
     for storm_id in raw_dict.keys():
-        for timestamp in raw_dict[storm_id].keys():
-            labels.append((storm_id, timestamp, raw_dict[storm_id][timestamp]))
+        if years_to_import is None or storm_id[:4] in years_to_import:
+            for timestamp in raw_dict[storm_id].keys():
+                labels.append((storm_id, timestamp, raw_dict[storm_id][timestamp]))
 
     labels = np.array(labels, dtype=object)
 

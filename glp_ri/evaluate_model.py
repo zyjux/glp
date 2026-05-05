@@ -53,6 +53,20 @@ for model_file in model_files:
     accuracy = (true_positive_count + true_negative_count) * 100 / ds.sizes["example"]
     print(f"Accuracy: {accuracy:.2f}%")
 
+    # Precision and Recall
+    print("\nPrecision and Recall\n----------")
+    precision = (true_positive_count) / (true_positive_count + false_positive_count)
+    recall = (true_positive_count) / (true_positive_count + false_negative_count)
+    print(f"Precision: {precision:.4f}")
+    print(f"Recall: {recall:.4f}")
+
+    # F1 score
+    print("\nF1 Score\n----------")
+    f1_score = (2 * true_positive_count) / (
+        2 * true_positive_count + false_positive_count + false_negative_count
+    )
+    print(f"F1 score: {f1_score:.4f}")
+
     # Crossentropy
     print("\nCrossentropy\n----------")
     crossentropy = (
