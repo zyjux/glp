@@ -17,8 +17,8 @@ CFG_FILE="$EXPERIMENT_DIR/test_config_file.yml"
 OUT_FILE="$EXPERIMENT_DIR/cnn_validation.nc"
 LOG_FILE="$EXPERIMENT_DIR/cnn_apply.log"
 ERR_FILE="$EXPERIMENT_DIR/cnn_apply.err"
-/home/lverhoef/.local/bin/safepython.sh $APPLY_SCRIPT $CFG_FILE $OUT_FILE \
-  --data_dir=$DATA_DIR --data_file=$DATA_FILE --batch_size=32 > $LOG_FILE 2> $ERR_FILE
+python $APPLY_SCRIPT $CFG_FILE $OUT_FILE --data_dir=$DATA_DIR --data_file=$DATA_FILE \
+  --batch_size=32 > $LOG_FILE 2> $ERR_FILE
 
 # Then train GLP CNN
 printf "\nApplying GLP CNN"
@@ -26,5 +26,5 @@ CFG_FILE="$EXPERIMENT_DIR/test_glp_config_file.yml"
 OUT_FILE="$EXPERIMENT_DIR/glp_validation.nc"
 LOG_FILE="$EXPERIMENT_DIR/glp_apply.log"
 ERR_FILE="$EXPERIMENT_DIR/glp_apply.err"
-/home/lverhoef/.local/bin/safepython.sh $APPLY_SCRIPT $CFG_FILE $OUT_FILE \
-  --data_dir=$DATA_DIR --data_file=$DATA_FILE --batch_size=32 > $LOG_FILE 2> $ERR_FILE
+python $APPLY_SCRIPT $CFG_FILE $OUT_FILE --data_dir=$DATA_DIR --data_file=$DATA_FILE \
+  --batch_size=32 > $LOG_FILE 2> $ERR_FILE
