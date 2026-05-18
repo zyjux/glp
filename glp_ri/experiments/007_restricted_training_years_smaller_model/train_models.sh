@@ -13,7 +13,7 @@ printf "\nTraining CNN"
 CFG_FILE="$EXPERIMENT_DIR/test_config_file.yml"
 LOG_FILE="$EXPERIMENT_DIR/cnn.log"
 ERR_FILE="$EXPERIMENT_DIR/cnn.err"
-python $TRAIN_SCRIPT $CFG_FILE > $LOG_FILE 2> $ERR_FILE
+# python $TRAIN_SCRIPT $CFG_FILE > $LOG_FILE 2> $ERR_FILE
 
 # Then train GLP CNN
 printf "\nTraining GLP CNN"

@@ -89,11 +89,11 @@ encoding_layer_defaults:
 # glp_dense_block: in_neurons, out_neurons, dropout_rate, leaky_relu_slope
 dense_layers:
   dense_block_1:
-    type: dense_block
+    type: glp_dense_block
     in_neurons: 1280
     out_neurons: 768
   dense_block_2:
-    type: dense_block
+    type: glp_dense_block
     in_neurons: 768
     out_neurons: 460
   glp_flatten:
