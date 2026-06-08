@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 import numpy as np
@@ -38,6 +39,7 @@ for i in range(10000):
     )
     samples.append(sample)
 training_samples = xr.concat(samples, dim="sample")
+os.makedirs("/mnt/data2/lverhoef/synthetic_ellipses", exist_ok=True)
 training_samples.to_netcdf(
     Path("/mnt/data2/lverhoef/synthetic_ellipses/train_valid_ds.nc"), mode="w"
 )
