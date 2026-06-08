@@ -1,4 +1,5 @@
 import argparse
+from pathlib import Path
 from time import perf_counter
 
 import torch
@@ -32,14 +33,16 @@ if __name__ == "__main__":
     )
     print(f"Using {device} device")
 
+    train_labels_file = Path(DATA_DIR, cfg.training_data_filename)
+    valid_labels_file = Path(DATA_DIR, cfg.validation_data_filename)
     train_labels, train_weights = load_labels(
-        DATA_DIR + "/train_labels.json",
+        train_labels_file,
         desired_ratio=hyperparam_config["sampling_ratio"],
         years_to_import=hyperparam_config.get("training_years", None),
     )
     print(f"Number of training samples: {len(train_labels)}")
     valid_labels, valid_weights = load_labels(
-        DATA_DIR + "/valid_labels.json",
+        valid_labels_file,
         desired_ratio=hyperparam_config["sampling_ratio"],
     )
 

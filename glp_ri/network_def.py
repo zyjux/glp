@@ -1,5 +1,6 @@
 from collections import OrderedDict
 from dataclasses import dataclass, field
+from pathlib import Path
 
 import torch
 from torch import nn
@@ -167,6 +168,8 @@ def glp_dense_block(
 class model_config:
     model_save_file: str
     training_hyperparameters: dict
+    training_data_filename: str | Path = "train_labels.json"
+    validation_data_filename: str | Path = "valid_labels.json"
     data_augmentation: dict = field(default_factory=dict)
     setup_layers: dict = field(default_factory=dict)
     encoding_layers: dict = field(default_factory=dict)
