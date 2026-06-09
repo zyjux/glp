@@ -82,17 +82,22 @@ class glp_linear(nn.Module):
 
 
 class simple_model(nn.Module):
-    def __init__(self, G_angle_inc: int, num_lambda_cosets: int, psi_size: int = 3):
+    def __init__(
+        self,
+        G_angle_inc: int,
+        num_lambda_cosets: int,
+        psi_size: tuple[int, int],
+    ):
         super().__init__()
-        padding = int(psi_size / 2)
+        # padding = int(psi_size / 2)
 
         self.setup_layer = glp_rotation_stack(angle_inc=G_angle_inc)
         self.convolution = nn.Conv3d(
             in_channels=1,
             out_channels=1,
-            kernel_size=(psi_size, psi_size, 1),
-            padding=(padding, padding, 0),
-            padding_mode="reflect",
+            kernel_size=(*psi_size, 1),
+            padding=0,
+            # padding_mode="reflect",
         )
         self.pooling = glp_rotation_pool(num_lambda_cosets)
 

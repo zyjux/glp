@@ -2,7 +2,6 @@
 
 g_angle_inc: 1
 num_lambda_cosets: 5
-psi_size: 3
 thetas:
   - 1
   - 2
@@ -27,3 +26,6 @@ thetas:
 manual_seed: 129502
 input_source: random
 num_input_samples: 5
+img_size:
+  - 128
+  - 128

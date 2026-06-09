@@ -21,11 +21,11 @@ args = parser.parse_args()
 class configs:
     g_angle_inc: int
     num_lambda_cosets: int
-    psi_size: int
     thetas: list[float]
     manual_seed: int
     input_source: Literal["random", "ellipse"]
     num_input_samples: int
+    img_size: tuple[int, int]
 
 
 def compare_rotated_outputs(outputs: torch.Tensor):
@@ -45,7 +45,7 @@ torch.cuda.manual_seed(cfg.manual_seed)
 if cfg.input_source == "ellipse":
     indices = torch.randint(10000, (cfg.num_input_samples,))
 elif cfg.input_source == "random":
-    random_images = torch.randn((cfg.num_input_samples, 1, 1, 128, 128))
+    random_images = torch.randn((cfg.num_input_samples, 1, 1, *cfg.img_size))
 
 # Detect gpu
 device = (
@@ -64,10 +64,10 @@ ax.set_ylabel("Max difference")
 model = simple_model(
     G_angle_inc=cfg.g_angle_inc,
     num_lambda_cosets=cfg.num_lambda_cosets,
-    psi_size=cfg.psi_size,
+    psi_size=cfg.img_size,
 )
 
-summary(model, input_size=(1, 128, 128))
+summary(model, input_size=(1, *cfg.img_size))
 
 for sample in range(cfg.num_input_samples):
     # Generate input
@@ -81,7 +81,7 @@ for sample in range(cfg.num_input_samples):
             .to_numpy(),
             dtype=torch.float,
             device=device,
-        ).view(1, 1, 128, 128)
+        ).view(1, 1, *cfg.img_size)
         print(f"\n Processing ellipse {indices[sample]}")
 
     # Create stacked rotations of input
@@ -93,6 +93,7 @@ for sample in range(cfg.num_input_samples):
     with torch.no_grad():
         outputs = model(input_gf)
 
+    print(outputs.shape)
     # Compare rotated elements against original
     max_diffs = compare_rotated_outputs(outputs)
     # max_diffs /= (input_f**2).sum()
