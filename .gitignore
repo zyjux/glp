@@ -7,6 +7,10 @@ ipython_config.py
 
 *.swp
 
-glp_ri/__pycache__/
-synthetic_data/__pycache__/
+# glp_ri/__pycache__/
+# synthetic_data/__pycache__/
 glp.egg-info/
+
+# verifying_continuity/__pycache__/
+
+*/__pycache__/
