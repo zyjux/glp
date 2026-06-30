@@ -32,6 +32,7 @@ class configs:
     num_input_samples: int
     img_size: tuple[int, int]
     plot_fn: str = "difference_plot.png"
+    do_pool: bool = True
 
 
 def compare_rotated_outputs(outputs: torch.Tensor):
@@ -133,6 +134,7 @@ model = simple_model(
     G_angle_inc=cfg.g_angle_inc,
     num_lambda_cosets=cfg.num_lambda_cosets,
     psi_size=cfg.img_size,
+    do_pool=cfg.do_pool,
 )
 
 summary(model, input_size=(1, *cfg.img_size))
@@ -160,6 +162,9 @@ for sample in range(cfg.num_input_samples):
             ds.satellite_predictors_gridded.values.astype(np.float32), device=device
         ).view(1, 1, *cfg.img_size)
 
+    input_norm = input_f.norm(2)
+    print(input_norm)
+
     # Create stacked rotations of input
     input_gf = torch.cat(
         [input_f] + [rotate(input_f, theta) for theta in cfg.thetas], dim=0
@@ -171,7 +176,7 @@ for sample in range(cfg.num_input_samples):
 
     print(outputs.shape)
     # Compare rotated elements against original
-    max_diffs = compare_rotated_outputs(outputs)
+    max_diffs = compare_rotated_outputs(outputs) / input_norm
     # max_diffs /= (input_f**2).sum()
 
     # Print values

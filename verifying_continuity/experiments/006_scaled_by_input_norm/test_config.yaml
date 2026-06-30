@@ -1,0 +1,31 @@
+# YAML file with test configuration
+
+g_angle_inc: 1
+num_lambda_cosets: 5
+thetas:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 15
+  - 20
+  - 25
+  - 30
+  - 35
+  - 40
+  - 45
+  - 50
+  - 55
+  - 60
+manual_seed: 129502
+input_source: ellipse
+num_input_samples: 5
+img_size:
+  - 128
+  - 128

@@ -87,6 +87,7 @@ class simple_model(nn.Module):
         G_angle_inc: int,
         num_lambda_cosets: int,
         psi_size: tuple[int, int],
+        do_pool: bool = True,
     ):
         super().__init__()
         # padding = int(psi_size / 2)
@@ -100,9 +101,13 @@ class simple_model(nn.Module):
             # padding_mode="reflect",
         )
         self.pooling = glp_rotation_pool(num_lambda_cosets)
+        self.do_pool = do_pool
 
     def forward(self, x):
         setup_out = self.setup_layer(x)
         conv_out = self.convolution(setup_out)
-        pool_out = self.pooling(conv_out)
-        return pool_out
+        if self.do_pool:
+            pool_out = self.pooling(conv_out)
+            return pool_out
+        else:
+            return conv_out
