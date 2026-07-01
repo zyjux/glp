@@ -1,6 +1,7 @@
 import argparse
 from time import perf_counter
 
+import numpy as np
 import torch
 import torchvision.transforms.v2 as tvtf
 import xarray as xr
@@ -26,6 +27,19 @@ hyperparam_config = cfg.training_hyperparameters
 
 # Load dataset
 ds = xr.load_dataset(DATA_FILE)
+
+total_samples = ds.sizes["sample"]
+try:
+    desired_samples = int(total_samples * hyperparam_config["ds_size_ratio"])
+except KeyError:
+    pass
+else:
+    rng = np.random.default_rng()
+    sample_indices = rng.choice(
+        total_samples, desired_samples, replace=False, shuffle=False
+    )
+    ds = ds.isel(sample=sample_indices)
+    print(f"Using reduced dataset of {desired_samples} examples")
 
 # Categorize angles
 ds["target"] = (
