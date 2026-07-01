@@ -5,6 +5,8 @@ import numpy as np
 import scipy.ndimage as nd
 import xarray as xr
 
+DATA_DIR = "/mnt/mlnas01/lverhoef/synthetic_ellipses/"
+
 # Set up random number generator and axes
 rng = np.random.default_rng()
 x = np.arange(0, 128)
@@ -39,7 +41,5 @@ for i in range(10000):
     )
     samples.append(sample)
 training_samples = xr.concat(samples, dim="sample")
-os.makedirs("/mnt/data2/lverhoef/synthetic_ellipses", exist_ok=True)
-training_samples.to_netcdf(
-    Path("/mnt/data2/lverhoef/synthetic_ellipses/train_valid_ds.nc"), mode="w"
-)
+os.makedirs(DATA_DIR, exist_ok=True)
+training_samples.to_netcdf(Path(DATA_DIR + "train_valid_ds.nc"), mode="w")
