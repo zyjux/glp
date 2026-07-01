@@ -13,4 +13,4 @@ glp.egg-info/
 
 # verifying_continuity/__pycache__/
 
-*/__pycache__/
+**/__pycache__/
