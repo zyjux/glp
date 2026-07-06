@@ -10,7 +10,7 @@ import torch
 import xarray as xr
 from torch.utils.data import Dataset
 
-DATA_FILE = "/mnt/data2/lverhoef/synthetic_ellipses/train_valid_ds.nc"
+DATA_FILE = "/mnt/mlnas01/lverhoef/synthetic_ellipses/train_valid_ds.nc"
 
 
 class Ellipse_Dataset(Dataset):
@@ -26,7 +26,7 @@ class Ellipse_Dataset(Dataset):
         self.transforms = transforms
 
     def __len__(self):
-        return self.full_ds.sample.shape[0]
+        return self.full_ds.sizes["sample"]
 
     def __getitem__(self, idx: int):
         image = torch.unsqueeze(
