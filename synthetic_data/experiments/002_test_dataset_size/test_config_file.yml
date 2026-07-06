@@ -1,7 +1,7 @@
 # Test configuration file recreating development defaults
 
 # Required
-model_save_file: "/home/lverhoef/glp/synthetic_data/experiments/002_test_dataset_size/cnn_0_001.pt"
+model_save_file: "/home/lverhoef/glp/synthetic_data/experiments/002_test_dataset_size/models/cnn_0_005.pt"
 
 # Required
 training_hyperparameters:
@@ -12,27 +12,28 @@ training_hyperparameters:
   learning_rate: 1.0e-3
   early_stopping:
     enabled: True
-    patience: 20
+    patience: 15
     min_delta: 1.0e-4
   num_classes: 2
   diagonal_categorization: True
   # We modify the ratio via bash script
-  ds_size_ratio: 0.001
+  ds_size_ratio: 0.005
+  random_seed: 128658126
 
 ### data_augmentation
 # rotations: max_degrees, num_rotations
 # noisings: standard_deviation, num_noisings
 # translations: max_shift, num_translations
 data_augmentation:
-# rotations:
-# max_degrees: 50
-# num_rotations: 2
-# noisings:
-# standard_deviation: 0.5
-# num_noisings: 2
-# translations:
-# max_shift: 0.05
-# num_translations: 3
+  # rotations:
+    # max_degrees: 50
+    # num_rotations: 2
+  # noisings:
+    # standard_deviation: 0.5
+    # num_noisings: 2
+  # translations:
+    # max_shift: 0.05
+    # num_translations: 3
 
 ### setup_layers
 # glp_rotation_stack: num_angles, angle_inc (only one needed)
