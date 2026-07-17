@@ -3,7 +3,7 @@ from dataclasses import dataclass, field
 
 import torch
 from torch import nn
-from torchvision.transforms.functional import rotate
+from torchvision.transforms.functional import affine, rotate
 
 
 class crps_loss(nn.Module):
@@ -62,6 +62,36 @@ class glp_rotation_pool(nn.Module):
                 image[..., i], -angle_increment * relative_offset
             )
         return nn.MaxPool3d(kernel_size=(1, 1, self.kernel_size))(output_image)
+
+
+class glp_dilation_stack(nn.Module):
+    def __init__(self, dilations_list=list[float]):
+        super().__init__()
+        self.dilations_list = dilations_list
+
+    def forward(self, image):
+        temp_list = [
+            affine(image, angle=0.0, translate=[0], scale=dilation, shear=[0.0, 0.0])
+            for dilation in self.dilations_list
+        ]
+        return torch.stack(temp_list, dim=-1)
+
+
+class glp_dilation_pool(nn.Module):
+    def __init__(self, glp_pooling_size: int, dilations_list: list[float], **kwargs):
+        super().__init__()
+        self.kernel_size = glp_pooling_size
+        self.dilations_list = dilations_list
+
+    def forward(self, image):
+        if image.shape[-1] != len(self.dilations_list):
+            raise ValueError(
+                "Group size and provided list of dilations not of the same length;"
+                f"got {image.shape[-1]} and {len(self.dilations_list)}"
+            )
+        output_image = torch.empty(image.shape, device=image.device)
+        for i in range(len(self.dilations_list)):
+            pass
 
 
 class glp_linear(nn.Module):
