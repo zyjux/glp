@@ -128,6 +128,14 @@ print(f"Using {device} device")
 F, ax = plt.subplots(1, 1, figsize=(8, 8))
 ax.set_xlabel("Theta")
 ax.set_ylabel("Max difference")
+# ax.set_ylim(None, 0.015)
+
+# theta_max = max(cfg.thetas)
+# ref_thetas = np.arange(0, theta_max, 0.1)
+# alpha = 0.05
+# rad_thetas = np.deg2rad(ref_thetas)
+# ref_curve = alpha * np.sqrt(2 * (1 - np.cos(rad_thetas)))
+# ax.plot(ref_thetas, ref_curve, "k--")
 
 # Create model
 model = simple_model(
