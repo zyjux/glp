@@ -1,4 +1,4 @@
-Using cpu device
+Using cuda device
 ==========================================================================================
 Layer (type:depth-idx)                   Output Shape              Param #
 ==========================================================================================
@@ -18,7 +18,7 @@ Estimated Total Size (MB): 0.13
 ==========================================================================================
 
  Processing ellipse 4836
-tensor(18.0119)
+tensor(18.0119, device='cuda:0')
 torch.Size([21, 1, 1, 1, 360])
 
 Theta | Difference
@@ -45,7 +45,7 @@ Theta | Difference
     60 | 0.0114551
 
  Processing ellipse 9782
-tensor(18.6349)
+tensor(18.6350, device='cuda:0')
 torch.Size([21, 1, 1, 1, 360])
 
 Theta | Difference
@@ -66,13 +66,13 @@ Theta | Difference
     30 | 0.0040610
     35 | 0.0045804
     40 | 0.0052022
-    45 | 0.0056079
+    45 | 0.0056078
     50 | 0.0059981
     55 | 0.0063253
     60 | 0.0064699
 
  Processing ellipse 7652
-tensor(21.7245)
+tensor(21.7245, device='cuda:0')
 torch.Size([21, 1, 1, 1, 360])
 
 Theta | Difference
@@ -99,7 +99,7 @@ Theta | Difference
     60 | 0.0132266
 
  Processing ellipse 616
-tensor(18.0248)
+tensor(18.0248, device='cuda:0')
 torch.Size([21, 1, 1, 1, 360])
 
 Theta | Difference
@@ -126,7 +126,7 @@ Theta | Difference
     60 | 0.0073747
 
  Processing ellipse 4473
-tensor(20.0312)
+tensor(20.0313, device='cuda:0')
 torch.Size([21, 1, 1, 1, 360])
 
 Theta | Difference
@@ -134,14 +134,14 @@ Theta | Difference
      1 | 0.0002143
      2 | 0.0008096
      3 | 0.0009512
-     4 | 0.0013543
+     4 | 0.0013542
      5 | 0.0014614
      6 | 0.0018386
      7 | 0.0020101
      8 | 0.0022220
      9 | 0.0025712
     10 | 0.0026190
-    15 | 0.0036909
+    15 | 0.0036908
     20 | 0.0047709
     25 | 0.0054401
     30 | 0.0060545
