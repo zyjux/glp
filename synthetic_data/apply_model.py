@@ -15,6 +15,8 @@ parser.add_argument("config_file", type=Path)
 parser.add_argument("save_file", type=Path)
 parser.add_argument("--data_file", default=Path(DATA_FILE), type=Path)
 parser.add_argument("--batch_size", type=int)
+parser.add_argument("--start_idx", default=9000, type=int)
+parser.add_argument("--end_idx", default=10000, type=int)
 args = parser.parse_args()
 
 
@@ -46,7 +48,7 @@ def main():
     )
     print(f"Using {device} device")
 
-    pt_ds = Ellipse_Dataset(ds, start_idx=9000)
+    pt_ds = Ellipse_Dataset(ds, start_idx=args.start_idx, end_idx=args.end_idx)
 
     if args.batch_size is None:
         batch_size = cfg.training_hyperparameters["batch_size"]
