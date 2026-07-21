@@ -1,23 +1,23 @@
 # Adjusted encoder structure to keep max convolutional width with fewer total parameters
 
 # Required
-model_save_file: "/home/lverhoef/glp/synthetic_data/experiments/002_test_dataset_size/models/glp_cnn_0_005.pt"
+model_save_file: "/home/lverhoef/glp/synthetic_data/experiments/002_test_dataset_size/models/glp_cnn_0_002.pt"
 
 # Required
 training_hyperparameters:
-  batch_size: 32
+  batch_size: 64
   epochs: 1000
   accumulation_batches: 4
   loss_function: crps
   learning_rate: 1.0e-3
   early_stopping:
     enabled: True
-    patience: 15
+    patience: 20
     min_delta: 1.0e-4
   num_classes: 2
   diagonal_categorization: True
   # We modify the ratio via bash script
-  ds_size_ratio: 0.005
+  ds_size_ratio: 0.002
   random_seed: 128658126
 
 ### data_augmentation

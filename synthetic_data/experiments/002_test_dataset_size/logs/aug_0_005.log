@@ -1,0 +1,727 @@
+Using reduced dataset of 40 examples
+Using cuda device
+==========================================================================================
+Layer (type:depth-idx)                   Output Shape              Param #
+==========================================================================================
+CNN                                      [256, 100]                --
+├─Sequential: 1-1                        [256, 1, 128, 128]        --
+├─Sequential: 1-2                        [256, 8192]               --
+│    └─Sequential: 2-1                   [256, 16, 64, 64]         --
+│    │    └─Conv2d: 3-1                  [256, 16, 128, 128]       160
+│    │    └─LeakyReLU: 3-2               [256, 16, 128, 128]       --
+│    │    └─BatchNorm2d: 3-3             [256, 16, 128, 128]       32
+│    │    └─Conv2d: 3-4                  [256, 16, 128, 128]       2,320
+│    │    └─LeakyReLU: 3-5               [256, 16, 128, 128]       --
+│    │    └─BatchNorm2d: 3-6             [256, 16, 128, 128]       32
+│    │    └─MaxPool2d: 3-7               [256, 16, 64, 64]         --
+│    └─Sequential: 2-2                   [256, 32, 32, 32]         --
+│    │    └─Conv2d: 3-8                  [256, 32, 64, 64]         4,640
+│    │    └─LeakyReLU: 3-9               [256, 32, 64, 64]         --
+│    │    └─BatchNorm2d: 3-10            [256, 32, 64, 64]         64
+│    │    └─Conv2d: 3-11                 [256, 32, 64, 64]         9,248
+│    │    └─LeakyReLU: 3-12              [256, 32, 64, 64]         --
+│    │    └─BatchNorm2d: 3-13            [256, 32, 64, 64]         64
+│    │    └─MaxPool2d: 3-14              [256, 32, 32, 32]         --
+│    └─Sequential: 2-3                   [256, 64, 16, 16]         --
+│    │    └─Conv2d: 3-15                 [256, 64, 32, 32]         18,496
+│    │    └─LeakyReLU: 3-16              [256, 64, 32, 32]         --
+│    │    └─BatchNorm2d: 3-17            [256, 64, 32, 32]         128
+│    │    └─Conv2d: 3-18                 [256, 64, 32, 32]         36,928
+│    │    └─LeakyReLU: 3-19              [256, 64, 32, 32]         --
+│    │    └─BatchNorm2d: 3-20            [256, 64, 32, 32]         128
+│    │    └─MaxPool2d: 3-21              [256, 64, 16, 16]         --
+│    └─Sequential: 2-4                   [256, 128, 8, 8]          --
+│    │    └─Conv2d: 3-22                 [256, 128, 16, 16]        73,856
+│    │    └─LeakyReLU: 3-23              [256, 128, 16, 16]        --
+│    │    └─BatchNorm2d: 3-24            [256, 128, 16, 16]        256
+│    │    └─Conv2d: 3-25                 [256, 128, 16, 16]        147,584
+│    │    └─LeakyReLU: 3-26              [256, 128, 16, 16]        --
+│    │    └─BatchNorm2d: 3-27            [256, 128, 16, 16]        256
+│    │    └─MaxPool2d: 3-28              [256, 128, 8, 8]          --
+│    └─Flatten: 2-5                      [256, 8192]               --
+├─Sequential: 1-3                        [256, 100]                --
+│    └─Sequential: 2-6                   [256, 100]                --
+│    │    └─Linear: 3-29                 [256, 100]                819,300
+│    │    └─LeakyReLU: 3-30              [256, 100]                --
+│    │    └─Dropout: 3-31                [256, 100]                --
+│    │    └─BatchNorm1d: 3-32            [256, 100]                200
+│    └─Linear: 2-7                       [256, 100]                10,100
+├─Sigmoid: 1-4                           [256, 100]                --
+==========================================================================================
+Total params: 1,123,792
+Trainable params: 1,123,792
+Non-trainable params: 0
+Total mult-adds (Units.GIGABYTES): 54.22
+==========================================================================================
+Input size (MB): 16.78
+Forward/backward pass size (MB): 4027.15
+Params size (MB): 4.50
+Estimated Total Size (MB): 4048.42
+==========================================================================================
+Training CNN 
+
+Epoch 1
+----------------------------
+loss: 0.431305 [   40/  256]
+Validation Error: 
+Accuracy: 49.3%, Avg loss: 0.491289, Positive ratio: 0.976562
+Validation loss improved, saving model
+Epoch time: 2.04 seconds 
+
+Epoch 2
+----------------------------
+loss: 0.405582 [   40/  256]
+Validation Error: 
+Accuracy: 49.3%, Avg loss: 0.486531, Positive ratio: 0.976562
+Validation loss improved, saving model
+Epoch time: 0.33 seconds 
+
+Epoch 3
+----------------------------
+loss: 0.390671 [   40/  256]
+Validation Error: 
+Accuracy: 49.3%, Avg loss: 0.479836, Positive ratio: 0.976562
+Validation loss improved, saving model
+Epoch time: 0.33 seconds 
+
+Epoch 4
+----------------------------
+loss: 0.382518 [   40/  256]
+Validation Error: 
+Accuracy: 49.3%, Avg loss: 0.475673, Positive ratio: 0.976562
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 5
+----------------------------
+loss: 0.372442 [   40/  256]
+Validation Error: 
+Accuracy: 49.3%, Avg loss: 0.472855, Positive ratio: 0.976562
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 6
+----------------------------
+loss: 0.368667 [   40/  256]
+Validation Error: 
+Accuracy: 49.3%, Avg loss: 0.470291, Positive ratio: 0.976562
+Validation loss improved, saving model
+Epoch time: 0.33 seconds 
+
+Epoch 7
+----------------------------
+loss: 0.360987 [   40/  256]
+Validation Error: 
+Accuracy: 49.3%, Avg loss: 0.468809, Positive ratio: 0.976562
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 8
+----------------------------
+loss: 0.352574 [   40/  256]
+Validation Error: 
+Accuracy: 49.3%, Avg loss: 0.467472, Positive ratio: 0.976562
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 9
+----------------------------
+loss: 0.347606 [   40/  256]
+Validation Error: 
+Accuracy: 49.3%, Avg loss: 0.466012, Positive ratio: 0.976562
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 10
+----------------------------
+loss: 0.336262 [   40/  256]
+Validation Error: 
+Accuracy: 49.3%, Avg loss: 0.464687, Positive ratio: 0.976562
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 11
+----------------------------
+loss: 0.327687 [   40/  256]
+Validation Error: 
+Accuracy: 49.3%, Avg loss: 0.463335, Positive ratio: 0.976562
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 12
+----------------------------
+loss: 0.324987 [   40/  256]
+Validation Error: 
+Accuracy: 49.3%, Avg loss: 0.462061, Positive ratio: 0.976562
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 13
+----------------------------
+loss: 0.314729 [   40/  256]
+Validation Error: 
+Accuracy: 49.3%, Avg loss: 0.461222, Positive ratio: 0.976562
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 14
+----------------------------
+loss: 0.306269 [   40/  256]
+Validation Error: 
+Accuracy: 49.3%, Avg loss: 0.461034, Positive ratio: 0.976562
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 15
+----------------------------
+loss: 0.301436 [   40/  256]
+Validation Error: 
+Accuracy: 49.3%, Avg loss: 0.460450, Positive ratio: 0.976562
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 16
+----------------------------
+loss: 0.296141 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.459028, Positive ratio: 0.000000
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 17
+----------------------------
+loss: 0.290245 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.458959, Positive ratio: 0.000000
+Epoch time: 0.33 seconds 
+
+Epoch 18
+----------------------------
+loss: 0.276657 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.457189, Positive ratio: 0.000000
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 19
+----------------------------
+loss: 0.261950 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.450273, Positive ratio: 0.000000
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 20
+----------------------------
+loss: 0.255380 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.439581, Positive ratio: 0.000000
+Validation loss improved, saving model
+Epoch time: 0.35 seconds 
+
+Epoch 21
+----------------------------
+loss: 0.238939 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.433090, Positive ratio: 0.000000
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 22
+----------------------------
+loss: 0.238173 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.425671, Positive ratio: 0.000000
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 23
+----------------------------
+loss: 0.234625 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.423753, Positive ratio: 0.000000
+Validation loss improved, saving model
+Epoch time: 0.35 seconds 
+
+Epoch 24
+----------------------------
+loss: 0.229285 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.421384, Positive ratio: 0.000000
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 25
+----------------------------
+loss: 0.210697 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.420305, Positive ratio: 0.000000
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 26
+----------------------------
+loss: 0.211132 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.418826, Positive ratio: 0.000000
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 27
+----------------------------
+loss: 0.192879 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.417587, Positive ratio: 0.000000
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 28
+----------------------------
+loss: 0.199324 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.421942, Positive ratio: 0.000000
+Epoch time: 0.33 seconds 
+
+Epoch 29
+----------------------------
+loss: 0.180620 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.423804, Positive ratio: 0.000000
+Epoch time: 0.34 seconds 
+
+Epoch 30
+----------------------------
+loss: 0.162896 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.422974, Positive ratio: 0.000000
+Epoch time: 0.33 seconds 
+
+Epoch 31
+----------------------------
+loss: 0.168701 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.423692, Positive ratio: 0.000000
+Epoch time: 0.33 seconds 
+
+Epoch 32
+----------------------------
+loss: 0.149701 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.422436, Positive ratio: 0.000000
+Epoch time: 0.33 seconds 
+
+Epoch 33
+----------------------------
+loss: 0.154497 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.419881, Positive ratio: 0.000000
+Epoch time: 0.33 seconds 
+
+Epoch 34
+----------------------------
+loss: 0.140986 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.428041, Positive ratio: 0.000000
+Epoch time: 0.33 seconds 
+
+Epoch 35
+----------------------------
+loss: 0.128994 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.432345, Positive ratio: 0.000000
+Epoch time: 0.33 seconds 
+
+Epoch 36
+----------------------------
+loss: 0.124517 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.429533, Positive ratio: 0.000000
+Epoch time: 0.33 seconds 
+
+Epoch 37
+----------------------------
+loss: 0.118730 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.431839, Positive ratio: 0.000000
+Epoch time: 0.33 seconds 
+
+Epoch 38
+----------------------------
+loss: 0.110377 [   40/  256]
+Validation Error: 
+Accuracy: 48.1%, Avg loss: 0.432648, Positive ratio: 0.003906
+Epoch time: 0.33 seconds 
+
+Epoch 39
+----------------------------
+loss: 0.098645 [   40/  256]
+Validation Error: 
+Accuracy: 48.2%, Avg loss: 0.430298, Positive ratio: 0.008789
+Epoch time: 0.33 seconds 
+
+Epoch 40
+----------------------------
+loss: 0.099147 [   40/  256]
+Validation Error: 
+Accuracy: 48.3%, Avg loss: 0.428419, Positive ratio: 0.013672
+Epoch time: 0.33 seconds 
+
+Epoch 41
+----------------------------
+loss: 0.114933 [   40/  256]
+Validation Error: 
+Accuracy: 48.5%, Avg loss: 0.426556, Positive ratio: 0.015625
+Epoch time: 0.34 seconds 
+
+Epoch 42
+----------------------------
+loss: 0.115370 [   40/  256]
+Validation Error: 
+Accuracy: 48.4%, Avg loss: 0.424934, Positive ratio: 0.016602
+Epoch time: 0.33 seconds 
+
+Epoch 43
+----------------------------
+loss: 0.105122 [   40/  256]
+Validation Error: 
+Accuracy: 48.7%, Avg loss: 0.422488, Positive ratio: 0.019531
+Epoch time: 0.33 seconds 
+
+Epoch 44
+----------------------------
+loss: 0.098031 [   40/  256]
+Validation Error: 
+Accuracy: 48.7%, Avg loss: 0.420781, Positive ratio: 0.021484
+Epoch time: 0.34 seconds 
+
+Epoch 45
+----------------------------
+loss: 0.109413 [   40/  256]
+Validation Error: 
+Accuracy: 48.4%, Avg loss: 0.418396, Positive ratio: 0.028320
+Epoch time: 0.33 seconds 
+
+Epoch 46
+----------------------------
+loss: 0.097924 [   40/  256]
+Validation Error: 
+Accuracy: 48.5%, Avg loss: 0.416946, Positive ratio: 0.031250
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 47
+----------------------------
+loss: 0.102467 [   40/  256]
+Validation Error: 
+Accuracy: 48.6%, Avg loss: 0.415209, Positive ratio: 0.032227
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 48
+----------------------------
+loss: 0.105702 [   40/  256]
+Validation Error: 
+Accuracy: 48.8%, Avg loss: 0.413401, Positive ratio: 0.036133
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 49
+----------------------------
+loss: 0.104040 [   40/  256]
+Validation Error: 
+Accuracy: 48.9%, Avg loss: 0.412141, Positive ratio: 0.039062
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 50
+----------------------------
+loss: 0.107887 [   40/  256]
+Validation Error: 
+Accuracy: 48.8%, Avg loss: 0.410449, Positive ratio: 0.040039
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 51
+----------------------------
+loss: 0.097643 [   40/  256]
+Validation Error: 
+Accuracy: 49.1%, Avg loss: 0.408683, Positive ratio: 0.042969
+Validation loss improved, saving model
+Epoch time: 0.35 seconds 
+
+Epoch 52
+----------------------------
+loss: 0.092711 [   40/  256]
+Validation Error: 
+Accuracy: 49.2%, Avg loss: 0.407588, Positive ratio: 0.045898
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 53
+----------------------------
+loss: 0.090408 [   40/  256]
+Validation Error: 
+Accuracy: 49.3%, Avg loss: 0.406848, Positive ratio: 0.046875
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 54
+----------------------------
+loss: 0.097390 [   40/  256]
+Validation Error: 
+Accuracy: 49.5%, Avg loss: 0.405295, Positive ratio: 0.050781
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 55
+----------------------------
+loss: 0.084585 [   40/  256]
+Validation Error: 
+Accuracy: 50.2%, Avg loss: 0.402501, Positive ratio: 0.059570
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 56
+----------------------------
+loss: 0.092956 [   40/  256]
+Validation Error: 
+Accuracy: 50.2%, Avg loss: 0.398938, Positive ratio: 0.067383
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 57
+----------------------------
+loss: 0.092612 [   40/  256]
+Validation Error: 
+Accuracy: 50.8%, Avg loss: 0.394214, Positive ratio: 0.077148
+Validation loss improved, saving model
+Epoch time: 0.35 seconds 
+
+Epoch 58
+----------------------------
+loss: 0.087318 [   40/  256]
+Validation Error: 
+Accuracy: 51.9%, Avg loss: 0.387865, Positive ratio: 0.099609
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 59
+----------------------------
+loss: 0.091250 [   40/  256]
+Validation Error: 
+Accuracy: 51.7%, Avg loss: 0.380767, Positive ratio: 0.123047
+Validation loss improved, saving model
+Epoch time: 0.35 seconds 
+
+Epoch 60
+----------------------------
+loss: 0.094112 [   40/  256]
+Validation Error: 
+Accuracy: 52.7%, Avg loss: 0.373543, Positive ratio: 0.153320
+Validation loss improved, saving model
+Epoch time: 0.35 seconds 
+
+Epoch 61
+----------------------------
+loss: 0.098100 [   40/  256]
+Validation Error: 
+Accuracy: 54.3%, Avg loss: 0.365760, Positive ratio: 0.186523
+Validation loss improved, saving model
+Epoch time: 0.35 seconds 
+
+Epoch 62
+----------------------------
+loss: 0.084705 [   40/  256]
+Validation Error: 
+Accuracy: 56.2%, Avg loss: 0.357917, Positive ratio: 0.221680
+Validation loss improved, saving model
+Epoch time: 0.35 seconds 
+
+Epoch 63
+----------------------------
+loss: 0.081396 [   40/  256]
+Validation Error: 
+Accuracy: 58.1%, Avg loss: 0.350122, Positive ratio: 0.267578
+Validation loss improved, saving model
+Epoch time: 0.35 seconds 
+
+Epoch 64
+----------------------------
+loss: 0.082389 [   40/  256]
+Validation Error: 
+Accuracy: 60.0%, Avg loss: 0.342251, Positive ratio: 0.299805
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 65
+----------------------------
+loss: 0.084613 [   40/  256]
+Validation Error: 
+Accuracy: 62.5%, Avg loss: 0.334750, Positive ratio: 0.346680
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 66
+----------------------------
+loss: 0.089471 [   40/  256]
+Validation Error: 
+Accuracy: 63.7%, Avg loss: 0.327977, Positive ratio: 0.377930
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 67
+----------------------------
+loss: 0.089133 [   40/  256]
+Validation Error: 
+Accuracy: 63.5%, Avg loss: 0.322894, Positive ratio: 0.422852
+Validation loss improved, saving model
+Epoch time: 0.35 seconds 
+
+Epoch 68
+----------------------------
+loss: 0.087620 [   40/  256]
+Validation Error: 
+Accuracy: 63.5%, Avg loss: 0.320861, Positive ratio: 0.463867
+Validation loss improved, saving model
+Epoch time: 0.34 seconds 
+
+Epoch 69
+----------------------------
+loss: 0.076882 [   40/  256]
+Validation Error: 
+Accuracy: 63.9%, Avg loss: 0.320795, Positive ratio: 0.489258
+Epoch time: 0.34 seconds 
+
+Epoch 70
+----------------------------
+loss: 0.080893 [   40/  256]
+Validation Error: 
+Accuracy: 63.9%, Avg loss: 0.323166, Positive ratio: 0.524414
+Epoch time: 0.34 seconds 
+
+Epoch 71
+----------------------------
+loss: 0.079950 [   40/  256]
+Validation Error: 
+Accuracy: 62.1%, Avg loss: 0.327845, Positive ratio: 0.551758
+Epoch time: 0.34 seconds 
+
+Epoch 72
+----------------------------
+loss: 0.078194 [   40/  256]
+Validation Error: 
+Accuracy: 61.3%, Avg loss: 0.334546, Positive ratio: 0.581055
+Epoch time: 0.34 seconds 
+
+Epoch 73
+----------------------------
+loss: 0.080543 [   40/  256]
+Validation Error: 
+Accuracy: 60.4%, Avg loss: 0.341620, Positive ratio: 0.606445
+Epoch time: 0.33 seconds 
+
+Epoch 74
+----------------------------
+loss: 0.082576 [   40/  256]
+Validation Error: 
+Accuracy: 59.9%, Avg loss: 0.349300, Positive ratio: 0.623047
+Epoch time: 0.34 seconds 
+
+Epoch 75
+----------------------------
+loss: 0.078235 [   40/  256]
+Validation Error: 
+Accuracy: 58.8%, Avg loss: 0.356712, Positive ratio: 0.635742
+Epoch time: 0.34 seconds 
+
+Epoch 76
+----------------------------
+loss: 0.076223 [   40/  256]
+Validation Error: 
+Accuracy: 58.8%, Avg loss: 0.362463, Positive ratio: 0.643555
+Epoch time: 0.34 seconds 
+
+Epoch 77
+----------------------------
+loss: 0.068451 [   40/  256]
+Validation Error: 
+Accuracy: 58.0%, Avg loss: 0.365767, Positive ratio: 0.645508
+Epoch time: 0.34 seconds 
+
+Epoch 78
+----------------------------
+loss: 0.075426 [   40/  256]
+Validation Error: 
+Accuracy: 58.0%, Avg loss: 0.367730, Positive ratio: 0.651367
+Epoch time: 0.34 seconds 
+
+Epoch 79
+----------------------------
+loss: 0.074973 [   40/  256]
+Validation Error: 
+Accuracy: 57.7%, Avg loss: 0.368909, Positive ratio: 0.656250
+Epoch time: 0.33 seconds 
+
+Epoch 80
+----------------------------
+loss: 0.071940 [   40/  256]
+Validation Error: 
+Accuracy: 57.4%, Avg loss: 0.371027, Positive ratio: 0.663086
+Epoch time: 0.34 seconds 
+
+Epoch 81
+----------------------------
+loss: 0.070312 [   40/  256]
+Validation Error: 
+Accuracy: 56.9%, Avg loss: 0.371795, Positive ratio: 0.669922
+Epoch time: 0.35 seconds 
+
+Epoch 82
+----------------------------
+loss: 0.072354 [   40/  256]
+Validation Error: 
+Accuracy: 56.8%, Avg loss: 0.371609, Positive ratio: 0.672852
+Epoch time: 0.34 seconds 
+
+Epoch 83
+----------------------------
+loss: 0.070867 [   40/  256]
+Validation Error: 
+Accuracy: 56.6%, Avg loss: 0.371466, Positive ratio: 0.672852
+Epoch time: 0.34 seconds 
+
+Epoch 84
+----------------------------
+loss: 0.065958 [   40/  256]
+Validation Error: 
+Accuracy: 56.7%, Avg loss: 0.370904, Positive ratio: 0.673828
+Epoch time: 0.34 seconds 
+
+Epoch 85
+----------------------------
+loss: 0.072810 [   40/  256]
+Validation Error: 
+Accuracy: 56.9%, Avg loss: 0.370229, Positive ratio: 0.681641
+Epoch time: 0.34 seconds 
+
+Epoch 86
+----------------------------
+loss: 0.071171 [   40/  256]
+Validation Error: 
+Accuracy: 57.3%, Avg loss: 0.369138, Positive ratio: 0.681641
+Epoch time: 0.34 seconds 
+
+Epoch 87
+----------------------------
+loss: 0.068347 [   40/  256]
+Validation Error: 
+Accuracy: 57.2%, Avg loss: 0.367802, Positive ratio: 0.682617
+Epoch time: 0.34 seconds 
+
+Epoch 88
+----------------------------
+loss: 0.074971 [   40/  256]
+Validation Error: 
+Accuracy: 57.6%, Avg loss: 0.366936, Positive ratio: 0.690430
+Early stopping with minimum validation loss of 0.32086148113012314, max accuracy of 0.634765625
+Done! Total training time: 0 minutes, 31.53 seconds, average epoch time: 0.03 seconds
