@@ -6,10 +6,8 @@ import torch
 import torchvision.transforms.v2 as tvtf
 import xarray as xr
 import yaml
-from data_utils import (DATA_FILE, AddGaussianNoise, Ellipse_Dataset,
-                        angle_categorizer)
-from network_def import (CNN, EarlyStopper, crps_loss, model_config, train,
-                         validate)
+from data_utils import DATA_FILE, AddGaussianNoise, Ellipse_Dataset, angle_categorizer
+from network_def import CNN, EarlyStopper, crps_loss, model_config, train, validate
 from torch.utils.data import DataLoader
 from torchinfo import summary
 
@@ -89,10 +87,10 @@ def main():
 
     batch_size = hyperparam_config["batch_size"]
     cnn_train_dataloader = DataLoader(
-        cnn_train_ds, num_workers=8, batch_size=batch_size
+        cnn_train_ds, num_workers=4, batch_size=batch_size
     )
     cnn_valid_dataloader = DataLoader(
-        cnn_valid_ds, num_workers=8, batch_size=batch_size
+        cnn_valid_ds, num_workers=4, batch_size=batch_size
     )
 
     cnn_model = CNN(cfg).to(device)

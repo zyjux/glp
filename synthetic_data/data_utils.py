@@ -10,7 +10,8 @@ import torch
 import xarray as xr
 from torch.utils.data import Dataset
 
-DATA_FILE = "/mnt/mlnas01/lverhoef/synthetic_ellipses/train_valid_ds.nc"
+# DATA_FILE = "/mnt/mlnas01/lverhoef/synthetic_ellipses/train_valid_ds.nc"
+DATA_FILE = "/mnt/data2/lverhoef/synthetic_ellipses/train_valid_ds.nc"
 
 
 class Ellipse_Dataset(Dataset):
